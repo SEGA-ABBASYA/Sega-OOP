@@ -55,7 +55,7 @@ public class AdminMainPage {
 
             slidePanel(borderPane, toolBar ,slider);
 
-        });
+        }) ;
 
         pageButtons[0].setOnAction(e -> transferCenterContent(borderPane,1));
 
