@@ -4,11 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.DateCell;
-import javafx.scene.control.DatePicker;
 import javafx.scene.input.MouseEvent;
 
 import javafx.util.Callback;
@@ -23,6 +20,8 @@ public class TransactionView implements Initializable {
     private TableColumn<UserTransaction,Integer> Balance_Column;
 
     @FXML
+    private Label DateLable;
+    @FXML
     private TableColumn<UserTransaction, Integer> Debit_Column;
 
     @FXML
@@ -36,18 +35,40 @@ public class TransactionView implements Initializable {
     ObservableList<LocalDate> selectedDates = FXCollections.observableArrayList();//save the dates from the datePicker
     @FXML //get the date from the datePicker
     void getDate(MouseEvent event) {
+        DateLable.setVisible(true);
+        if (!selectedDates.isEmpty()){
         observedTransactionList.clear();
         for (LocalDate date : selectedDates) {
             System.out.println(date);
         }
+        if (selectedDates.size()==1)
+        {
+            DateLable.setText("Transactions from "+selectedDates.getFirst().toString()+".");
+        }
+        else if (selectedDates.getFirst().isAfter(selectedDates.getLast())) {
+            System.out.println("Invalid Date");
+            DateLable.setText("Please choose an invalid date.");
+        }
+        else if (selectedDates.size()==2)
+        {
+            DateLable.setText("Transactions from "+selectedDates.getFirst().toString()+" to "+selectedDates.getLast().toString()+".");
+        }
+
         System.out.println("num of dates is "+selectedDates.size());
         filterTransactions();
+        }
+        else
+        {
+            DateLable.setText("Please choose a date.");
+        }
     }
     @FXML
     void resetDate(MouseEvent event) {
         selectedDates.clear();
         TransactionTable.setItems(TransactionList);
+        DateLable.setVisible(true);
         System.out.println("date reset");
+        DateLable.setText("Reset Transactions.");
     }
     private static LocalDate generateRandomDate(LocalDate startDate, LocalDate endDate) {
         Random random = new Random();
