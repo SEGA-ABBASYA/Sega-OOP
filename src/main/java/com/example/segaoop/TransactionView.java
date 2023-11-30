@@ -36,13 +36,19 @@ public class TransactionView implements Initializable {
     ObservableList<LocalDate> selectedDates = FXCollections.observableArrayList();//save the dates from the datePicker
     @FXML //get the date from the datePicker
     void getDate(MouseEvent event) {
+        observedTransactionList.clear();
         for (LocalDate date : selectedDates) {
             System.out.println(date);
         }
-    filterTransactions();
+        System.out.println("num of dates is "+selectedDates.size());
+        filterTransactions();
     }
-
-
+    @FXML
+    void resetDate(MouseEvent event) {
+        selectedDates.clear();
+        TransactionTable.setItems(TransactionList);
+        System.out.println("date reset");
+    }
     private static LocalDate generateRandomDate(LocalDate startDate, LocalDate endDate) {
         Random random = new Random();
         long startEpochDay = startDate.toEpochDay();
@@ -56,26 +62,20 @@ public class TransactionView implements Initializable {
         LocalDate endDate = LocalDate.of(2023, 12, 31);
 
 
-        for (int i=0;i<20;i++)
+        for (int i=0;i<30;i++)
         {
             LocalDate randomDate = generateRandomDate(startDate, endDate);
             Random rand = new Random();
             TransactionList.add(new UserTransaction(randomDate.toString(),rand.nextInt(20,1000)));
         }
     }//generate random transactions to save in the TableView
+    ObservableList<UserTransaction> TransactionList = FXCollections.observableArrayList();
+    //list for transactions
     ObservableList<UserTransaction> observedTransactionList = FXCollections.observableArrayList();
-
-    ObservableList<UserTransaction> TransactionList = FXCollections.observableArrayList(
-      new UserTransaction("2021-01-07",20),
-            new UserTransaction("2021-03-07",50),
-      new UserTransaction("2021-02-07",70),
-      new UserTransaction("2021-04-07",30)
-
-    );//list for transactions
-
+    //list for transactions after the filter
     void filterTransactions()
     {
-        if (selectedDates.size() > 0){
+        if (selectedDates.size() == 2){
             for (UserTransaction i:TransactionList) {
                 if (i.getTransactionDate().compareTo(selectedDates.getFirst().toString()) >= 0) {
                     if (i.getTransactionDate().compareTo(selectedDates.getLast().toString()) <= 0){
@@ -83,6 +83,14 @@ public class TransactionView implements Initializable {
                     }
                 }
             }
+        }
+        else if (selectedDates.size()==1)
+        {
+            for (UserTransaction i:TransactionList) {
+                if (i.getTransactionDate().compareTo(selectedDates.getFirst().toString()) >= 0) {
+                        observedTransactionList.addFirst(i);
+                    }
+                }
         }
         TransactionTable.setItems(observedTransactionList);
     }//filter transactions from start_date to last_date
@@ -116,11 +124,7 @@ public class TransactionView implements Initializable {
         Balance_Column.setCellValueFactory(new PropertyValueFactory<UserTransaction,Integer>("Balance"));
 
         makeTransaction();
-
-
-
-
-
+        TransactionTable.setItems(TransactionList);
     }
 }
 
