@@ -1,0 +1,18 @@
+/* Define a custom button style */
+.button {
+    -fx-background-color: linear-gradient(to right bottom,#3498db,#011987); /* Button background color */
+    -fx-text-fill: white; /* Button text color */
+    -fx-font-size: 18px; /* Button text size */
+    -fx-padding: 5px 10px; /* Button padding */
+    -fx-border-radius: 10px; /* Button border radius */
+    -fx-background-radius: 10px; /* Button background radius */
+    -fx-cursor: hand; /* Show hand cursor on hover */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0); /* Button shadow */
+    -fx-transition: all 0.3s; /* Transition effect duration */
+}
+
+/* Define button hover effect */
+.button:hover {
+    -fx-translate-y: -3px; /* Move button up slightly */
+    -fx-effect: dropshadow(three-pass-box, #3498db, 10, 0, 0, 0); /* Shadow color on hover */
+}
