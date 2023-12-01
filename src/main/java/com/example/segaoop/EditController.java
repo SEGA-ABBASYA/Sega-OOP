@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
@@ -21,6 +22,11 @@ import java.io.IOException;
 import javafx.scene.input.MouseEvent;
 
 public class EditController {
+
+
+
+    @FXML
+    AnchorPane pane;
 
     @FXML
     protected Button Apply,Cancel;
@@ -43,11 +49,12 @@ public class EditController {
 
 
 
-
-
-
     @FXML
     void ReturnBackTo(MouseEvent event) {
+
+        pane.setVisible(false);
+
+
 
     }
 
@@ -109,9 +116,6 @@ public class EditController {
 
 
         }
-
-
-
 
 
 

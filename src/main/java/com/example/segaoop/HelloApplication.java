@@ -12,8 +12,8 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Edit.fxml"));
-        stage.setTitle("Hello!");
-        stage.setScene(new Scene(root,720,400));
+        stage.setTitle("Edit Account!");
+        stage.setScene(new Scene(root));
         stage.show();
 
 
