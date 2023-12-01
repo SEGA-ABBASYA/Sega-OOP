@@ -20,7 +20,7 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <AnchorPane prefHeight="100.0" prefWidth="1280.0" style="-fx-background-image: #500f80;">
+                  <AnchorPane prefHeight="100.0" prefWidth="1280.0">
                      <children>
                         <ImageView fitHeight="113.0" fitWidth="1299.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -37,40 +37,36 @@
                </children></AnchorPane>
       </content>
     </Tab>
-    <Tab text="Clients List">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-      </content>
-    </Tab>
-      <Tab text="Employees List">
+    <Tab fx:id="clientTab" text="Clients List">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TreeTableView id="Employee Table" layoutX="312.0" layoutY="-3.0" prefHeight="696.0" prefWidth="968.0">
-                    <columns>
-                      <TreeTableColumn minWidth="100.0" prefWidth="75.0" text="ID" />
-                      <TreeTableColumn minWidth="100.0" prefWidth="75.0" text="First Name" />
+                  <TreeTableView id="Employee Table" fx:id="clientList" layoutX="300.0" layoutY="-3.0" prefHeight="696.0" prefWidth="992.0">
+                     <columns>
+                        <TreeTableColumn minWidth="100.0" prefWidth="75.0" text="ID" />
+                        <TreeTableColumn minWidth="100.0" prefWidth="75.0" text="First Name" />
                         <TreeTableColumn minWidth="100.0" prefWidth="75.0" text="Last Name" />
-                        <TreeTableColumn minWidth="100.0" prefWidth="75.0" text="Salary" />
-                    </columns>
+                        <TreeTableColumn minWidth="100.0" prefWidth="75.0" text="Address" />
+                        <TreeTableColumn minWidth="100.0" prefWidth="75.0" text="Telephone no." />
+                        <TreeTableColumn minWidth="100.0" prefWidth="75.0" text="State" />
+                        <TreeTableColumn minWidth="100.0" prefWidth="75.0" text="Username" />
+                        <TreeTableColumn minWidth="100.0" prefWidth="75.0" text="Credit Score" />
+                        <TreeTableColumn minWidth="100.0" prefWidth="75.0" text="Balance" />
+                        <TreeTableColumn minWidth="79.0" prefWidth="60.0" text="Status" />
+                     </columns>
                   </TreeTableView>
-                  <AnchorPane prefHeight="680.0" prefWidth="300.0">
+                  <AnchorPane prefHeight="680.0" prefWidth="300.0" style="-fx-background-color: linear-gradient(to bottom,#0000FF,#FF69B4);">
                      <children>
-                        <ImageView fitHeight="696.0" fitWidth="319.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../purple%20mango.jpg" />
-                           </image>
-                        </ImageView>
-                        <TextField alignment="CENTER" layoutX="36.0" layoutY="52.0" prefHeight="25.0" prefWidth="194.0" promptText="Search" style="-fx-background-radius: 50; -fx-border-radius: 50;" />
-                        <Button id="searchButton" layoutX="241.0" layoutY="52.0" mnemonicParsing="false" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="🔍" />
-                        <Text fill="#fbfbfb" layoutX="66.0" layoutY="579.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sega" textAlignment="CENTER" wrappingWidth="182.22537994384766">
+                        <TextField fx:id="searchBarClients" alignment="CENTER" layoutX="36.0" layoutY="52.0" prefHeight="25.0" prefWidth="194.0" promptText="Search" style="-fx-background-radius: 50; -fx-border-radius: 50;" />
+                        <Button id="searchButton" fx:id="searchButtonClients" layoutX="241.0" layoutY="52.0" mnemonicParsing="false" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="🔍" />
+                        <Text fill="WHITE" layoutX="67.0" layoutY="586.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sega" textAlignment="CENTER" wrappingWidth="182.22537994384766">
                            <font>
-                              <Font name="SEGA LOGO FONT" size="36.0" />
+                              <Font name="SEGA LOGO FONT" size="30.0" />
                            </font>
                         </Text>
-                        <Text fill="#fbfbfb" layoutX="7.0" layoutY="621.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Internationl">
+                        <Text fill="WHITE" layoutX="21.0" layoutY="624.0" strokeType="OUTSIDE" strokeWidth="0.0" text="International" textAlignment="CENTER">
                            <font>
-                              <Font name="SEGA LOGO FONT" size="36.0" />
+                              <Font name="SEGA LOGO FONT" size="30.0" />
                            </font>
                         </Text>
                         <Text fill="#fbfbfb" layoutX="133.0" layoutY="660.0" strokeType="OUTSIDE" strokeWidth="0.0" text="🏦" textAlignment="CENTER">
@@ -78,7 +74,67 @@
                               <Font name="SEGA LOGO FONT" size="36.0" />
                            </font>
                         </Text>
-                        <RadioButton layoutX="36.0" layoutY="122.0" mnemonicParsing="false" text="ID" textFill="#fbfbfb">
+                        <RadioButton fx:id="idRadioClients" layoutX="36.0" layoutY="122.0" mnemonicParsing="false" text="ID" textFill="#fbfbfb">
+                           <font>
+                              <Font name="SEGA LOGO FONT" size="14.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="searchByClient" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <Text fill="#fbfbfb" layoutX="36.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search By:">
+                           <font>
+                              <Font name="SEGA LOGO FONT" size="18.0" />
+                           </font>
+                        </Text>
+                        <RadioButton fx:id="firstNameRadioClient" layoutX="36.0" layoutY="148.0" mnemonicParsing="false" text="First Name" textFill="#fbfbfb" toggleGroup="$searchByClient">
+                           <font>
+                              <Font name="SEGA LOGO FONT" size="14.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="usernameRadioClient" layoutX="36.0" layoutY="174.0" mnemonicParsing="false" text="Username" textFill="#fbfbfb" toggleGroup="$searchByClient">
+                           <font>
+                              <Font name="SEGA LOGO FONT" size="14.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </content>
+    </Tab>
+      <Tab fx:id="employeeTab" text="Employees List">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TreeTableView id="Employee Table" fx:id="employeeList" layoutX="300.0" layoutY="-3.0" prefHeight="696.0" prefWidth="992.0">
+                    <columns>
+                      <TreeTableColumn minWidth="100.0" prefWidth="75.0" text="ID" />
+                      <TreeTableColumn minWidth="100.0" prefWidth="75.0" text="First Name" />
+                        <TreeTableColumn minWidth="100.0" prefWidth="75.0" text="Last Name" />
+                        <TreeTableColumn minWidth="100.0" prefWidth="75.0" text="Salary" />
+                    </columns>
+                  </TreeTableView>
+                  <AnchorPane prefHeight="680.0" prefWidth="300.0" style="-fx-background-color: linear-gradient(to bottom,#0000FF,#FF69B4);">
+                     <children>
+                        <TextField fx:id="searchBar" alignment="CENTER" layoutX="36.0" layoutY="52.0" prefHeight="25.0" prefWidth="194.0" promptText="Search" style="-fx-background-radius: 50; -fx-border-radius: 50;" />
+                        <Button id="searchButton" fx:id="searchButton" layoutX="241.0" layoutY="52.0" mnemonicParsing="false" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="🔍" />
+                        <Text fill="WHITE" layoutX="67.0" layoutY="586.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sega" textAlignment="CENTER" wrappingWidth="182.22537994384766">
+                           <font>
+                              <Font name="SEGA LOGO FONT" size="30.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="21.0" layoutY="624.0" strokeType="OUTSIDE" strokeWidth="0.0" text="International" textAlignment="CENTER">
+                           <font>
+                              <Font name="SEGA LOGO FONT" size="30.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#fbfbfb" layoutX="133.0" layoutY="660.0" strokeType="OUTSIDE" strokeWidth="0.0" text="🏦" textAlignment="CENTER">
+                           <font>
+                              <Font name="SEGA LOGO FONT" size="36.0" />
+                           </font>
+                        </Text>
+                        <RadioButton fx:id="idRadio" layoutX="36.0" layoutY="122.0" mnemonicParsing="false" text="ID" textFill="#fbfbfb">
                            <font>
                               <Font name="SEGA LOGO FONT" size="14.0" />
                            </font>
@@ -91,17 +147,17 @@
                               <Font name="SEGA LOGO FONT" size="18.0" />
                            </font>
                         </Text>
-                        <RadioButton layoutX="36.0" layoutY="148.0" mnemonicParsing="false" text="First Name" textFill="#fbfbfb" toggleGroup="$searchBy">
+                        <RadioButton fx:id="firstNameRadio" layoutX="36.0" layoutY="148.0" mnemonicParsing="false" text="First Name" textFill="#fbfbfb" toggleGroup="$searchBy">
                            <font>
                               <Font name="SEGA LOGO FONT" size="14.0" />
                            </font>
                         </RadioButton>
-                        <RadioButton layoutX="36.0" layoutY="175.0" mnemonicParsing="false" text="Last Name" textFill="#fbfbfb" toggleGroup="$searchBy">
+                        <RadioButton fx:id="lastNameRadio" layoutX="36.0" layoutY="175.0" mnemonicParsing="false" text="Last Name" textFill="#fbfbfb" toggleGroup="$searchBy">
                            <font>
                               <Font name="SEGA LOGO FONT" size="14.0" />
                            </font>
                         </RadioButton>
-                        <RadioButton layoutX="36.0" layoutY="203.0" mnemonicParsing="false" text="Salary" textFill="#fbfbfb" toggleGroup="$searchBy">
+                        <RadioButton fx:id="salaryRadio" layoutX="36.0" layoutY="203.0" mnemonicParsing="false" text="Salary" textFill="#fbfbfb" toggleGroup="$searchBy">
                            <font>
                               <Font name="SEGA LOGO FONT" size="14.0" />
                            </font>
