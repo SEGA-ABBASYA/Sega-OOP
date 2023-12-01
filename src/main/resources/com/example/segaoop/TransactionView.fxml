@@ -7,23 +7,27 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.segaoop.TransactionView">
+<SplitPane dividerPositions="0.21839799749687105" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.segaoop.TransactionView">
    <items>
-      <TableView fx:id="TransactionTable" prefHeight="221.0" prefWidth="598.0">
+      <AnchorPane prefHeight="398.0" prefWidth="245.0" style="-fx-background-color: linear-gradient(to right bottom,blue,white);">
+         <children>
+            <Label fx:id="DateLable" layoutX="31.0" layoutY="145.0" prefHeight="95.0" prefWidth="216.0" text="Invalid Date." textFill="#fffffff2" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <DatePicker fx:id="datePicker" layoutX="31.0" layoutY="15.0" prefHeight="69.0" prefWidth="216.0" promptText="Choose Start_date then End_date" style="-fx-background-color: #25befa; -fx-border-color: #25befa;" />
+            <Button layoutX="31.0" layoutY="95.0" mnemonicParsing="false" onMouseClicked="#getDate" prefHeight="50.0" prefWidth="85.0" style="-fx-background-radius: 50; -fx-background-color: #25befa;" text="Apply" textFill="#450b83" />
+            <Button layoutX="160.0" layoutY="95.0" mnemonicParsing="false" onMouseClicked="#resetDate" prefHeight="50.0" prefWidth="85.0" style="-fx-background-radius: 50; -fx-background-color: #25befa;" text="Reset" textFill="#450b83" />
+         </children>
+      </AnchorPane>
+      <TableView fx:id="TransactionTable" prefHeight="718.0" prefWidth="868.0">
          <columns>
             <TableColumn fx:id="TransactionDate" prefWidth="110.0" text="Transaction Date" />
             <TableColumn fx:id="Debit_Column" prefWidth="75.0" text="Debit" />
             <TableColumn fx:id="Balance_Column" prefWidth="75.0" text="Balance" />
          </columns>
       </TableView>
-      <AnchorPane prefHeight="398.0" prefWidth="245.0">
-         <children>
-            <Label fx:id="DateLable" layoutX="31.0" layoutY="92.0" text="Invalid Date" visible="false" />
-            <DatePicker fx:id="datePicker" layoutX="31.0" layoutY="22.0" prefHeight="25.0" prefWidth="216.0" promptText="Choose Start_date then End_date" style="-fx-background-color: #25befa; -fx-border-color: #25befa;" />
-            <Button layoutX="78.0" layoutY="59.0" mnemonicParsing="false" onMouseClicked="#getDate" style="-fx-background-radius: 50; -fx-background-color: #25befa;" text="Apply" textFill="#450b83" />
-            <Button layoutX="153.0" layoutY="59.0" mnemonicParsing="false" onMouseClicked="#resetDate" style="-fx-background-radius: 50; -fx-background-color: #25befa;" text="Reset" />
-         </children>
-      </AnchorPane>
    </items>
 </SplitPane>

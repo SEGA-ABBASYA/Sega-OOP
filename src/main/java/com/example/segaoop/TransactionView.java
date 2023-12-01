@@ -46,7 +46,7 @@ public class TransactionView implements Initializable {
             DateLable.setText("Transactions from "+selectedDates.getFirst().toString()+".");
         }
         else if (selectedDates.getFirst().isAfter(selectedDates.getLast())) {
-            System.out.println("Invalid Date");
+            System.out.println("Invalid Date.");
             DateLable.setText("Please choose an invalid date.");
         }
         else if (selectedDates.size()==2)

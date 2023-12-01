@@ -17,6 +17,7 @@ public class HelloApplication extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("TransactionView.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setTitle("SUB");
             stage.show();
         }
         catch (Exception e)
