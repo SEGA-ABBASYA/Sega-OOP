@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25462b22-c2ef-496d-9000-14184238f1c3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/ButtonStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/stylefortable.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="25462b22-c2ef-496d-9000-14184238f1c3" name="Changes" comment="EZ added Client View">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/segaoop/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/segaoop/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/ButtonStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/ButtonStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,6 +75,19 @@
       <option name="presentableId" value="Default" />
       <updated>1701080218502</updated>
     </task>
+    <task id="LOCAL-00001" summary="EZ added Client View">
+      <option name="closed" value="true" />
+      <created>1701350451882</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701350451882</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="EZ added Client View" />
+    <option name="LAST_COMMIT_MESSAGE" value="EZ added Client View" />
   </component>
 </project>

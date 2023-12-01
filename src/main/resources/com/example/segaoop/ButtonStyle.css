@@ -1,8 +1,7 @@
 /* Define a custom button style */
 .button {
-    -fx-background-color: linear-gradient(to right bottom,#3498db,#011987); /* Button background color */
+    -fx-background-color: linear-gradient(to right bottom,#d858fa,#011987); /* Button background color */
     -fx-text-fill: white; /* Button text color */
-    -fx-font-size: 18px; /* Button text size */
     -fx-padding: 5px 10px; /* Button padding */
     -fx-border-radius: 10px; /* Button border radius */
     -fx-background-radius: 10px; /* Button background radius */

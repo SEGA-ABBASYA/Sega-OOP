@@ -42,6 +42,9 @@ public class HelloController implements Initializable {
     private TableColumn<Client, String> LastNameColumn;
 
     @FXML
+    private Button EditMyAccount;
+
+    @FXML
     private Button SearchButton;
 
     @FXML
@@ -82,6 +85,11 @@ public class HelloController implements Initializable {
 
     @FXML
     void GoToEditScene(MouseEvent event) {
+
+    }
+
+    @FXML
+    void GoToEditEmployeeScene(MouseEvent event) {
 
     }
 
