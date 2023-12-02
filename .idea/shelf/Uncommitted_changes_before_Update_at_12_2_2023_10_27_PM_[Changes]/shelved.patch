@@ -1,0 +1,165 @@
+Index: src/main/java/com/example/segaoop/HelloApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.segaoop;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Parent;\r\nimport javafx.scene.Scene;\r\nimport javafx.stage.Stage;\r\n\r\nimport java.io.IOException;\r\n\r\npublic class HelloApplication extends Application {\r\n\r\n    private static Stage stg;\r\n    @Override\r\n    public void start(Stage stage) throws IOException {\r\n        stg = stage;\r\n        Parent root = FXMLLoader.load(getClass().getResource(\"LoginPage.fxml\"));\r\n        stage.setScene(new Scene(root));\r\n        stage.setTitle(\"SEGA ABBASYA UNITED BANK\");\r\n        stage.show();\r\n    }\r\n\r\n    @FXML\r\n    public void changeScene(String fxml) throws IOException\r\n    {\r\n        Parent pane = FXMLLoader.load(getClass().getResource(fxml));\r\n        stg.getScene().setRoot(pane);\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        launch(args);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/segaoop/HelloApplication.java b/src/main/java/com/example/segaoop/HelloApplication.java
+--- a/src/main/java/com/example/segaoop/HelloApplication.java	(revision e3df53e3161b33cddef3476f8efd559543e8159f)
++++ b/src/main/java/com/example/segaoop/HelloApplication.java	(date 1701547136767)
+@@ -15,9 +15,9 @@
+     @Override
+     public void start(Stage stage) throws IOException {
+         stg = stage;
+-        Parent root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
++        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+         stage.setScene(new Scene(root));
+-        stage.setTitle("SEGA ABBASYA UNITED BANK");
++        stage.setTitle("SEGA ABBASYA    UNITED BANK");
+         stage.show();
+     }
+ 
+Index: src/main/java/com/example/segaoop/LoginPageController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.segaoop;\r\nimport javafx.event.ActionEvent;\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.control.PasswordField;\r\nimport javafx.scene.control.TextField;\r\nimport javafx.scene.input.MouseEvent;\r\nimport java.time.LocalTime;\r\n\r\nimport java.io.IOException;\r\n\r\nimport static java.lang.Thread.sleep;\r\n\r\npublic class LoginPageController {\r\n    @FXML\r\n    private Button login;\r\n    @FXML\r\n    private TextField username;\r\n    @FXML\r\n    private PasswordField password;\r\n    @FXML\r\n    private Label output;\r\n\r\n    @FXML\r\n    void userlogin(MouseEvent event)\r\n        {\r\n        System.out.println(\"lol\");\r\n        HelloApplication test = new HelloApplication();\r\n        if(username.getText().toString().equals(\"mango\") && password.getText().toString().equals(\"zoz\"))\r\n        {\r\n\r\n            /*output.setText(\"Login Successful ✅\");\r\n            try {\r\n                java.lang.Thread.sleep(5000);\r\n            }\r\n            catch (java.lang.InterruptedException e) {\r\n\r\n            }finally {\r\n                output.setText(\"Login Successful ✅\");\r\n            }*/\r\n            try {\r\n\r\n                test.changeScene(\"MainPageClientController.fxml\");\r\n            }\r\n            catch(IOException e){\r\n\r\n            }\r\n        }\r\n        else\r\n        {\r\n            output.setText(\"Incorrect Username or Password ❎\");\r\n        }\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/segaoop/LoginPageController.java b/src/main/java/com/example/segaoop/LoginPageController.java
+--- a/src/main/java/com/example/segaoop/LoginPageController.java	(revision e3df53e3161b33cddef3476f8efd559543e8159f)
++++ b/src/main/java/com/example/segaoop/LoginPageController.java	(date 1701450812901)
+@@ -27,7 +27,7 @@
+         {
+         System.out.println("lol");
+         HelloApplication test = new HelloApplication();
+-        if(username.getText().toString().equals("mango") && password.getText().toString().equals("zoz"))
++        if(username.getText().toString().equals("1") && password.getText().toString().equals("1"))
+         {
+ 
+             /*output.setText("Login Successful ✅");
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_21\" default=\"true\" project-jdk-name=\"21\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision e3df53e3161b33cddef3476f8efd559543e8159f)
++++ b/.idea/misc.xml	(date 1701451594077)
+@@ -1,3 +1,4 @@
++<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="MavenProjectsManager">
+@@ -7,7 +8,7 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="21" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="openjdk-21" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"25462b22-c2ef-496d-9000-14184238f1c3\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/segaoop/HelloApplication.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/segaoop/HelloApplication.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2Ykr34GrcAAeiK2LhDj3rFvVWnj\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"25462b22-c2ef-496d-9000-14184238f1c3\" name=\"Changes\" comment=\"\" />\r\n      <created>1701080218502</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1701080218502</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision e3df53e3161b33cddef3476f8efd559543e8159f)
++++ b/.idea/workspace.xml	(date 1701451594069)
+@@ -5,7 +5,14 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="25462b22-c2ef-496d-9000-14184238f1c3" name="Changes" comment="">
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_1_2023_6_48_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_1_2023_6_48_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_1_2023_6_48_PM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_1_2023_6_48_PM__Changes_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_11_2023_4_35_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_11_2023_4_35_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/segaoop/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/HelloApplication.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/segaoop/LoginPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/LoginPageController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/LoginPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/LoginPage.fxml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -14,6 +21,20 @@
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="GitHubPullRequestSearchHistory">{
++  &quot;lastFilter&quot;: {
++    &quot;state&quot;: &quot;OPEN&quot;,
++    &quot;assignee&quot;: &quot;Youssefproof771&quot;
++  }
++}</component>
++  <component name="GithubPullRequestsUISettings">
++    <option name="selectedUrlAndAccountId">
++      <UrlAndAccount>
++        <option name="accountId" value="473a8f8c-afdb-45e5-a1e9-94eb02d21e59" />
++        <option name="url" value="https://github.com/SEGA-ABBASYA/Sega-OOP.git" />
++      </UrlAndAccount>
++    </option>
+   </component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 3
+@@ -24,13 +45,17 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "git-widget-placeholder": "main",
++    "project.structure.last.edited": "Project",
++    "project.structure.proportion": "0.0",
++    "project.structure.side.proportion": "0.0",
++    "settings.editor.selected.configurable": "configurable.group.appearance"
+   }
+-}</component>
++}]]></component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -42,4 +67,8 @@
+     </task>
+     <servers />
+   </component>
++  <component name="XSLT-Support.FileAssociations.UIState">
++    <expand />
++    <select />
++  </component>
+ </project>
+\ No newline at end of file
+Index: src/main/resources/com/example/segaoop/LoginPage.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.control.PasswordField?>\r\n<?import javafx.scene.control.TextField?>\r\n<?import javafx.scene.image.Image?>\r\n<?import javafx.scene.image.ImageView?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.text.Font?>\r\n<?import javafx.scene.text.Text?>\r\n\r\n<AnchorPane maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"720.0\" prefWidth=\"1280.0\" xmlns=\"http://javafx.com/javafx/21\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"com.example.segaoop.LoginPageController\">\r\n   <children>\r\n      <ImageView fitHeight=\"730.0\" fitWidth=\"1288.0\" layoutX=\"-3.0\" layoutY=\"-4.0\" pickOnBounds=\"true\" preserveRatio=\"true\">\r\n         <image>\r\n            <Image url=\"@../../../LoginMaterial/pxfuel.jpg\" />\r\n         </image>\r\n      </ImageView>\r\n      <ImageView fitHeight=\"118.0\" fitWidth=\"121.0\" layoutX=\"320.0\" layoutY=\"69.0\" pickOnBounds=\"true\" preserveRatio=\"true\">\r\n         <image>\r\n            <Image url=\"@../../../LoginMaterial/login.png\" />\r\n         </image>\r\n      </ImageView>\r\n      <Text fill=\"#b6c0ff\" layoutX=\"542.0\" layoutY=\"164.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"To\">\r\n         <font>\r\n            <Font name=\"SEGA LOGO FONT\" size=\"48.0\" />\r\n         </font>\r\n      </Text>\r\n      <Text fill=\"#827aff\" layoutX=\"515.0\" layoutY=\"104.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Welcome\">\r\n         <font>\r\n            <Font name=\"SEGA LOGO FONT\" size=\"48.0\" />\r\n         </font>\r\n      </Text>\r\n      <Text fill=\"#d57ee1\" layoutX=\"694.0\" layoutY=\"221.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"bank\">\r\n         <font>\r\n            <Font name=\"SEGA LOGO FONT\" size=\"48.0\" />\r\n         </font>\r\n      </Text>\r\n      <Text fill=\"#d57ee1\" layoutX=\"479.0\" layoutY=\"221.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"united\">\r\n         <font>\r\n            <Font name=\"SEGA LOGO FONT\" size=\"48.0\" />\r\n         </font>\r\n      </Text>\r\n      <Text fill=\"#b6c0ff\" layoutX=\"623.0\" layoutY=\"164.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"SEGA\">\r\n         <font>\r\n            <Font name=\"SEGA LOGO FONT\" size=\"48.0\" />\r\n         </font>\r\n      </Text>\r\n      <TextField fx:id=\"username\" layoutX=\"531.0\" layoutY=\"353.0\" prefHeight=\"47.0\" prefWidth=\"302.0\" promptText=\"ex: client11\" style=\"-fx-background-radius: 50; -fx-border-radius: 50;\">\r\n         <font>\r\n            <Font size=\"24.0\" />\r\n         </font>\r\n      </TextField>\r\n      <Text fill=\"#a8b9ff\" layoutX=\"327.0\" layoutY=\"397.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Username\">\r\n         <font>\r\n            <Font name=\"Impact\" size=\"36.0\" />\r\n         </font>\r\n      </Text>\r\n      <Text fill=\"#a8b9ff\" layoutX=\"327.0\" layoutY=\"490.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Password\">\r\n         <font>\r\n            <Font name=\"Impact\" size=\"36.0\" />\r\n         </font>\r\n      </Text>\r\n      <Button fx:id=\"login\" layoutX=\"574.0\" layoutY=\"563.0\" mnemonicParsing=\"false\" onMouseClicked=\"#userlogin\" prefHeight=\"62.0\" prefWidth=\"158.0\" style=\"-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #3cb4ff;\" text=\"Login\" textFill=\"#a36deb\">\r\n         <font>\r\n            <Font name=\"Impact\" size=\"24.0\" />\r\n         </font>\r\n      </Button>\r\n      <ImageView fitHeight=\"124.0\" fitWidth=\"158.0\" layoutY=\"582.0\" pickOnBounds=\"true\" preserveRatio=\"true\">\r\n         <image>\r\n            <Image url=\"@../../../LoginMaterial/photo_2023-11-30_16-58-32-removebg-preview.png\" />\r\n         </image>\r\n      </ImageView>\r\n      <PasswordField fx:id=\"password\" layoutX=\"530.0\" layoutY=\"454.0\" prefHeight=\"44.0\" prefWidth=\"302.0\" promptText=\"*******\" style=\"-fx-border-radius: 50; -fx-background-radius: 50;\" />\r\n      <Label fx:id=\"output\" layoutX=\"478.0\" layoutY=\"249.0\" prefHeight=\"47.0\" prefWidth=\"391.0\" textAlignment=\"CENTER\" textFill=\"#a8b9ff\">\r\n         <font>\r\n            <Font name=\"Impact\" size=\"24.0\" />\r\n         </font>\r\n      </Label>\r\n   </children>\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/com/example/segaoop/LoginPage.fxml b/src/main/resources/com/example/segaoop/LoginPage.fxml
+--- a/src/main/resources/com/example/segaoop/LoginPage.fxml	(revision e3df53e3161b33cddef3476f8efd559543e8159f)
++++ b/src/main/resources/com/example/segaoop/LoginPage.fxml	(date 1701450481450)
+@@ -62,7 +62,7 @@
+             <Font name="Impact" size="36.0" />
+          </font>
+       </Text>
+-      <Button fx:id="login" layoutX="574.0" layoutY="563.0" mnemonicParsing="false" onMouseClicked="#userlogin" prefHeight="62.0" prefWidth="158.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #3cb4ff;" text="Login" textFill="#a36deb">
++      <Button fx:id="login" layoutX="574.0" layoutY="563.0" mnemonicParsing="false" onMouseClicked="#userlogin" prefHeight="62.0" prefWidth="158.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #3cb4ff;" stylesheets="@ButtonStyle.css" text="Login" textFill="#a36deb">
+          <font>
+             <Font name="Impact" size="24.0" />
+          </font>
