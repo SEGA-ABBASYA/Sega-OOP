@@ -3,7 +3,7 @@ package com.example.functionality;
 
 import java.util.ArrayList;
 
-public class Client{
+public class Client extends Person{
     private Integer ID;
     public void setID(Integer ID) {
         this.ID = ID;
