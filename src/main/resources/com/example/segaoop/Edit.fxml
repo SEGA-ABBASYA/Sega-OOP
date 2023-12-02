@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.segaoop.EditController">
+   <children>
+      <TextField fx:id="ID" layoutX="14.0" layoutY="49.0">
+         <contextMenu>
+            <ContextMenu anchorLocation="WINDOW_TOP_LEFT">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TextField>
+      <TextField fx:id="TypeAcc" layoutX="520.0" layoutY="105.0" />
+      <TextField fx:id="PhoneNum" layoutX="285.0" layoutY="157.0" />
+      <TextField fx:id="UserName" layoutX="285.0" layoutY="49.0" />
+      <TextField fx:id="passwor" layoutX="285.0" layoutY="105.0" />
+      <TextField fx:id="LastName" layoutX="14.0" layoutY="157.0" />
+      <TextField fx:id="FirstName" layoutX="14.0" layoutY="105.0" />
+      <TextField layoutX="520.0" layoutY="49.0" />
+      <TextField fx:id="Balance" layoutX="520.0" layoutY="157.0" />
+      <TextField fx:id="AccountNum" layoutX="14.0" layoutY="206.0" />
+      <Label layoutX="14.0" layoutY="31.0" text="ID">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="typeaccl" layoutX="520.0" layoutY="86.0" text="Type of Account">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="balancel" layoutX="520.0" layoutY="139.0" text="Balance ">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="phonenuml" layoutX="285.0" layoutY="139.0" text="Phone Number">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="accstatel" layoutX="520.0" layoutY="32.0" text="Account state">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="passwordl" layoutX="285.0" layoutY="86.0" text="Password">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="uswernamel" layoutX="285.0" layoutY="31.0" text="Username">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="accountnuml" layoutX="14.0" layoutY="192.0" text="Account Number">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="139.0" prefHeight="18.0" prefWidth="66.0" text="Last Name">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="86.0" prefHeight="18.0" prefWidth="66.0" text="First Name">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="Cancel" layoutX="589.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#ReturnBackTo" text="Cancel" />
+      <Button fx:id="Apply" layoutX="509.0" layoutY="330.0" mnemonicParsing="false" text="Apply" />
+      <TextField fx:id="Tgrade" layoutX="520.0" layoutY="105.0">
+         <contextMenu>
+            <ContextMenu anchorLocation="WINDOW_TOP_LEFT">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+               </items>
+            </ContextMenu>
+         </contextMenu>
+      </TextField>
+      <TextField fx:id="YrGradm" layoutX="520.0" layoutY="49.0">
+         <contextMenu>
+            <ContextMenu anchorLocation="WINDOW_TOP_LEFT">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+               </items>
+            </ContextMenu>
+         </contextMenu>
+      </TextField>
+      <TextField fx:id="gradColl" layoutX="285.0" layoutY="105.0">
+         <contextMenu>
+            <ContextMenu anchorLocation="WINDOW_TOP_LEFT">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+               </items>
+            </ContextMenu>
+         </contextMenu>
+      </TextField>
+      <TextField fx:id="position" layoutX="285.0" layoutY="49.0">
+         <contextMenu>
+            <ContextMenu anchorLocation="WINDOW_TOP_LEFT">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+               </items>
+            </ContextMenu>
+         </contextMenu>
+      </TextField>
+      <TextField fx:id="address" layoutX="14.0" layoutY="206.0">
+         <contextMenu>
+            <ContextMenu anchorLocation="WINDOW_TOP_LEFT">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+               </items>
+            </ContextMenu>
+         </contextMenu>
+      </TextField>
+      <Label fx:id="tgradl" layoutX="521.0" layoutY="87.0" text="Total Grade">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="yrgradl" layoutX="521.0" layoutY="32.0" text="Year of Graduation">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="colgradl" layoutX="286.0" layoutY="86.0" text="Graduated from">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="positionl" layoutX="285.0" layoutY="32.0" text="Position">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="addressl" layoutX="14.0" layoutY="192.0" text="Address">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

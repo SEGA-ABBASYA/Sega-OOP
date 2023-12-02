@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.segaoop.LoginPageController">
+   <children>
+      <ImageView fitHeight="730.0" fitWidth="1288.0" layoutX="-3.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../LoginMaterial/pxfuel.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="118.0" fitWidth="121.0" layoutX="320.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../LoginMaterial/login.png" />
+         </image>
+      </ImageView>
+      <Text fill="#b6c0ff" layoutX="542.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To">
+         <font>
+            <Font name="SEGA LOGO FONT" size="48.0" />
+         </font>
+      </Text>
+      <Text fill="#827aff" layoutX="515.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
+         <font>
+            <Font name="SEGA LOGO FONT" size="48.0" />
+         </font>
+      </Text>
+      <Text fill="#d57ee1" layoutX="694.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bank">
+         <font>
+            <Font name="SEGA LOGO FONT" size="48.0" />
+         </font>
+      </Text>
+      <Text fill="#d57ee1" layoutX="479.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="united">
+         <font>
+            <Font name="SEGA LOGO FONT" size="48.0" />
+         </font>
+      </Text>
+      <Text fill="#b6c0ff" layoutX="623.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEGA">
+         <font>
+            <Font name="SEGA LOGO FONT" size="48.0" />
+         </font>
+      </Text>
+      <TextField fx:id="username" layoutX="531.0" layoutY="353.0" prefHeight="47.0" prefWidth="302.0" promptText="ex: client11" style="-fx-background-radius: 50; -fx-border-radius: 50;">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextField>
+      <Text fill="#a8b9ff" layoutX="327.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+         <font>
+            <Font name="Impact" size="36.0" />
+         </font>
+      </Text>
+      <Text fill="#a8b9ff" layoutX="327.0" layoutY="490.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+         <font>
+            <Font name="Impact" size="36.0" />
+         </font>
+      </Text>
+      <Button fx:id="login" layoutX="574.0" layoutY="563.0" mnemonicParsing="false" onMouseClicked="#userlogin" prefHeight="62.0" prefWidth="158.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #3cb4ff;" text="Login" textFill="#a36deb">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="124.0" fitWidth="158.0" layoutY="582.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../LoginMaterial/photo_2023-11-30_16-58-32-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <PasswordField fx:id="password" layoutX="530.0" layoutY="454.0" prefHeight="44.0" prefWidth="302.0" promptText="*******" style="-fx-border-radius: 50; -fx-background-radius: 50;" />
+      <Label fx:id="output" layoutX="478.0" layoutY="249.0" prefHeight="47.0" prefWidth="391.0" textAlignment="CENTER" textFill="#a8b9ff">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

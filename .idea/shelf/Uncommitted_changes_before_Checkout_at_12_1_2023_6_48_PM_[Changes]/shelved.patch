@@ -1,0 +1,19 @@
+Index: src/main/java/com/example/segaoop/HelloApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.segaoop;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Parent;\r\nimport javafx.scene.Scene;\r\nimport javafx.stage.Stage;\r\n\r\nimport java.io.IOException;\r\n\r\npublic class HelloApplication extends Application {\r\n    @Override\r\n    public void start(Stage stage) throws IOException {\r\n        Parent root = FXMLLoader.load(getClass().getResource(\"hello-view.fxml\"));\r\n        stage.setScene(new Scene(root));\r\n        stage.setTitle(\"SEGA ABBASYA UNITED BANK\");\r\n        stage.show();\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        launch(args);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/segaoop/HelloApplication.java b/src/main/java/com/example/segaoop/HelloApplication.java
+--- a/src/main/java/com/example/segaoop/HelloApplication.java	(revision 5de338524bbfd95cdda3de7182c7b25cb7ed87bb)
++++ b/src/main/java/com/example/segaoop/HelloApplication.java	(date 1701449239152)
+@@ -11,7 +11,7 @@
+ public class HelloApplication extends Application {
+     @Override
+     public void start(Stage stage) throws IOException {
+-        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
++        Parent root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
+         stage.setScene(new Scene(root));
+         stage.setTitle("SEGA ABBASYA UNITED BANK");
+         stage.show();

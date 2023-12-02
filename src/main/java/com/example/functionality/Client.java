@@ -1,4 +1,4 @@
-package com.example.segaoop;
+package com.example.functionality;
 
 public class Client{
     private Integer ID;

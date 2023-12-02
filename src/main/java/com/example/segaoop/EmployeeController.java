@@ -1,8 +1,8 @@
 package com.example.segaoop;
 
+import com.example.functionality.Client;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableMap;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -15,7 +15,7 @@ import javafx.scene.input.MouseEvent;
 import java.net.URL;
 import java.util.*;
 
-public class HelloController implements Initializable {
+public class EmployeeController implements Initializable {
 
     @FXML
     private TableColumn<Client, Integer> AccountNumberColumn;
