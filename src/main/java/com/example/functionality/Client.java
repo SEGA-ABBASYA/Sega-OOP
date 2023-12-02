@@ -1,5 +1,8 @@
 package com.example.functionality;
 
+
+import java.util.ArrayList;
+
 public class Client{
     private Integer ID;
     public void setID(Integer ID) {
@@ -81,7 +84,14 @@ public class Client{
         Password = password;
     }
 
-    public Client(Float balance,Integer ID,Integer AccountNumber,String FirstName,String LastName,String Username,String Password,String Type,String State,Integer TelephoneNumber)
+
+    ArrayList<Notification> clientNotification = new ArrayList<>();
+
+    public void addNotification(Notification newNotification) {
+        this.clientNotification.add(newNotification);
+    }
+
+    public Client(Float balance, Integer ID, Integer AccountNumber, String FirstName, String LastName, String Username, String Password, String Type, String State, Integer TelephoneNumber)
     {
         Balance = balance;
         this.ID = ID;
