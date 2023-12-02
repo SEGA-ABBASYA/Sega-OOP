@@ -1,5 +1,6 @@
 package com.example.segaoop;
 
+import com.example.functionality.DataBase;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +20,11 @@ public class HelloApplication extends Application {
         stage.setScene(new Scene(root));
         stage.setTitle("SEGA ABBASYA UNITED BANK");
         stage.show();
+    }
+
+    @Override
+    public void stop() throws IOException {
+        DataBase.saveToFile("database.ser");
     }
 
     @FXML

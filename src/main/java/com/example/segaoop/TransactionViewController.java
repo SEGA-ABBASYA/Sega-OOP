@@ -42,7 +42,7 @@ public class TransactionViewController implements Initializable {
         for (LocalDate date : selectedDates) {
             System.out.println(date);
         }
-        if (selectedDates.size()==1)
+        if (selectedDates.size() == 1)
         {
             DateLable.setText("Transactions from "+selectedDates.getFirst().toString()+".");
         }
