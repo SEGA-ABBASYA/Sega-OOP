@@ -1,0 +1,26 @@
+/* Customize the table row colors */
+.table-row-cell:odd {
+    -fx-background-color: #bee0ec; /* Alternate row color */
+}
+
+/* Change the selection color */
+.table-row-cell:selected {
+    -fx-background-color: #2596be; /* Selected row color */
+}
+
+/* Change the header background and text color */
+.table-view .column-header {
+    -fx-background-color: #25a5be; /* Header background color */
+    -fx-text-fill: white; /* Header text color */
+}
+
+/* Customize the cell padding and text alignment */
+.table-cell {
+    -fx-alignment: center; /* Align cell content to center */
+    -fx-padding: 5px; /* Add some padding to cells */
+}
+
+/* Set hover effect on cells */
+.table-row-cell:hover {
+    -fx-background-color: #e6f2ff; /* Hover color */
+}
