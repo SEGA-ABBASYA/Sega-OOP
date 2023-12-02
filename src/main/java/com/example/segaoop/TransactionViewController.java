@@ -1,5 +1,6 @@
 package com.example.segaoop;
 
+import com.example.functionality.Transaction;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,21 +15,21 @@ import java.time.LocalDate;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-public class TransactionView implements Initializable {
+public class TransactionViewController implements Initializable {
 
     @FXML
-    private TableColumn<UserTransaction,Integer> Balance_Column;
+    private TableColumn<Transaction,Integer> Balance_Column;
 
     @FXML
     private Label DateLable;
     @FXML
-    private TableColumn<UserTransaction, Integer> Debit_Column;
+    private TableColumn<Transaction, Integer> Debit_Column;
 
     @FXML
-    private TableColumn<UserTransaction, String> TransactionDate;
+    private TableColumn<Transaction, String> TransactionDate;
 
     @FXML
-    private TableView<UserTransaction> TransactionTable;
+    private TableView<Transaction> TransactionTable;
 
     @FXML
     private DatePicker datePicker;
@@ -87,17 +88,17 @@ public class TransactionView implements Initializable {
         {
             LocalDate randomDate = generateRandomDate(startDate, endDate);
             Random rand = new Random();
-            TransactionList.add(new UserTransaction(randomDate.toString(),rand.nextInt(20,1000)));
+            TransactionList.add(new Transaction(randomDate.toString(),rand.nextInt(20,1000)));
         }
     }//generate random transactions to save in the TableView
-    ObservableList<UserTransaction> TransactionList = FXCollections.observableArrayList();
+    ObservableList<Transaction> TransactionList = FXCollections.observableArrayList();
     //list for transactions
-    ObservableList<UserTransaction> observedTransactionList = FXCollections.observableArrayList();
+    ObservableList<Transaction> observedTransactionList = FXCollections.observableArrayList();
     //list for transactions after the filter
     void filterTransactions()
     {
         if (selectedDates.size() == 2){
-            for (UserTransaction i:TransactionList) {
+            for (Transaction i:TransactionList) {
                 if (i.getTransactionDate().compareTo(selectedDates.getFirst().toString()) >= 0) {
                     if (i.getTransactionDate().compareTo(selectedDates.getLast().toString()) <= 0){
                         observedTransactionList.addFirst(i);
@@ -107,7 +108,7 @@ public class TransactionView implements Initializable {
         }
         else if (selectedDates.size()==1)
         {
-            for (UserTransaction i:TransactionList) {
+            for (Transaction i:TransactionList) {
                 if (i.getTransactionDate().compareTo(selectedDates.getFirst().toString()) >= 0) {
                         observedTransactionList.addFirst(i);
                     }
@@ -140,9 +141,9 @@ public class TransactionView implements Initializable {
         });
         //style the datePicker
 
-        TransactionDate.setCellValueFactory(new PropertyValueFactory<UserTransaction,String>("TransactionDate"));
-        Debit_Column.setCellValueFactory(new PropertyValueFactory<UserTransaction,Integer>("Debit"));
-        Balance_Column.setCellValueFactory(new PropertyValueFactory<UserTransaction,Integer>("Balance"));
+        TransactionDate.setCellValueFactory(new PropertyValueFactory<Transaction,String>("TransactionDate"));
+        Debit_Column.setCellValueFactory(new PropertyValueFactory<Transaction,Integer>("Debit"));
+        Balance_Column.setCellValueFactory(new PropertyValueFactory<Transaction,Integer>("Balance"));
 
         makeTransaction();
         TransactionTable.setItems(TransactionList);

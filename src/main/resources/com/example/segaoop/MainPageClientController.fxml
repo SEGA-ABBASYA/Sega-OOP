@@ -3,63 +3,64 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.segaoop.MainPageClientController">
    <children>
-      <MenuBar>
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" tabMinWidth="133.0">
+      <ImageView fitHeight="722.0" fitWidth="1323.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@mango.jpg" />
+         </image>
+      </ImageView>
+      <TabPane layoutX="-3.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="721.0" prefWidth="1286.0" tabClosingPolicy="UNAVAILABLE" tabMinWidth="133.0">
          <tabs>
-            <Tab text="Account" />
+            <Tab text="Account">
+               <content>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="WELCOME" textFill="WHITE">
+                           <font>
+                              <Font size="69.0" />
+                           </font>
+                           <padding>
+                              <Insets top="100.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
             <Tab text="Transfer Money">
                <content>
                   <VBox alignment="CENTER" prefHeight="312.0" prefWidth="600.0">
                      <children>
                         <HBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0">
                            <children>
-                              <Label minWidth="100.0" text="ID:" />
+                              <Label minWidth="100.0" text="ID:" textFill="WHITE" />
                               <TextField />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0">
                            <children>
-                              <Label minWidth="100.0" text="Ammount:" />
+                              <Label minWidth="100.0" text="Ammount:" textFill="WHITE" />
                               <TextField />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0">
                            <children>
-                              <Label minWidth="100.0" text="Your Password:" />
+                              <Label minWidth="100.0" text="Your Password:" textFill="WHITE" />
                               <TextField />
                            </children>
                         </HBox>
-                        <Button mnemonicParsing="false" text="Transfer">
+                        <Button fx:id="abdo" mnemonicParsing="false" onAction="#onAbdoClick" text="Transfer">
                            <VBox.margin>
                               <Insets top="50.0" />
                            </VBox.margin>
@@ -73,4 +74,4 @@
          </tabs>
       </TabPane>
    </children>
-</VBox>
+</AnchorPane>
