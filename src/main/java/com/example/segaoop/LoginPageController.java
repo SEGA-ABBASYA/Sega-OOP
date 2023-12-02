@@ -27,7 +27,7 @@ public class LoginPageController {
         {
         System.out.println("lol");
         HelloApplication test = new HelloApplication();
-        if(username.getText().toString().equals("mango") && password.getText().toString().equals("zoz"))
+        if(username.getText().toString().equals("1") && password.getText().toString().equals("1"))
         {
 
             /*output.setText("Login Successful ✅");
