@@ -5,10 +5,10 @@ import java.util.HashMap;
 
 public class DataBase {
     private static DataBase instance;
-    private DataBase() {
-    }
-
     HashMap<String, Person> persons;
+    private DataBase() {
+
+    }
 
     public static DataBase getInstance()
     {
@@ -18,5 +18,4 @@ public class DataBase {
         }
         return instance;
     }
-
 }
