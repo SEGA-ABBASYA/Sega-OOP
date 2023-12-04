@@ -2,7 +2,7 @@ package com.example.functionality;
 
 public class Transaction {
     protected String transactionDate;
-    protected int debit;
+    protected int amount;
 
     protected int balance =9000;
     protected String senderName;
@@ -11,14 +11,14 @@ public class Transaction {
     protected Bank branch;
     protected String transactionID;
 
-    public Transaction(String transactionDate, int debit) {
+    public Transaction(String transactionDate, int amount) {
         this.transactionDate = transactionDate;
-        this.debit = debit;
+        this.amount = amount;
     }
 
-    public Transaction(String transactionDate, int debit, String senderName, String receiverName, String type, String transactionID) {
+    public Transaction(String transactionDate, int amount, String senderName, String receiverName, String type, String transactionID) {
         this.transactionDate = transactionDate;
-        this.debit = debit;
+        this.amount = amount;
         this.senderName = senderName;
         this.receiverName = receiverName;
         this.type = type;
@@ -29,8 +29,8 @@ public class Transaction {
         return transactionDate;
     }
 
-    public int getDebit() {
-        return debit;
+    public int getAmount() {
+        return amount;
     }
 
     public int getBalance() {
