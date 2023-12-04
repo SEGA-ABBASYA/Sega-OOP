@@ -22,11 +22,11 @@
             <Button layoutX="160.0" layoutY="95.0" mnemonicParsing="false" onMouseClicked="#resetDate" prefHeight="50.0" prefWidth="85.0" style="-fx-background-radius: 50; -fx-background-color: #25befa;" text="Reset" textFill="#450b83" />
          </children>
       </AnchorPane>
-      <TableView fx:id="TransactionTable" prefHeight="718.0" prefWidth="868.0">
+      <TableView fx:id="TransactionTable" prefHeight="718.0" prefWidth="868.0" stylesheets="@stylefortable.css">
          <columns>
-            <TableColumn fx:id="TransactionDate" prefWidth="110.0" text="Transaction Date" />
-            <TableColumn fx:id="Debit_Column" prefWidth="75.0" text="Debit" />
-            <TableColumn fx:id="Balance_Column" prefWidth="75.0" text="Balance" />
+            <TableColumn fx:id="TransactionDate" prefWidth="272.0000488281257" text="Transaction Date" />
+            <TableColumn fx:id="Debit_Column" minWidth="0.0" prefWidth="186.4000244140625" text="Debit" />
+            <TableColumn fx:id="Balance_Column" prefWidth="163.20001220703125" text="Balance" />
          </columns>
       </TableView>
    </items>

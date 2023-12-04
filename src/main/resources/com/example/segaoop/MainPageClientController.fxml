@@ -69,7 +69,12 @@
                   </VBox>
                </content>
             </Tab>
-            <Tab text="Transaction History" />
+            <Tab text="Transaction History">
+               <content>
+                  <fx:include source="TransactionView.fxml">
+                  </fx:include>
+               </content>
+            </Tab>
             <Tab text="Take Deposit" />
          </tabs>
       </TabPane>
