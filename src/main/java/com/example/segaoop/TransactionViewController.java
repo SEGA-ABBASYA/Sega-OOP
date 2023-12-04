@@ -1,6 +1,7 @@
 package com.example.segaoop;
 
 import com.example.functionality.Transaction;
+import com.example.functionality.TransactionCompare;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -8,8 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-
-import javafx.util.Callback;
+import java.util.stream.Stream;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.Random;
@@ -21,9 +21,10 @@ public class TransactionViewController implements Initializable {
     private TableColumn<Transaction,Integer> Balance_Column;
 
     @FXML
-    private Label DateLable;
+    private Label DateLabel;
+
     @FXML
-    private TableColumn<Transaction, Integer> Debit_Column;
+    private TableColumn<Transaction, Integer> Amount_Column;
 
     @FXML
     private TableColumn<Transaction, String> TransactionDate;
@@ -32,11 +33,14 @@ public class TransactionViewController implements Initializable {
     private TableView<Transaction> TransactionTable;
 
     @FXML
-    private DatePicker datePicker;
+    private DatePicker endDate;
+
+    @FXML
+    private DatePicker startDate;
     ObservableList<LocalDate> selectedDates = FXCollections.observableArrayList();//save the dates from the datePicker
     @FXML //get the date from the datePicker
     void getDate(MouseEvent event) {
-        DateLable.setVisible(true);
+        DateLabel.setVisible(true);
         if (!selectedDates.isEmpty()){
         observedTransactionList.clear();
         for (LocalDate date : selectedDates) {
@@ -44,15 +48,15 @@ public class TransactionViewController implements Initializable {
         }
         if (selectedDates.size()==1)
         {
-            DateLable.setText("Transactions from "+selectedDates.getFirst().toString()+".");
+            DateLabel.setText("Transactions from "+selectedDates.get(0).toString()+".");
         }
-        else if (selectedDates.getFirst().isAfter(selectedDates.getLast())) {
+        else if (selectedDates.get(0).isAfter(selectedDates.get(1))) {
             System.out.println("Invalid Date.");
-            DateLable.setText("Please choose an invalid date.");
+            DateLabel.setText("Please choose an invalid date.");
         }
         else if (selectedDates.size()==2)
         {
-            DateLable.setText("Transactions from "+selectedDates.getFirst().toString()+" to "+selectedDates.getLast().toString()+".");
+            DateLabel.setText("Transactions from "+selectedDates.get(0).toString()+" to "+selectedDates.get(1).toString()+".");
         }
 
         System.out.println("num of dates is "+selectedDates.size());
@@ -60,16 +64,17 @@ public class TransactionViewController implements Initializable {
         }
         else
         {
-            DateLable.setText("Please choose a date.");
+            DateLabel.setText("Please choose a date.");
         }
     }
     @FXML
     void resetDate(MouseEvent event) {
+        endDate.setDisable(true);
         selectedDates.clear();
         TransactionTable.setItems(TransactionList);
-        DateLable.setVisible(true);
+        DateLabel.setVisible(true);
         System.out.println("date reset");
-        DateLable.setText("Reset Transactions.");
+        DateLabel.setText("Reset Transactions.");
     }
     private static LocalDate generateRandomDate(LocalDate startDate, LocalDate endDate) {
         Random random = new Random();
@@ -88,7 +93,8 @@ public class TransactionViewController implements Initializable {
         {
             LocalDate randomDate = generateRandomDate(startDate, endDate);
             Random rand = new Random();
-            TransactionList.add(new Transaction(randomDate.toString(),rand.nextInt(20,1000)));
+            int rand_amount = rand.nextInt(25,2795);
+            TransactionList.add(new Transaction(randomDate.toString(),rand_amount-rand_amount%5));
         }
     }//generate random transactions to save in the TableView
     ObservableList<Transaction> TransactionList = FXCollections.observableArrayList();
@@ -98,34 +104,58 @@ public class TransactionViewController implements Initializable {
     void filterTransactions()
     {
         if (selectedDates.size() == 2){
-            for (Transaction i:TransactionList) {
-                if (i.getTransactionDate().compareTo(selectedDates.getFirst().toString()) >= 0) {
-                    if (i.getTransactionDate().compareTo(selectedDates.getLast().toString()) <= 0){
-                        observedTransactionList.addFirst(i);
+            TransactionList.stream()
+                    .filter(tr -> tr.getTransactionDate().compareTo(selectedDates.get(0).toString())>=0)
+                    .filter(tr -> tr.getTransactionDate().compareTo(selectedDates.get(1).toString())<=0)
+                    .forEach(tr -> observedTransactionList.add(tr));
+
+            /*for (Transaction i:TransactionList) {
+                if (i.getTransactionDate().compareTo(selectedDates.get(0).toString()) >= 0) {
+                    if (i.getTransactionDate().compareTo(selectedDates.get(1).toString()) <= 0){
+                        observedTransactionList.add(i);
                     }
                 }
-            }
+            }*/
         }
         else if (selectedDates.size()==1)
         {
-            for (Transaction i:TransactionList) {
-                if (i.getTransactionDate().compareTo(selectedDates.getFirst().toString()) >= 0) {
-                        observedTransactionList.addFirst(i);
+            TransactionList.stream()
+                    .filter(tr -> tr.getTransactionDate().compareTo(selectedDates.get(0).toString())>=0)
+                    .forEach(tr -> observedTransactionList.add(tr));
+
+            /*for (Transaction i:TransactionList) {
+                if (i.getTransactionDate().compareTo(selectedDates.get(0).toString()) >= 0) {
+                        observedTransactionList.add(i);
                     }
-                }
+                }*/
         }
         TransactionTable.setItems(observedTransactionList);
     }//filter transactions from start_date to last_date
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        datePicker.setOnAction(event -> {
-            if (selectedDates.size() > 1){
-                selectedDates.clear();
+        startDate.setOnAction(event ->
+        {
+            if (selectedDates.isEmpty()) {
+                selectedDates.add(0, startDate.getValue());
             }
-            selectedDates.add(datePicker.getValue());}
-        );//get Start_date and End_date
+            else
+            {
+                selectedDates.set(0, startDate.getValue());
+            }
+            endDate.setDisable(false);
+        });//get Start_date.
 
-        datePicker.setDayCellFactory(new Callback<DatePicker, DateCell>() {
+        endDate.setOnAction(event -> {
+            if (selectedDates.size()==1) {
+                selectedDates.add(1, endDate.getValue());
+            }
+            else
+            {
+                selectedDates.set(1, endDate.getValue());
+            }
+        });//get End_date.
+
+       /*datePicker.setDayCellFactory(new Callback<DatePicker, DateCell>() {
             @Override
             public DateCell call(DatePicker param) {
                 return new DateCell() {
@@ -139,13 +169,14 @@ public class TransactionViewController implements Initializable {
                 };
             }
         });
-        //style the datePicker
+        //style the datePicker*/
 
-        TransactionDate.setCellValueFactory(new PropertyValueFactory<Transaction,String>("TransactionDate"));
-        Debit_Column.setCellValueFactory(new PropertyValueFactory<Transaction,Integer>("Debit"));
-        Balance_Column.setCellValueFactory(new PropertyValueFactory<Transaction,Integer>("Balance"));
+        TransactionDate.setCellValueFactory(new PropertyValueFactory<>("TransactionDate"));
+        Amount_Column.setCellValueFactory(new PropertyValueFactory<>("Amount"));
+        Balance_Column.setCellValueFactory(new PropertyValueFactory<>("Balance"));
 
         makeTransaction();
+        TransactionList.sort(new TransactionCompare());
         TransactionTable.setItems(TransactionList);
     }
 }

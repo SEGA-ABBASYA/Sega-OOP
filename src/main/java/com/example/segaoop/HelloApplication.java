@@ -15,7 +15,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         stg = stage;
-        Parent root = FXMLLoader.load(getClass().getResource("MainPageClientController.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("TransactionView.fxml"));
         stage.setScene(new Scene(root));
         stage.setTitle("SEGA ABBASYA UNITED BANK");
         stage.show();
