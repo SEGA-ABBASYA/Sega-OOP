@@ -77,8 +77,4 @@ public class Account {
            balance += interest;
        }
     }
-
-
-
-
 }
