@@ -3,7 +3,6 @@ package com.example.functionality;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -12,6 +11,7 @@ public class DataBase implements Serializable {
     HashMap<String, Person> users;
     ArrayList<Transaction> transactionHistory;
     HashMap<Integer, Bank> bankBranches;
+    Person curretUser;
 
     //__________________________SINGLETON_________________________________________
     private static DataBase instance;
@@ -88,5 +88,13 @@ public class DataBase implements Serializable {
     public void removeBranch(Integer id)
     {
         bankBranches.remove(id);
+    }
+
+    public Person getCurretUser() {
+        return curretUser;
+    }
+
+    public void setCurretUser(Person curretUser) {
+        this.curretUser = curretUser;
     }
 }
