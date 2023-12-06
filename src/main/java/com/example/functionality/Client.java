@@ -4,86 +4,67 @@ package com.example.functionality;
 import java.util.ArrayList;
 
 public class Client extends Person{
-    private Integer ID;
-    public void setID(Integer ID) {
-        this.ID = ID;
+    //private Integer id;
+    public void setId(String id) {
+        this.id = id;
     }
-    public Integer getID() {
-        return ID;
+    public String getId() {
+        return id;
     }
 
-    private String FirstName;
+    //private String firstName;
     public void setFirstName(String firstName) {
-        FirstName = firstName;
+        this.firstName = firstName;
     }
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
-    private String LastName;
+    //private String lastName;
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
-    private Integer TelephoneNumber;
-    public Integer getTelephoneNumber() {
-        return TelephoneNumber;
+    //private String telephone;
+    public String getTelephone() {
+        return telephone;
     }
-    public void setTelephoneNumber(Integer telephoneNumber) {
-        TelephoneNumber = telephoneNumber;
-    }
-
-    private Integer AccountNumber;
-    public Integer getAccountNumber() {
-        return AccountNumber;
-    }
-    public void setAccountNumber(Integer accountNumber) {
-        AccountNumber = accountNumber;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
-    private String State;
+    // PLACE HOLDER FOR ACCOUNTS ARRAY
+
+    private String state;
     public String getState() {
-        return State;
+        return state;
     }
     public void setState(String state) {
-        State = state;
+        this.state = state;
     }
 
-    private String Type;
-    public String getType() {
-        return Type;
+    private String role;
+    public String getRole() {
+        return role;
     }
-    public void setType(String type) {
-        Type = type;
-    }
-
-    private String Username;
-    public String getUsername() {
-        return Username;
-    }
-    public void setUsername(String username) {
-        Username = username;
+    public void setRole(String role) {
+        this.role = role;
     }
 
-    private Float Balance;
-    public Float getBalance() {
-        return Balance;
-    }
-    public void setBalance(Float balance) {
-        Balance = balance;
+
+    //    private Float balance;
+
+    private String passwordHash;
+    public String getPasswordHash() {
+        return passwordHash;
     }
 
-    private String Password;
-    public String getPassword() {
-        return Password;
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
     }
-    public void setPassword(String password) {
-        Password = password;
-    }
-
 
     ArrayList<Notification> clientNotification = new ArrayList<>();
 
@@ -91,17 +72,14 @@ public class Client extends Person{
         this.clientNotification.add(newNotification);
     }
 
-    public Client(Float balance, Integer ID, Integer AccountNumber, String FirstName, String LastName, String Username, String Password, String Type, String State, Integer TelephoneNumber)
+    public Client(String id, String firstName, String lastName, String passwordHash, String role, String state, String telephone)
     {
-        Balance = balance;
-        this.ID = ID;
-        this.AccountNumber = AccountNumber;
-        this.FirstName = FirstName;
-        this.LastName = LastName;
-        this.TelephoneNumber = TelephoneNumber;
-        this.Username = Username;
-        this.Password = Password;
-        this.Type = Type;
-        this.State = State;
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.telephone = telephone;
+        this.passwordHash = passwordHash;
+        this.role = role;
+        this.state = state;
     }
 }
