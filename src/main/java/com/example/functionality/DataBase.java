@@ -8,12 +8,14 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class DataBase implements Serializable {
-    private static DataBase instance;
+
     HashMap<String, Person> users;
     ArrayList<Transaction> transactionHistory;
     HashMap<Integer, Bank> bankBranches;
 
-    // singleton
+    //__________________________SINGLETON_________________________________________
+    private static DataBase instance;
+
     public static DataBase getInstance()
     {
         if(instance == null)
@@ -26,17 +28,11 @@ public class DataBase implements Serializable {
     //___________________________FILE SYSTEM____________________________________
     public static void saveToFile(String filename) throws IOException {
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename))) {
-            System.out.println("object loaded to file, bye");
             out.writeObject(instance);
+            System.out.println("object loaded to file, bye");
         }
     }
 
-    // implementation: DataBase loadedInstance = DataBase.loadFromFile("singleton.ser");
-//    public static DataBase loadFromFile(String filename) throws IOException, ClassNotFoundException {
-//        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename))) {
-//            return (DataBase) in.readObject();
-//        }
-//    }
     public static void loadFromFile(String filename) throws IOException, ClassNotFoundException {
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename))) {
             if(in.readObject() != null)
@@ -83,5 +79,14 @@ public class DataBase implements Serializable {
     public void addTransaction(Transaction transaction)
     {
         transactionHistory.add(transaction);
+    }
+
+    public void addBranch(Integer id ,Bank branch)
+    {
+        bankBranches.put(id, branch);
+    }
+    public void removeBranch(Integer id)
+    {
+        bankBranches.remove(id);
     }
 }
