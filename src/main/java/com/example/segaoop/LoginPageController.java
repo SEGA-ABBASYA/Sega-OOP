@@ -1,4 +1,5 @@
 package com.example.segaoop;
+import com.example.functionality.PassHashing;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -27,9 +28,10 @@ public class LoginPageController {
         {
         System.out.println("lol");
         HelloApplication test = new HelloApplication();
-        if(username.getText().toString().equals("1") && password.getText().toString().equals("1"))
+        if(username.getText().toString().equals("mango") && password.getText().toString().equals("zoz"))
         {
-
+            PassHashing testpass = new PassHashing();
+            String tester;
             /*output.setText("Login Successful ✅");
             try {
                 java.lang.Thread.sleep(5000);
@@ -40,7 +42,8 @@ public class LoginPageController {
                 output.setText("Login Successful ✅");
             }*/
             try {
-
+                tester = testpass.Hash(password.getText().toString());
+                System.out.println(tester);
                 test.changeScene("MainPageClientController.fxml");
             }
             catch(IOException e){
