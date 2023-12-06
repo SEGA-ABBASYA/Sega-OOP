@@ -11,7 +11,7 @@ public class DataBase implements Serializable {
     HashMap<String, Person> users;
     ArrayList<Transaction> transactionHistory;
     HashMap<Integer, Bank> bankBranches;
-    Person curretUser;
+    Person currentUser;
 
     //__________________________SINGLETON_________________________________________
     private static DataBase instance;
@@ -23,6 +23,9 @@ public class DataBase implements Serializable {
             instance = new DataBase();
         }
         return instance;
+    }
+
+    private DataBase() {
     }
 
     //___________________________FILE SYSTEM____________________________________
@@ -90,11 +93,11 @@ public class DataBase implements Serializable {
         bankBranches.remove(id);
     }
 
-    public Person getCurretUser() {
-        return curretUser;
+    public Person getCurrentUser() {
+        return currentUser;
     }
 
-    public void setCurretUser(Person curretUser) {
-        this.curretUser = curretUser;
+    public void setCurrentUser(Person currentUser) {
+        this.currentUser = currentUser;
     }
 }
