@@ -170,6 +170,7 @@ public class TransactionViewController implements Initializable {
         });
         //style the datePicker*/
 
+
         TransactionDate.setCellValueFactory(new PropertyValueFactory<>("TransactionDate"));
         Amount_Column.setCellValueFactory(new PropertyValueFactory<>("Amount"));
         Balance_Column.setCellValueFactory(new PropertyValueFactory<>("Balance"));
