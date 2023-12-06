@@ -6,6 +6,7 @@ public class Account {
 
     // The real pass taken from pass text field
     private String pass;
+
     protected String hashed_pass;
 
     protected double balance;
