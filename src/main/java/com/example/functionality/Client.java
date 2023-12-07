@@ -68,5 +68,6 @@ public class Client extends Person{
         this.telephone = telephone;
         this.password = password;
         this.state = state;
+
     }
 }
