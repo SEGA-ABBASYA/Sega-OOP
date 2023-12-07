@@ -19,7 +19,7 @@ public class HelloApplication extends Application {
 
         DataBase.loadFromFile("database.ser");
         stg = stage;
-        Parent root = FXMLLoader.load(getClass().getResource("TransactionView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
         stage.setScene(new Scene(root));
         stage.setTitle("SEGA ABBASYA UNITED BANK");
         stage.show();

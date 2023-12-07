@@ -36,8 +36,6 @@ public class Client extends Person{
         this.telephone = telephone;
     }
 
-    // PLACE HOLDER FOR ACCOUNTS ARRAY
-
     private String state;
     public String getState() {
         return state;
@@ -46,24 +44,14 @@ public class Client extends Person{
         this.state = state;
     }
 
-    private String role;
-    public String getRole() {
-        return role;
-    }
-    public void setRole(String role) {
-        this.role = role;
+
+    private String password;
+    public String getPassword() {
+        return password;
     }
 
-
-    //    private Float balance;
-
-    private String passwordHash;
-    public String getPasswordHash() {
-        return passwordHash;
-    }
-
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     ArrayList<Notification> clientNotification = new ArrayList<>();
@@ -72,14 +60,13 @@ public class Client extends Person{
         this.clientNotification.add(newNotification);
     }
 
-    public Client(String id, String firstName, String lastName, String passwordHash, String role, String state, String telephone)
+    public Client(String id, String firstName, String lastName, String password, String state, String telephone)
     {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.telephone = telephone;
-        this.passwordHash = passwordHash;
-        this.role = role;
+        this.password = password;
         this.state = state;
     }
 }

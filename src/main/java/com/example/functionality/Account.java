@@ -1,8 +1,9 @@
 package com.example.functionality;
 
 public class Account {
-
     protected String user_name;
+    private int account_number;
+    Client owner;
 
     // The real pass taken from pass text field
     private String pass;
@@ -79,7 +80,24 @@ public class Account {
        }
     }
 
+    public Account(String user_name, String pass, String hashed_pass, double balance, Client owner) {
+        this.user_name = user_name;
+        this.pass = pass;
+        this.hashed_pass = hashed_pass;
+        this.balance = balance;
+        this.owner = owner;
+        this.account_number = ++DataBase.getInstance().lastAccountNumber;
+    }
 
+    public String getHashed_pass() {
+        return hashed_pass;
+    }
 
+    public int getAccount_number() {
+        return account_number;
+    }
 
+    public Client getOwner() {
+        return owner;
+    }
 }

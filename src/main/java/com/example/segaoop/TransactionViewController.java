@@ -145,7 +145,7 @@ public class TransactionViewController implements Initializable {
         });//get Start_date.
 
         endDate.setOnAction(event -> {
-            if (selectedDates.size()==1) {
+            if (selectedDates.size() == 1) {
                 selectedDates.add(1, endDate.getValue());
             }
             else

@@ -69,7 +69,7 @@ public class EmployeeController implements Initializable {
     void BeginSearch(MouseEvent event) {
         ObservableList<Client> tobeaddedlist = FXCollections.observableArrayList();
         for (Client item:ClientTestList) {
-            String s = Integer.toString(item.getAccountNumber()).toLowerCase();
+            String s = item.getId().toLowerCase();
             if (s.contains(SearchTextField.getText().toLowerCase()))
             {
                 tobeaddedlist.add(item);
@@ -94,10 +94,8 @@ public class EmployeeController implements Initializable {
     }
 
     ObservableList<Client> ClientTestList = FXCollections.observableArrayList(
-            new Client(15000.0F,1,123,"Youssef","Ashraf",
-                    "Youssefproof","Youssef2004","Savings","Active",01066555),
-            new Client(50000.0F,2,124,"Youssef","Ahmed",
-                    "Herofis","HAHS1234","Savings","Active",10241224)
+//            new Client("15000.0",1,123,"Youssef","Ashraf", "Youssefproof","Youssef2004","Savings","Active",01066555),
+//            new Client("50000.0",2,124,"Youssef","Ahmed", "Herofis","HAHS1234","Savings","Active",10241224)
     );
 
 
@@ -106,10 +104,9 @@ public class EmployeeController implements Initializable {
         if (!ClientsTable.getSelectionModel().getSelectedItems().isEmpty())
         {
             int selectedIndex = ClientsTable.getSelectionModel().getSelectedIndex();
-            Integer selectedAccountNumber = ClientsTable.getSelectionModel().getSelectedItem().getAccountNumber();
-            for (Client item : ClientTestList
-                 ) {
-                if (Objects.equals(item.getAccountNumber(), selectedAccountNumber))
+            String selectedAccountNumber = ClientsTable.getSelectionModel().getSelectedItem().getId();
+            for (Client item : ClientTestList) {
+                if (Objects.equals(item.getId(), selectedAccountNumber))
                 {
                     ClientTestList.remove(item);
                     break;
