@@ -62,7 +62,7 @@
             </Tab>
             <Tab text="Transfer Money">
                <content>
-                  <VBox alignment="CENTER" prefHeight="312.0" prefWidth="600.0">
+                  <VBox alignment="CENTER" prefHeight="312.0" prefWidth="600.0" spacing="10.0">
                      <children>
                         <HBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0">
                            <children>
@@ -70,7 +70,10 @@
                                  <font>
                                     <Font size="25.0" />
                                  </font></Label>
-                              <TextField fx:id="accountID" minHeight="30.0" minWidth="220.0" />
+                              <TextField fx:id="accountID" minHeight="40.0" minWidth="220.0">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0">
@@ -79,7 +82,10 @@
                                  <font>
                                     <Font size="25.0" />
                                  </font></Label>
-                              <TextField fx:id="amount" minHeight="30.0" minWidth="220.0" />
+                              <TextField fx:id="amount" minHeight="40.0" minWidth="220.0">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0">
@@ -88,7 +94,10 @@
                                  <font>
                                     <Font size="25.0" />
                                  </font></Label>
-                              <TextField fx:id="password" minHeight="30.0" minWidth="220.0" />
+                              <TextField fx:id="password" minHeight="40.0" minWidth="220.0">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                         <Button fx:id="transfer" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" onAction="#transferMoney" text="Transfer">

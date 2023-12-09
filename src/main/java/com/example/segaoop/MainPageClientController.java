@@ -89,6 +89,10 @@ public class MainPageClientController implements Initializable {
             System.out.println("new receiver balance: " + receiver.balance);
             balance_title.setText(String.valueOf(current_acc.balance));
             acc_id_title.setText(String.valueOf(current_acc.getAccount_number()));
+            invalid_amount.setText("Transaction Successful");
+            accountID.setText("");
+            amount.setText("");
+            password.setText("");
         }
         catch (MoneyExceptions e)
         {
