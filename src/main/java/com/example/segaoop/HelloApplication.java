@@ -42,6 +42,7 @@ public class HelloApplication extends Application {
     {
         Parent pane = FXMLLoader.load(getClass().getResource(fxml));
         stg.getScene().setRoot(pane);
+
     }
 
     public static void main(String[] args) {
