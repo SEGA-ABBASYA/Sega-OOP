@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25462b22-c2ef-496d-9000-14184238f1c3" name="Changes" comment="LOGIN WORKSSSSS">
+    <list default="true" id="25462b22-c2ef-496d-9000-14184238f1c3" name="Changes" comment="updated client window and controller">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/segaoop/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/segaoop/LoginPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/LoginPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/segaoop/MainPageClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/MainPageClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/segaoop/TransactionViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/TransactionViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/MainPageClientController.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/MainPageClientController.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -153,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701986929361</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="updated client window and controller">
+      <option name="closed" value="true" />
+      <created>1702151578267</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1702151578268</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +185,7 @@
     <MESSAGE value="changed client class" />
     <MESSAGE value="FIGHT RESULT" />
     <MESSAGE value="LOGIN WORKSSSSS" />
-    <option name="LAST_COMMIT_MESSAGE" value="LOGIN WORKSSSSS" />
+    <MESSAGE value="updated client window and controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated client window and controller" />
   </component>
 </project>

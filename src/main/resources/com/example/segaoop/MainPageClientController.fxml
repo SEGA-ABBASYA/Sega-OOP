@@ -24,18 +24,40 @@
          <tabs>
             <Tab text="Account">
                <content>
-                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Label text="WELCOME" textFill="WHITE">
+                        <Label layoutX="62.0" layoutY="119.0" text="Welcome,  " textFill="WHITE">
                            <font>
-                              <Font size="69.0" />
+                              <Font size="54.0" />
                            </font>
-                           <padding>
-                              <Insets top="100.0" />
-                           </padding>
+                        </Label>
+                        <Label fx:id="name_title" layoutX="330.0" layoutY="120.0" text="*user_name*" textFill="WHITE">
+                           <font>
+                              <Font size="54.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="75.0" layoutY="441.0" minWidth="260.0" text="Your balance is:" textFill="WHITE">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="77.0" layoutY="509.0" minWidth="260.0" text="Account ID:" textFill="WHITE">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="balance_title" layoutX="360.0" layoutY="440.0" minWidth="260.0" text="*balance*" textFill="WHITE">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="acc_id_title" layoutX="371.0" layoutY="509.0" minWidth="260.0" text="*acc id*" textFill="WHITE">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
                         </Label>
                      </children>
-                  </VBox>
+                  </AnchorPane>
                </content>
             </Tab>
             <Tab text="Transfer Money">
@@ -44,7 +66,7 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0">
                            <children>
-                              <Label minWidth="170.0" text="Account ID:" textFill="WHITE">
+                              <Label minWidth="230.0" text="Account ID:" textFill="WHITE">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Label>
@@ -53,7 +75,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0">
                            <children>
-                              <Label minWidth="170.0" text="Amount:" textFill="WHITE">
+                              <Label minWidth="230.0" text="Amount:" textFill="WHITE">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Label>
@@ -62,7 +84,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0">
                            <children>
-                              <Label minWidth="170.0" text="Your Password:" textFill="WHITE">
+                              <Label minWidth="230.0" text="Your Password:" textFill="WHITE">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Label>

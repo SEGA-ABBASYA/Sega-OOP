@@ -1,7 +1,7 @@
 package com.example.functionality;
 
 
-        import java.util.ArrayList;
+import java.util.ArrayList;
 
 public class Client extends Person{
     //private Integer id;

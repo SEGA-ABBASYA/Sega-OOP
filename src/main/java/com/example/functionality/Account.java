@@ -12,7 +12,7 @@ public class Account implements Serializable {
 
     protected String hashed_pass;
 
-    protected double balance;
+    public double balance;
 
     // The account is saving (1) or current (0)
     protected boolean acc_type;
