@@ -43,17 +43,32 @@ public class Account implements Serializable {
        }
    }
 
-    public void update_balance(boolean operation, double value) throws MoneyExceptions
+//    public void update_balance(boolean operation, double value) throws MoneyExceptions
+//    {
+//        if (value > balance && !operation)
+//        {
+//            throw new MoneyExceptions(value);
+//        }
+//        else if (operation)
+//        {
+//            balance += value;
+//        }
+//        else {
+//            balance -= value;
+//        }
+//    }
+
+    public void increaseBalance(double value)
     {
-        if (value > balance && !operation)
+       balance += value;
+    }
+    public void decreaseBalance(double value) throws MoneyExceptions {
+        if(value > balance)
         {
             throw new MoneyExceptions(value);
         }
-        else if (operation)
+        else
         {
-            balance += value;
-        }
-        else {
             balance -= value;
         }
     }

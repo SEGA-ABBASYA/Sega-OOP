@@ -1,9 +1,11 @@
 package com.example.functionality;
 
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 public class DataBase implements Serializable {
@@ -190,15 +192,41 @@ public class DataBase implements Serializable {
         accounts.put(acc.user_name, acc);
     }
 
-
-
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         DataBase.getInstance().loadFromFile();
 
-        Client lalo = new Client("a", "hector", "salamanca", "a", "working", "0101111111");
-        Account lolo = new Account("a", "a", 8000, lalo);
+        Client lalo = new Client("hector", "hector", "salamanca", "a", "working", "0101111111");
+        Account lolo = new Account("hector", "a", 8000, lalo);
         DataBase.getInstance().addClient(lalo);
         DataBase.getInstance().addAccount(lolo);
+
+        Client tuco = new Client("tuco", "tuco", "salamanca", "a", "working", "0101111111");
+        Account toco = new Account("tuco", "a", 8000, tuco);
+        DataBase.getInstance().addClient(tuco);
+        DataBase.getInstance().addAccount(toco);
+
+        Employee em = new Employee("gus", "Gustavo", "Fring", "0101029506", "Los Pllos Hermanos", "normal", "Albuquerque University", 20000, 4, 2027, "a");
+        DataBase.getInstance().addEmployee(em.getID() ,em);
+
+        for (int i=0;i<30;i++)
+        {
+            LocalDate startDate = LocalDate.of(2020, 1, 1);
+            LocalDate endDate = LocalDate.of(2023, 12, 31);
+            Random random = new Random();
+            long startEpochDay = startDate.toEpochDay();
+            long endEpochDay = endDate.toEpochDay();
+            long randomEpochDay = startEpochDay + random.nextInt((int) (endEpochDay - startEpochDay + 1));
+
+            LocalDate randomDate = LocalDate.ofEpochDay(randomEpochDay);
+            Random rand = new Random();
+            int rand_amount = rand.nextInt(25,2795);
+            instance.addTransaction(new Transaction(randomDate.toString(),rand_amount-rand_amount%5));
+        }
+
+        for(Transaction x : DataBase.getInstance().getTransactionHistory())
+        {
+            System.out.println("date: " + x.getTransactionDate());
+        }
 
         for (String key : DataBase.getInstance().getAllAccounts().keySet())
         {

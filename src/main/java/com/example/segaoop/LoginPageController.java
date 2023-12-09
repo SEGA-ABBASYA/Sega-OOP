@@ -191,12 +191,12 @@ public class LoginPageController {
             else
             {
                 // if username exists
-                if(DataBase.getInstance().getAllEmployees().containsKey(username.getText()))
+                if(DataBase.getInstance().getAllEmployees().containsKey(username.getText().toString()))
                 {
-                    Employee temp_emp = DataBase.getInstance().getEmployee(username.getText());
+                    Employee temp_emp = DataBase.getInstance().getEmployee(username.getText().toString());
 
                     // if password correct
-                    if(temp_emp.getPassword().equals(password.toString()))
+                    if(temp_emp.getPassword().equals(password.getText().toString()))
                     {
 
                         DataBase.getInstance().setCurrentUser(temp_emp);

@@ -1,5 +1,6 @@
 package com.example.segaoop;
 
+import com.example.functionality.DataBase;
 import com.example.functionality.Transaction;
 import com.example.functionality.TransactionCompare;
 import javafx.collections.FXCollections;
@@ -87,14 +88,18 @@ public class TransactionViewController implements Initializable {
         LocalDate startDate = LocalDate.of(2020, 1, 1);
         LocalDate endDate = LocalDate.of(2023, 12, 31);
 
-
-        for (int i=0;i<30;i++)
+        for(Transaction x : DataBase.getInstance().getTransactionHistory())
         {
-            LocalDate randomDate = generateRandomDate(startDate, endDate);
-            Random rand = new Random();
-            int rand_amount = rand.nextInt(25,2795);
-            TransactionList.add(new Transaction(randomDate.toString(),rand_amount-rand_amount%5));
+            TransactionList.add(x);
         }
+
+//        for (int i=0;i<30;i++)
+//        {
+//            LocalDate randomDate = generateRandomDate(startDate, endDate);
+//            Random rand = new Random();
+//            int rand_amount = rand.nextInt(25,2795);
+//            TransactionList.add(new Transaction(randomDate.toString(),rand_amount-rand_amount%5));
+//        }
     }//generate random transactions to save in the TableView
     ObservableList<Transaction> TransactionList = FXCollections.observableArrayList();
     //list for transactions
