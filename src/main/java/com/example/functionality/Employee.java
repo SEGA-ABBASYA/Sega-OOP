@@ -3,11 +3,11 @@ package com.example.functionality;
 public class Employee extends Person{
 
     protected String position,graduationCollage;
-
+    protected String password;
     protected float salary,totalGrade;
     protected int graduationYear;
 
-    public Employee(String ID,String fN,String lF,String telephone, String Address,String position, String graduationCollage, float salary, float totalGrade, int graduationYear) {
+    public Employee(String ID,String fN,String lF,String telephone, String Address,String position, String graduationCollage, float salary, float totalGrade, int graduationYear, String password) {
         this.position = position;
         this.graduationCollage = graduationCollage;
         this.salary = salary;
@@ -18,6 +18,7 @@ public class Employee extends Person{
         this.firstName=fN;
         this.lastName=lF;
         this.telephone=telephone;
+        this.password = password;
     }
 
     public String getID(){
@@ -83,4 +84,7 @@ public class Employee extends Person{
         //send notification salary added (david idea maybe erased if not used)
     }
 
+    public String getPassword() {
+        return password;
+    }
 }

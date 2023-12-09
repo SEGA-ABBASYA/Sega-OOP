@@ -1,6 +1,8 @@
 package com.example.functionality;
 
-public class Bank {
+import java.io.Serializable;
+
+public class Bank implements Serializable  {
     protected int branchID;
     protected String address;
     public static int lastBranchID=99;

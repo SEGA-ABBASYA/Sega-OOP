@@ -1,6 +1,8 @@
 package com.example.functionality;
 
-public class Account {
+import java.io.Serializable;
+
+public class Account implements Serializable {
     protected String user_name;
     private int account_number;
     Client owner;
@@ -80,13 +82,14 @@ public class Account {
        }
     }
 
-    public Account(String user_name, String pass, String hashed_pass, double balance, Client owner) {
+    public Account(String user_name, String pass, double balance, Client owner) {
         this.user_name = user_name;
         this.pass = pass;
-        this.hashed_pass = hashed_pass;
+//        this.hashed_pass = hashed_pass;
         this.balance = balance;
         this.owner = owner;
         this.account_number = ++DataBase.getInstance().lastAccountNumber;
+        System.out.println("created new account");
     }
 
     public String getHashed_pass() {
@@ -100,4 +103,10 @@ public class Account {
     public Client getOwner() {
         return owner;
     }
+
+    public String getPass() {
+        return pass;
+    }
+
+
 }

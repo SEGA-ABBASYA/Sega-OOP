@@ -1,6 +1,8 @@
 package com.example.functionality;
 
-public class Transaction {
+import java.io.Serializable;
+
+public class Transaction implements Serializable {
     protected String transactionDate;
     protected int amount;
 

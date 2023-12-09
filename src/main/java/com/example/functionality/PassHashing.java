@@ -1,10 +1,11 @@
 package com.example.functionality;
 
+import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class PassHashing {
+public class PassHashing implements Serializable {
     public static String Hash(String pass){
         try{
             MessageDigest md = MessageDigest.getInstance("SHA-256");

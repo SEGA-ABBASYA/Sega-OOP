@@ -1,5 +1,6 @@
 package com.example.segaoop;
 
+import com.example.functionality.*;
 import com.example.functionality.DataBase;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -16,8 +17,12 @@ public class HelloApplication extends Application {
     private static Stage stg;
     @Override
     public void start(Stage stage) throws IOException, ClassNotFoundException {
+        DataBase.getInstance().loadFromFile();
+        for (String key : DataBase.getInstance().getAllAccounts().keySet())
+        {
+            System.out.println("account: " + key + " pass: " + DataBase.getInstance().getAccount(key).getPass());
+        }
 
-        DataBase.loadFromFile("database.ser");
         stg = stage;
         Parent root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
         stage.setScene(new Scene(root));
@@ -27,8 +32,8 @@ public class HelloApplication extends Application {
 
     @Override
     public void stop() throws IOException {
-        System.out.println("good bye");
-        DataBase.saveToFile("database.ser");
+        //System.out.println("good bye");
+        DataBase.getInstance().saveToFile();
     }
 
 

@@ -1,7 +1,7 @@
 package com.example.functionality;
 
 
-import java.util.ArrayList;
+        import java.util.ArrayList;
 
 public class Client extends Person{
     //private Integer id;
@@ -68,6 +68,6 @@ public class Client extends Person{
         this.telephone = telephone;
         this.password = password;
         this.state = state;
-
+        System.out.println("created new client");
     }
 }
