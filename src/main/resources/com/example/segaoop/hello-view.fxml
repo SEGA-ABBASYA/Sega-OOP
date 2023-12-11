@@ -30,7 +30,7 @@
                               <Font name="SEGA LOGO FONT" size="82.0" />
                            </font>
                         </Text>
-                        <Text fill="#3300ff" layoutX="388.0" layoutY="195.0" stroke="WHITE" strokeWidth="2.0" textAlignment="CENTER" wrappingWidth="560.8033409118652">
+                        <Text fx:id="NameText" fill="#3300ff" layoutX="388.0" layoutY="195.0" stroke="WHITE" strokeWidth="2.0" textAlignment="CENTER" wrappingWidth="560.8033409118652">
                            <font>
                               <Font size="64.0" />
                            </font>
@@ -40,6 +40,16 @@
                               <Font name="Calibri" size="32.0" />
                            </font>
                         </Button>
+                        <Button fx:id="LogoutButton" layoutX="1030.0" layoutY="578.0" mnemonicParsing="false" onMouseClicked="#ReturntoLoginScene" prefHeight="68.0" prefWidth="201.0" style="-fx-background-color: #bb060a;" stylesheets="@ButtonStyle.css" text="Logout" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="32.0" />
+                           </font>
+                        </Button>
+                        <Text fx:id="IDText" fill="#3300ff" layoutX="393.0" layoutY="296.0" stroke="WHITE" strokeWidth="2.0" textAlignment="CENTER" wrappingWidth="560.8033409118652">
+                           <font>
+                              <Font size="64.0" />
+                           </font>
+                        </Text>
                      </children>
                   </AnchorPane>
               </content>

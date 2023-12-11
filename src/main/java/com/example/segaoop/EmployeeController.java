@@ -11,7 +11,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -27,6 +29,9 @@ public class EmployeeController implements Initializable {
     private Button CreateButton;
 
     @FXML
+    private Button LogoutButton;
+
+    @FXML
     private Button DeleteButton;
 
     @FXML
@@ -40,6 +45,14 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private TableColumn<Client, String> LastNameColumn;
+    
+    @FXML
+    private Text NameText;
+
+    HelloApplication test = new HelloApplication();
+
+    @FXML
+    private Text IDText;
 
     @FXML
     private Button EditMyAccount;
@@ -78,6 +91,8 @@ public class EmployeeController implements Initializable {
         ClientsTable.setItems(tobeaddedlist);
     }
 
+
+
     @FXML
     void GoToCreateScene(MouseEvent event) {
 
@@ -98,6 +113,14 @@ public class EmployeeController implements Initializable {
 //            new Client("50000.0",2,124,"Youssef","Ahmed", "Herofis","HAHS1234","Savings","Active",10241224)
     );
 
+    @FXML
+    void ReturntoLoginScene(MouseEvent event) {
+        try {
+            test.changeScene("LoginPage.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     void RemoveSelectedItem(MouseEvent event) {
@@ -119,6 +142,8 @@ public class EmployeeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
         IDColumn.setCellValueFactory(new PropertyValueFactory<Client,Integer>("ID"));
         FirstNameColumn.setCellValueFactory(new PropertyValueFactory<Client,String>("FirstName"));
         LastNameColumn.setCellValueFactory(new PropertyValueFactory<Client,String>("LastName"));
