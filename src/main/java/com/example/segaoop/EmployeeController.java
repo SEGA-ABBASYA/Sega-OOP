@@ -1,17 +1,15 @@
 package com.example.segaoop;
 
-import com.example.functionality.Client;
-import com.example.functionality.DataBase;
-import com.example.functionality.Employee;
-import com.example.functionality.Person;
+import com.example.functionality.*;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleFloatProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -23,13 +21,25 @@ import java.util.*;
 public class EmployeeController implements Initializable {
 
     @FXML
-    private TableColumn<Client, Integer> AccountNumberColumn;
+    private TableColumn<Account, Integer> AccountNumberColumn;
 
     @FXML
-    private TableView<Client> ClientsTable;
+    private TableView<Account> ClientsTable;
 
     @FXML
     private Button CreateButton;
+
+    @FXML
+    private ComboBox<String> PriorityComboBox;
+
+    @FXML
+    private TextField NotificationTitleTextField;
+
+    @FXML
+    private TextArea NotificationTextArea;
+
+    @FXML
+    private Button SendNotificationButton;
 
     @FXML
     private Button LogoutButton;
@@ -41,13 +51,13 @@ public class EmployeeController implements Initializable {
     private Button EditButton;
 
     @FXML
-    private TableColumn<Client, String> FirstNameColumn;
+    private TableColumn<Account, String> FirstNameColumn;
 
     @FXML
-    private TableColumn<Client, Integer> IDColumn;
+    private TableColumn<Account, String> IDColumn;
 
     @FXML
-    private TableColumn<Client, String> LastNameColumn;
+    private TableColumn<Account, String> LastNameColumn;
     
     @FXML
     private Text NameText;
@@ -67,28 +77,28 @@ public class EmployeeController implements Initializable {
     private TextField SearchTextField;
 
     @FXML
-    private TableColumn<Client, String> StateColumn;
+    private TableColumn<Account, String> StateColumn;
 
     @FXML
-    private TableColumn<Client,Float> BalanceColumn;
+    private TableColumn<Account, Double> BalanceColumn;
 
     @FXML
-    private TableColumn<Client, Integer> TelephoneNumberColumn;
+    private TableColumn<Account, String> TelephoneNumberColumn;
 
     @FXML
-    private TableColumn<Client, String> TypeColumn;
+    private TableColumn<Account, String> TypeColumn;
 
     @FXML
-    private TableColumn<Client, String> UsernameColumn;
+    private TableColumn<Account, String> UsernameColumn;
 
     @FXML
     void BeginSearch(MouseEvent event) {
-        ObservableList<Client> tobeaddedlist = FXCollections.observableArrayList();
-        for (Client item:ClientTestList) {
-            String s = item.getId().toLowerCase();
-            if (s.contains(SearchTextField.getText().toLowerCase()))
+        ObservableList<Account> tobeaddedlist = FXCollections.observableArrayList();
+        for (String key:DataBase.getInstance().getAllAccounts().keySet()) {
+
+            if (key.contains(SearchTextField.getText().toLowerCase()))
             {
-                tobeaddedlist.add(item);
+                tobeaddedlist.add(DataBase.getInstance().getAccount(key));
             }
         }
         ClientsTable.setItems(tobeaddedlist);
@@ -111,11 +121,6 @@ public class EmployeeController implements Initializable {
 
     }
 
-    ObservableList<Client> ClientTestList = FXCollections.observableArrayList(
-//            new Client("15000.0",1,123,"Youssef","Ashraf", "Youssefproof","Youssef2004","Savings","Active",01066555),
-//            new Client("50000.0",2,124,"Youssef","Ahmed", "Herofis","HAHS1234","Savings","Active",10241224)
-    );
-
     @FXML
     void ReturntoLoginScene(MouseEvent event) {
         try {
@@ -127,39 +132,36 @@ public class EmployeeController implements Initializable {
 
     @FXML
     void RemoveSelectedItem(MouseEvent event) {
-        if (!ClientsTable.getSelectionModel().getSelectedItems().isEmpty())
-        {
-            int selectedIndex = ClientsTable.getSelectionModel().getSelectedIndex();
-            String selectedAccountNumber = ClientsTable.getSelectionModel().getSelectedItem().getId();
-            for (Client item : ClientTestList) {
-                if (Objects.equals(item.getId(), selectedAccountNumber))
-                {
-                    ClientTestList.remove(item);
-                    break;
-                }
-            }
-            ClientsTable.getItems().remove(selectedIndex);
 
-        }
     }
+    @FXML
+    void SendNotification(MouseEvent event) {
 
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Employee curracc = (Employee)DataBase.getInstance().getCurrentUser();
         NameText.setText(curracc.firstName + ' ' + curracc.lastName);
         IDText.setText("ID: " + curracc.id);
 
-        IDColumn.setCellValueFactory(new PropertyValueFactory<Client,Integer>("ID"));
-        FirstNameColumn.setCellValueFactory(new PropertyValueFactory<Client,String>("FirstName"));
-        LastNameColumn.setCellValueFactory(new PropertyValueFactory<Client,String>("LastName"));
-        TypeColumn.setCellValueFactory(new PropertyValueFactory<Client,String>("Type"));
-        StateColumn.setCellValueFactory(new PropertyValueFactory<Client,String>("State"));
-        AccountNumberColumn.setCellValueFactory(new PropertyValueFactory<Client,Integer>("AccountNumber"));
-        TelephoneNumberColumn.setCellValueFactory(new PropertyValueFactory<Client,Integer>("TelephoneNumber"));
-        BalanceColumn.setCellValueFactory(new PropertyValueFactory<Client,Float>("Balance"));
-        UsernameColumn.setCellValueFactory(new PropertyValueFactory<Client,String>("Username"));
+        PriorityComboBox.getItems().addAll("Normal","Important","Warning");
 
-        ClientsTable.setItems(ClientTestList);
+        IDColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getOwner().getId()));
+        FirstNameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getOwner().getFirstName()));
+        LastNameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getOwner().getLastName()));
+        TypeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getType()));
+        StateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getState()));
+        AccountNumberColumn.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getAccount_number()).asObject());
+        TelephoneNumberColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getOwner().getTelephone()));
+        BalanceColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().getBalance()).asObject());
+        UsernameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUser_name()));
+
+
+        ObservableList<Account> tobeaddedlistfirst = FXCollections.observableArrayList();
+        for (String key:DataBase.getInstance().getAllAccounts().keySet()) {
+            tobeaddedlistfirst.add(DataBase.getInstance().getAccount(key));
+        }
+        ClientsTable.setItems(tobeaddedlistfirst);
     }
 }
 
