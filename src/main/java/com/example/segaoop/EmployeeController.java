@@ -1,6 +1,9 @@
 package com.example.segaoop;
 
 import com.example.functionality.Client;
+import com.example.functionality.DataBase;
+import com.example.functionality.Employee;
+import com.example.functionality.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -142,7 +145,9 @@ public class EmployeeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        Employee curracc = (Employee)DataBase.getInstance().getCurrentUser();
+        NameText.setText(curracc.firstName + ' ' + curracc.lastName);
+        IDText.setText("ID: " + curracc.id);
 
         IDColumn.setCellValueFactory(new PropertyValueFactory<Client,Integer>("ID"));
         FirstNameColumn.setCellValueFactory(new PropertyValueFactory<Client,String>("FirstName"));
