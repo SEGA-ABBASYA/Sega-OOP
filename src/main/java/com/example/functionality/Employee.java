@@ -1,11 +1,14 @@
 package com.example.functionality;
 
+import java.util.ArrayList;
+
 public class Employee extends Person{
 
     protected String position,graduationCollage;
     protected String password;
     protected float salary,totalGrade;
     protected int graduationYear;
+    ArrayList<Notification> sentNotificationHistory = new ArrayList<>();
 
     public Employee(String ID,String fN,String lF,String telephone, String Address,String position, String graduationCollage, float salary, float totalGrade, int graduationYear, String password) {
         this.position = position;
