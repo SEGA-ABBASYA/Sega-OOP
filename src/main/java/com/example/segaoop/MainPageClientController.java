@@ -6,10 +6,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.net.URL;
 import java.nio.channels.FileChannel;
+import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
@@ -25,12 +29,8 @@ public class MainPageClientController implements Initializable {
     @FXML
     private TextField amount;
     @FXML
-    private TextField password;
+    private PasswordField password;
 
-    @FXML
-    private Label no_such_account;
-    @FXML
-    private Label wrong_password;
     @FXML
     private Label invalid_amount;
     @FXML
@@ -39,11 +39,13 @@ public class MainPageClientController implements Initializable {
     private Label balance_title;
     @FXML
     private Label acc_id_title;
+
+    @FXML
+    private Button logOutButton;
+
     @FXML
     protected void transferMoney()
     {
-        no_such_account.setText("");
-        wrong_password.setText("");
         invalid_amount.setText("");
         if(amount.getText() != null && password.getText() != null && accountID.getText() != null)
         {
@@ -65,13 +67,13 @@ public class MainPageClientController implements Initializable {
                 }
                 else
                 {
-                    wrong_password.setText("Wrong Password");
+                    invalid_amount.setText("Wrong Password");
                     return;
                 }
             }
             else
             {
-                no_such_account.setText("No Such Account");
+                invalid_amount.setText("No Such Account");
                 return;
             }
 
@@ -93,6 +95,8 @@ public class MainPageClientController implements Initializable {
             accountID.setText("");
             amount.setText("");
             password.setText("");
+            Transaction newTrans = new Transaction(LocalDate.now().toString(), value);
+            DataBase.getInstance().addTransaction(newTrans);
         }
         catch (MoneyExceptions e)
         {
@@ -107,6 +111,12 @@ public class MainPageClientController implements Initializable {
         name_title.setText(user.firstName + " " + user.lastName);
         balance_title.setText(String.valueOf(current_acc.balance));
         acc_id_title.setText(String.valueOf(current_acc.getAccount_number()));
+    }
+
+    @FXML
+    void logOut() throws IOException {
+        HelloApplication test = new HelloApplication();
+        test.changeScene("LoginPage.fxml");
     }
 }
 

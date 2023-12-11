@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Transaction implements Serializable {
     protected String transactionDate;
-    protected int amount;
+    protected double amount;
 
     protected int balance =9000;
     protected String senderName;
@@ -13,12 +13,12 @@ public class Transaction implements Serializable {
     protected Bank branch;
     protected String transactionID;
 
-    public Transaction(String transactionDate, int amount) {
+    public Transaction(String transactionDate, double amount) {
         this.transactionDate = transactionDate;
         this.amount = amount;
     }
 
-    public Transaction(String transactionDate, int amount, String senderName, String receiverName, String type, String transactionID) {
+    public Transaction(String transactionDate, double amount, String senderName, String receiverName, String type, String transactionID) {
         this.transactionDate = transactionDate;
         this.amount = amount;
         this.senderName = senderName;
@@ -31,7 +31,7 @@ public class Transaction implements Serializable {
         return transactionDate;
     }
 
-    public int getAmount() {
+    public double getAmount() {
         return amount;
     }
 

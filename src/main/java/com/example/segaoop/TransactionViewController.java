@@ -42,25 +42,25 @@ public class TransactionViewController implements Initializable {
     void getDate(MouseEvent event) {
         DateLabel.setVisible(true);
         if (!selectedDates.isEmpty()){
-        observedTransactionList.clear();
-        for (LocalDate date : selectedDates) {
-            System.out.println(date);
-        }
-        if (selectedDates.size() == 1)
-        {
-            DateLabel.setText("Transactions from "+selectedDates.get(0).toString()+".");
-        }
-        else if (selectedDates.get(0).isAfter(selectedDates.get(1))) {
-            System.out.println("Invalid Date.");
-            DateLabel.setText("Please choose an invalid date.");
-        }
-        else if (selectedDates.size()==2)
-        {
-            DateLabel.setText("Transactions from "+selectedDates.get(0).toString()+" to "+selectedDates.get(1).toString()+".");
-        }
+            observedTransactionList.clear();
+            for (LocalDate date : selectedDates) {
+                System.out.println(date);
+            }
+            if (selectedDates.size() == 1)
+            {
+                DateLabel.setText("Transactions from "+selectedDates.get(0).toString()+".");
+            }
+            else if (selectedDates.get(0).isAfter(selectedDates.get(1))) {
+                System.out.println("Invalid Date.");
+                DateLabel.setText("Please choose an invalid date.");
+            }
+            else if (selectedDates.size()==2)
+            {
+                DateLabel.setText("Transactions from "+selectedDates.get(0).toString()+" to "+selectedDates.get(1).toString()+".");
+            }
 
-        System.out.println("num of dates is "+selectedDates.size());
-        filterTransactions();
+            System.out.println("num of dates is "+selectedDates.size());
+            filterTransactions();
         }
         else
         {
@@ -183,6 +183,14 @@ public class TransactionViewController implements Initializable {
         makeTransaction();
         TransactionList.sort(new TransactionCompare());
         TransactionTable.setItems(TransactionList);
+    }
+
+    @FXML
+    private void refreshTransactions()
+    {
+        TransactionList.clear();
+        TransactionList.addAll(DataBase.getInstance().getTransactionHistory());
+
     }
 }
 
