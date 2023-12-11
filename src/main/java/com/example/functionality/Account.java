@@ -1,6 +1,7 @@
 package com.example.functionality;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Account implements Serializable {
     protected String user_name;
@@ -30,6 +31,13 @@ public class Account implements Serializable {
 
     // the value of money if he wants to pay his fees
     protected float fees_value;
+
+    // The Collection of Notifications for the account
+    ArrayList<Notification> accountNotification = new ArrayList<>();
+
+    public void addNotification(Notification newNotification) {
+        this.accountNotification.add(newNotification);
+    }
 
     PassHashing hash = new PassHashing();
    public void inner_hash(){

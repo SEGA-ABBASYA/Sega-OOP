@@ -54,11 +54,7 @@ public class Client extends Person{
         this.password = password;
     }
 
-    ArrayList<Notification> clientNotification = new ArrayList<>();
 
-    public void addNotification(Notification newNotification) {
-        this.clientNotification.add(newNotification);
-    }
 
     public Client(String id, String firstName, String lastName, String password, String state, String telephone)
     {
