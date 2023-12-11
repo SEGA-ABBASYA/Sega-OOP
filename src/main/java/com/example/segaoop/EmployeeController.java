@@ -1,6 +1,7 @@
 package com.example.segaoop;
 
 import com.example.functionality.Client;
+import com.example.functionality.DataBase;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -84,12 +86,18 @@ public class EmployeeController implements Initializable {
     }
 
     @FXML
-    void GoToEditScene(MouseEvent event) {
+    void GoToEditScene(MouseEvent event) throws IOException {
+
 
     }
 
     @FXML
-    void GoToEditEmployeeScene(MouseEvent event) {
+    public void GoToEditEmployeeScene(MouseEvent event) throws IOException {
+
+        HelloApplication test = new HelloApplication();
+        test.changeScene("Edit.fxml");
+
+
 
     }
 

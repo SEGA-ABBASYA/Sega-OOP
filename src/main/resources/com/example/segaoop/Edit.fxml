@@ -10,15 +10,11 @@
 
 <AnchorPane fx:id="pane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: linear-gradient(to Left bottom,#0000FF,ADD8E6,#FFFFFF);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.segaoop.EditController">
    <children>
-      <TextField fx:id="phone" layoutX="760.0" layoutY="114.0" prefHeight="96.0" prefWidth="385.0" promptText="Phone Number" style="-fx-background-radius: 40;">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="24.0" />
-         </font></TextField>
       <Button fx:id="Cancel" layoutX="760.0" layoutY="578.0" mnemonicParsing="false" onMouseClicked="#ReturnBackTo" prefHeight="74.0" prefWidth="195.0" style="-fx-background-radius: 30;" text="Cancel">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font></Button>
-      <TextField fx:id="position" layoutX="759.0" layoutY="259.0" prefHeight="96.0" prefWidth="386.0" promptText="Your Position" style="-fx-background-radius: 40;">
+      <TextField fx:id="position" layoutX="447.0" layoutY="212.0" prefHeight="70.0" prefWidth="386.0" promptText="Your Position" style="-fx-background-radius: 40;">
          <contextMenu>
             <ContextMenu anchorLocation="WINDOW_TOP_LEFT">
                <items>
@@ -30,7 +26,7 @@
             <Font name="Arial Rounded MT Bold" size="24.0" />
          </font>
       </TextField>
-      <TextField fx:id="address" layoutX="180.0" layoutY="392.0" prefHeight="96.0" prefWidth="386.0" promptText="Address" style="-fx-background-radius: 40;">
+      <TextField fx:id="address" layoutX="446.0" layoutY="91.0" prefHeight="70.0" prefWidth="386.0" promptText="Address" style="-fx-background-radius: 40;">
          <contextMenu>
             <ContextMenu anchorLocation="WINDOW_TOP_LEFT">
                <items>
@@ -42,12 +38,12 @@
             <Font name="Arial Rounded MT Bold" size="24.0" />
          </font>
       </TextField>
-      <TextField fx:id="FirstName" layoutX="175.0" layoutY="102.0" prefHeight="96.0" prefWidth="385.0" promptText="First Name" style="-fx-background-radius: 40;">
+      <TextField fx:id="FirstName" layoutX="14.0" layoutY="91.0" prefHeight="70.0" prefWidth="385.0" promptText="First Name" style="-fx-background-radius: 40;">
          <font>
             <Font name="Arial Rounded MT Bold" size="24.0" />
          </font>
       </TextField>
-      <TextField fx:id="LastName" layoutX="180.0" layoutY="254.0" prefHeight="96.0" prefWidth="386.0" promptText="Last Name" style="-fx-background-radius: 40;">
+      <TextField fx:id="LastName" layoutX="13.0" layoutY="212.0" prefHeight="70.0" prefWidth="386.0" promptText="Last Name" style="-fx-background-radius: 40;">
          <contextMenu>
             <ContextMenu anchorLocation="WINDOW_TOP_LEFT">
                <items>
@@ -69,5 +65,50 @@
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
       </Button>
+      <TextField fx:id="LastNameC" layoutX="26.0" layoutY="501.0" prefHeight="42.0" prefWidth="342.0" promptText="Last Name" style="-fx-background-radius: 40;">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="phoneC" layoutX="481.0" layoutY="360.0" prefHeight="42.0" prefWidth="342.0" promptText="Phone Number" style="-fx-background-radius: 40;">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="accountstate" layoutX="481.0" layoutY="426.0" prefHeight="42.0" prefWidth="342.0" promptText="Account State" style="-fx-background-radius: 40;">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="ID" layoutX="26.0" layoutY="360.0" prefHeight="42.0" prefWidth="342.0" promptText="ID" style="-fx-background-radius: 40;">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="FirstNameC" layoutX="26.0" layoutY="426.0" prefHeight="42.0" prefWidth="342.0" promptText="First Name" style="-fx-background-radius: 40;">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="24.0" />
+         </font>
+      </TextField>
+      <Label layoutX="521.0" layoutY="296.0" text="Edit Client Information">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="username" layoutX="896.0" layoutY="360.0" prefHeight="42.0" prefWidth="342.0" promptText="Username" style="-fx-background-radius: 40;">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="password" layoutX="896.0" layoutY="426.0" prefHeight="42.0" prefWidth="342.0" promptText="Password" style="-fx-background-radius: 40;">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="acctype" layoutX="481.0" layoutY="501.0" prefHeight="42.0" prefWidth="342.0" promptText="Account Type" style="-fx-background-radius: 40;">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="24.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

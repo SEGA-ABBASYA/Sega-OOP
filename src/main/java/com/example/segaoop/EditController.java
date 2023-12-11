@@ -33,42 +33,30 @@ public class EditController {
     @FXML
     protected Button Apply,Cancel;
     @FXML
-    protected TextField FirstName,LastName,position,address,phone;
-
+    protected TextField FirstName,FirstNameC,LastName,LastNameC,position,address,phone,phoneC,ID,accountstate,acctype,password,username;
 
 
     @FXML
     protected void SaveChanges (MouseEvent event) throws Exception {
 
-        HelloApplication he= new HelloApplication();
-
-        if (DataBase.getInstance().getCurrentUser() instanceof Client){
+            Employee emp = (Employee) DataBase.getInstance().getCurrentUser();
 
             Client clien = (Client) DataBase.getInstance().getCurrentUser();
 
-            clien.setFirstName(this.FirstName.getText());
-            clien.setLastName(this.LastName.getText());
-            clien.setTelephone(this.phone.getText());
-
-            position.setVisible(false);
-            address.setVisible(false);
-
-            he.changeScene("MainPageClientController.fxml");
-        }
-
-        if (DataBase.getInstance().getCurrentUser() instanceof Employee){
-
-            Employee emp = (Employee) DataBase.getInstance().getCurrentUser();
-
             emp.setfirstName(this.FirstName.getText());
-            emp.setfirstName(this.LastName.getText());
+            emp.setlastName(this.LastName.getText());
             emp.setPosition(this.position.getText());
             emp.setAddress(this.address.getText());
 
-            phone.setVisible(false);
 
-            he.changeScene("hello-view.fxml");
-        }
+            clien.setFirstName(this.FirstNameC.getText());
+            clien.setLastName(this.LastNameC.getText());
+            clien.setTelephone(this.phoneC.getText());
+            clien.setState(this.accountstate.getText());
+            clien.setId(this.ID.getText());
+            HelloApplication helloApplication=new HelloApplication();
+
+            helloApplication.changeScene("hello-view.fxml");
 
     }
     @FXML
