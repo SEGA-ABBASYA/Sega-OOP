@@ -14,8 +14,12 @@ public class Account implements Serializable {
 
     public double balance;
 
+    public double getBalance() {
+        return balance;
+    }
+
     // The account is saving (1) or current (0)
-    protected boolean acc_type;
+    public boolean acc_type;
 
     // (0) if monthly interest, (1) if yearly
     protected boolean TypeOfInterest;
