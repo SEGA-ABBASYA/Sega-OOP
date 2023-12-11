@@ -1,8 +1,6 @@
 package com.example.segaoop;
 
-import com.example.functionality.DataBase;
-import com.example.functionality.Transaction;
-import com.example.functionality.TransactionCompare;
+import com.example.functionality.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.Random;
@@ -18,23 +17,37 @@ import java.util.ResourceBundle;
 public class TransactionViewController implements Initializable {
 
     @FXML
-    private TableColumn<Transaction,Integer> Balance_Column;
+    private TableColumn<Transaction, String> TransactionDate;
 
     @FXML
-    private Label DateLabel;
+    private TableColumn<Transaction, String> Type_Column;
 
     @FXML
     private TableColumn<Transaction, Integer> Amount_Column;
 
     @FXML
-    private TableColumn<Transaction, String> TransactionDate;
+    private TableColumn<Transaction,Integer> Balance_Column;
+
+    @FXML
+    private TableColumn<Transaction, String> Sender_Column;
+
+    @FXML
+    private TableColumn<Transaction, String> Receiver_Column;
+
+    @FXML
+    private TableColumn<Transaction, String> TransactionID_Column;
+
+    @FXML
+    private TableColumn<Transaction, String> Branch_Column;
+
+    @FXML
+    private Label DateLabel;
 
     @FXML
     private TableView<Transaction> TransactionTable;
 
     @FXML
     private DatePicker endDate;
-
     @FXML
     private DatePicker startDate;
     ObservableList<LocalDate> selectedDates = FXCollections.observableArrayList();//save the dates from the datePicker
@@ -88,11 +101,20 @@ public class TransactionViewController implements Initializable {
         LocalDate startDate = LocalDate.of(2020, 1, 1);
         LocalDate endDate = LocalDate.of(2023, 12, 31);
 
-        for(Transaction x : DataBase.getInstance().getTransactionHistory())
-        {
-            TransactionList.add(x);
+        if (DataBase.getInstance().getCurrentUser() instanceof Employee)
+         {
+            for (Transaction x : DataBase.getInstance().getTransactionHistory()) {
+                TransactionList.add(x);
+            }
         }
-
+        else if (DataBase.getInstance().getCurrentUser() instanceof Client)
+        {
+            for (Transaction x : DataBase.getInstance().getTransactionHistory()) {
+                if (x.getReceiver().equals(((Client) DataBase.getInstance().getCurrentUser()).getId())||x.getSender().equals(((Client) DataBase.getInstance().getCurrentUser()).getId())){
+                TransactionList.add(x);
+                }
+            }
+        }
 //        for (int i=0;i<30;i++)
 //        {
 //            LocalDate randomDate = generateRandomDate(startDate, endDate);
@@ -105,6 +127,8 @@ public class TransactionViewController implements Initializable {
     //list for transactions
     ObservableList<Transaction> observedTransactionList = FXCollections.observableArrayList();
     //list for transactions after the filter
+
+
     void filterTransactions()
     {
         if (selectedDates.size() == 2){
@@ -177,8 +201,13 @@ public class TransactionViewController implements Initializable {
 
 
         TransactionDate.setCellValueFactory(new PropertyValueFactory<>("TransactionDate"));
+        Type_Column.setCellValueFactory(new PropertyValueFactory<>("Type"));
         Amount_Column.setCellValueFactory(new PropertyValueFactory<>("Amount"));
         Balance_Column.setCellValueFactory(new PropertyValueFactory<>("Balance"));
+        Sender_Column.setCellValueFactory(new PropertyValueFactory<>("Sender"));
+        Receiver_Column.setCellValueFactory(new PropertyValueFactory<>("Receiver"));
+        TransactionID_Column.setCellValueFactory(new PropertyValueFactory<>("TransactionID"));
+        Branch_Column.setCellValueFactory(new PropertyValueFactory<>("Branch"));
 
         makeTransaction();
         TransactionList.sort(new TransactionCompare());
@@ -189,7 +218,22 @@ public class TransactionViewController implements Initializable {
     private void refreshTransactions()
     {
         TransactionList.clear();
-        TransactionList.addAll(DataBase.getInstance().getTransactionHistory());
+
+        //TransactionList.addAll(DataBase.getInstance().getTransactionHistory());
+        if (DataBase.getInstance().getCurrentUser() instanceof Employee)
+        {
+            for (Transaction x : DataBase.getInstance().getTransactionHistory()) {
+                TransactionList.add(x);
+            }
+        }
+        else if (DataBase.getInstance().getCurrentUser() instanceof Client)
+        {
+            for (Transaction x : DataBase.getInstance().getTransactionHistory()) {
+                if (x.getReceiver().equals(((Client) DataBase.getInstance().getCurrentUser()).getId())||x.getSender().equals(((Client) DataBase.getInstance().getCurrentUser()).getId())){
+                    TransactionList.add(x);
+                }
+            }
+        }
 
     }
 }

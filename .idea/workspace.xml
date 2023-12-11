@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25462b22-c2ef-496d-9000-14184238f1c3" name="Changes" comment="improved ui">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/DataBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Transaction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/segaoop/MainPageClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/MainPageClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/segaoop/TransactionViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/TransactionViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/MainPageClientController.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/MainPageClientController.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/TransactionView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/TransactionView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="TransactionFunctionality_V2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,7 +49,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "files-with-transactions",
+    "git-widget-placeholder": "TransactionFunctionality__V3",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -71,6 +74,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.DataBase" />
+        <item itemvalue="Application.DataBase" />
       </list>
     </recent_temporary>
   </component>
@@ -86,6 +90,8 @@
       <workItem from="1701515554540" duration="1790000" />
       <workItem from="1701521628775" duration="77000" />
       <workItem from="1701524137831" duration="2471000" />
+      <workItem from="1702302804909" duration="3234000" />
+      <workItem from="1702319679153" duration="939000" />
     </task>
     <task id="LOCAL-00001" summary="added streams in database">
       <option name="closed" value="true" />
@@ -205,5 +211,15 @@
     <MESSAGE value="transfer money works" />
     <MESSAGE value="improved ui" />
     <option name="LAST_COMMIT_MESSAGE" value="improved ui" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
