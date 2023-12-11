@@ -208,7 +208,7 @@ public class DataBase implements Serializable {
         Employee em = new Employee("gus", "Gustavo", "Fring", "0101029506", "Los Pllos Hermanos", "normal", "Albuquerque University", 20000, 4, 2027, "a");
         DataBase.getInstance().addEmployee(em.getID() ,em);
 
-        for (int i=0;i<30;i++)
+        /*for (int i=0;i<30;i++)
         {
             LocalDate startDate = LocalDate.of(2020, 1, 1);
             LocalDate endDate = LocalDate.of(2023, 12, 31);
@@ -221,7 +221,7 @@ public class DataBase implements Serializable {
             Random rand = new Random();
             int rand_amount = rand.nextInt(25,2795);
             instance.addTransaction(new Transaction(randomDate.toString(),rand_amount-rand_amount%5));
-        }
+        }*/
 
         for(Transaction x : DataBase.getInstance().getTransactionHistory())
         {

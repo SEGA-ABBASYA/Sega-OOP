@@ -123,5 +123,7 @@ public class Account implements Serializable {
         return pass;
     }
 
-
+    public String getUser_name() {
+        return user_name;
+    }
 }
