@@ -128,6 +128,7 @@ public class TransactionViewController implements Initializable {
     ObservableList<Transaction> observedTransactionList = FXCollections.observableArrayList();
     //list for transactions after the filter
 
+
     void filterTransactions()
     {
         if (selectedDates.size() == 2){
