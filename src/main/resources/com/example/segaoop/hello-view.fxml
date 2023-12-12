@@ -114,22 +114,17 @@
                                     <Font name="Calibri" size="18.0" />
                                  </font>
                               </Button>
-                              <TextArea fx:id="NotificationTextArea" layoutX="15.0" layoutY="271.0" prefHeight="164.0" prefWidth="370.0" promptText="Type message here" stylesheets="@TextAreaStyle.css">
+                              <TextArea fx:id="NotificationTextArea" layoutX="15.0" layoutY="190.0" prefHeight="164.0" prefWidth="370.0" promptText="Type message here" stylesheets="@TextAreaStyle.css">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
                               </TextArea>
-                              <Button fx:id="SendNotificationButton" layoutX="14.0" layoutY="450.0" mnemonicParsing="false" onMouseClicked="#SendNotification" prefHeight="54.0" prefWidth="370.0" stylesheets="@ButtonStyle.css" text="Send Message" textAlignment="CENTER">
+                              <Button fx:id="SendNotificationButton" layoutX="221.0" layoutY="367.0" mnemonicParsing="false" onMouseClicked="#SendNotification" prefHeight="54.0" prefWidth="164.0" stylesheets="@ButtonStyle.css" text="Send Message" textAlignment="CENTER">
                                  <font>
                                     <Font name="Calibri" size="18.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="NotificationTitleTextField" layoutX="15.0" layoutY="220.0" prefHeight="38.0" prefWidth="226.0" promptText=" Type message title here" style="-fx-background-color: white; -fx-border-radius: 50; -fx-background-radius: 10;">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </TextField>
-                              <ComboBox fx:id="PriorityComboBox" layoutX="248.0" layoutY="221.0" prefHeight="37.0" prefWidth="138.0" promptText="Select Priority" stylesheets="@ComboboxStyle.css" visibleRowCount="3" />
+                              <ComboBox fx:id="PriorityComboBox" layoutX="32.0" layoutY="375.0" prefHeight="37.0" prefWidth="138.0" promptText="Select Priority" stylesheets="@ComboboxStyle.css" visibleRowCount="3" />
                            </children>
                         </AnchorPane>
                      </children>

@@ -136,7 +136,10 @@ public class EmployeeController implements Initializable {
     }
     @FXML
     void SendNotification(MouseEvent event) {
-
+        ClientsTable.getSelectionModel().getSelectedItem().addNotification(new Notification(ClientsTable,PriorityComboBox,NotificationTextArea));
+        NotificationTextArea.setText("");
+        PriorityComboBox.getSelectionModel().clearSelection();
+        PriorityComboBox.setPromptText("Select Priority");
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

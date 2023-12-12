@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25462b22-c2ef-496d-9000-14184238f1c3" name="Changes" comment="Removed the interface and made it an abstract class and redefined the Notification and Report classes and added two array list: one in the account class to save all the received notification and one in the Employee class as a saved history for all the sent notifications.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="25462b22-c2ef-496d-9000-14184238f1c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Notification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Report.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/segaoop/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +45,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Changing-the-message-logic",
+    "git-widget-placeholder": "Finishing-the-Notification-Send-Fucntionality",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -59,7 +56,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="DataBase" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.functionality.DataBase" />
       <module name="Sega-OOP" />
@@ -73,8 +70,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.segaoop.HelloApplication" />
+      <module name="Sega-OOP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.segaoop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HelloApplication" />
         <item itemvalue="Application.DataBase" />
       </list>
     </recent_temporary>
@@ -180,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702155411077</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Finished the data reading for the admin view page">
+      <option name="closed" value="true" />
+      <created>1702337238953</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1702337238953</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,6 +229,7 @@
     <MESSAGE value="transfer money works" />
     <MESSAGE value="improved ui" />
     <MESSAGE value="Removed the interface and made it an abstract class and redefined the Notification and Report classes and added two array list: one in the account class to save all the received notification and one in the Employee class as a saved history for all the sent notifications." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed the interface and made it an abstract class and redefined the Notification and Report classes and added two array list: one in the account class to save all the received notification and one in the Employee class as a saved history for all the sent notifications." />
+    <MESSAGE value="Finished the data reading for the admin view page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished the data reading for the admin view page" />
   </component>
 </project>

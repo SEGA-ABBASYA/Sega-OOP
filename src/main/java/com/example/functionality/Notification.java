@@ -1,17 +1,20 @@
 package com.example.functionality;
 
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 
 public class Notification extends Message{
 
 
-    public Notification(ComboBox<String> priority,TextArea content){
+    public Notification(TableView<Account> clientList, ComboBox<String> priority, TextArea content){
 
         sender = (Employee) DataBase.getInstance().getCurrentUser();
-        //receiver = ;
+
+        receiver = clientList.getSelectionModel().getSelectedItem();
         messageReadStatus = false;
         // Get the current system date and time
         LocalDateTime currentDateTime = LocalDateTime.now();
@@ -38,7 +41,8 @@ public class Notification extends Message{
 
     }
 
-
-
-
+    // Comparator for sorting by date in descending order
+    public static Comparator<Notification> dateComparator = Comparator
+            .comparing(Notification::getDate)
+            .reversed();
 }
