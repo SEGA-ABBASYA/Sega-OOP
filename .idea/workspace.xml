@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25462b22-c2ef-496d-9000-14184238f1c3" name="Changes" comment="Removed the interface and made it an abstract class and redefined the Notification and Report classes and added two array list: one in the account class to save all the received notification and one in the Employee class as a saved history for all the sent notifications.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="25462b22-c2ef-496d-9000-14184238f1c3" name="Changes" comment="ERROR: NOTIFS ARE SAVED AN NULL">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Employee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Notification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Report.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/segaoop/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,14 +45,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Changing-the-message-logic",
+    "git-widget-placeholder": "fixing-notification-null-bug",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -76,6 +70,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.DataBase" />
+        <item itemvalue="Application.DataBase" />
       </list>
     </recent_temporary>
   </component>
@@ -91,6 +86,8 @@
       <workItem from="1701515554540" duration="1790000" />
       <workItem from="1701521628775" duration="77000" />
       <workItem from="1701524137831" duration="2471000" />
+      <workItem from="1702302804909" duration="3234000" />
+      <workItem from="1702319679153" duration="939000" />
     </task>
     <task id="LOCAL-00001" summary="added streams in database">
       <option name="closed" value="true" />
@@ -180,7 +177,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702155411077</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="ERROR: NOTIFS ARE SAVED AN NULL">
+      <option name="closed" value="true" />
+      <created>1702488712003</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1702488712004</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,7 +214,17 @@
     <MESSAGE value="updated client window and controller" />
     <MESSAGE value="transfer money works" />
     <MESSAGE value="improved ui" />
-    <MESSAGE value="Removed the interface and made it an abstract class and redefined the Notification and Report classes and added two array list: one in the account class to save all the received notification and one in the Employee class as a saved history for all the sent notifications." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed the interface and made it an abstract class and redefined the Notification and Report classes and added two array list: one in the account class to save all the received notification and one in the Employee class as a saved history for all the sent notifications." />
+    <MESSAGE value="ERROR: NOTIFS ARE SAVED AN NULL" />
+    <option name="LAST_COMMIT_MESSAGE" value="ERROR: NOTIFS ARE SAVED AN NULL" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

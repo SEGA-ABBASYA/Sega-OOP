@@ -2,6 +2,7 @@ package com.example.functionality;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Account implements Serializable {
     public String getUser_name() {
@@ -41,7 +42,20 @@ public class Account implements Serializable {
     ArrayList<Notification> accountNotification = new ArrayList<>();
 
     public void addNotification(Notification newNotification) {
+
         this.accountNotification.add(newNotification);
+        //---Sorting the Array After Adding the New Notification---//
+        Collections.sort(this.accountNotification,Notification.dateComparator);
+    }
+    public int countUnreadMessages(){
+        int unReadMessages = 0;
+        for(Notification n : accountNotification){
+            if(!n.getMessageReadStatus())
+            {
+                unReadMessages++;
+            }
+        }
+        return unReadMessages;
     }
 
     PassHashing hash = new PassHashing();
@@ -160,5 +174,9 @@ public class Account implements Serializable {
         {
             return "Current";
         }
+    }
+
+    public ArrayList<Notification> getAllNotifications() {
+        return accountNotification;
     }
 }

@@ -26,9 +26,14 @@
       </AnchorPane>
       <TableView fx:id="TransactionTable" prefHeight="718.0" prefWidth="868.0" stylesheets="@stylefortable.css">
          <columns>
-            <TableColumn fx:id="TransactionDate" prefWidth="272.0000488281257" text="Transaction Date" />
-            <TableColumn fx:id="Amount_Column" minWidth="0.0" prefWidth="186.4000244140625" text="Amount" />
-            <TableColumn fx:id="Balance_Column" prefWidth="163.20001220703125" text="Balance" />
+            <TableColumn fx:id="TransactionDate" prefWidth="123.0" text="Transaction Date" />
+            <TableColumn fx:id="Type_Column" prefWidth="64.0" text="Type" />
+            <TableColumn fx:id="Amount_Column" minWidth="0.0" prefWidth="68.0" text="Amount" />
+            <TableColumn fx:id="Balance_Column" prefWidth="71.0" text="Balance" />
+            <TableColumn fx:id="Sender_Column" prefWidth="84.0" text="Sender" />
+            <TableColumn fx:id="Receiver_Column" prefWidth="62.0" text="Receiver" />
+            <TableColumn fx:id="TransactionID_Column" prefWidth="165.0" text="TransactionID" />
+            <TableColumn fx:id="Branch_Column" prefWidth="69.0" text="Branch" />
          </columns>
       </TableView>
    </items>

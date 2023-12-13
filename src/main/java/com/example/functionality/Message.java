@@ -1,6 +1,8 @@
 package com.example.functionality;
 
-public abstract class Message
+import java.io.Serializable;
+
+public abstract class Message implements Serializable
 {
     protected Employee sender = null;
     protected Account receiver = null;

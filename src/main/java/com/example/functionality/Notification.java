@@ -1,17 +1,28 @@
 package com.example.functionality;
 
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 
-public class Notification extends Message{
+public class Notification extends Message implements Serializable {
 
 
-    public Notification(ComboBox<String> priority,TextArea content){
-
+//    public Notification(TableView<Account> clientList, ComboBox<String> priority, TextArea content)
+    public Notification(String priority, String content)
+    {
+        //System.out.println("receiver: " + receiver);
+        System.out.println("priority: " + priority);
+        System.out.println("content: "  + content);
         sender = (Employee) DataBase.getInstance().getCurrentUser();
-        //receiver = ;
+
+        //receiver = receiverAccount.getSelectionModel().getSelectedItem();
+        //this.receiver = receiverAccount;
+
         messageReadStatus = false;
         // Get the current system date and time
         LocalDateTime currentDateTime = LocalDateTime.now();
@@ -19,9 +30,9 @@ public class Notification extends Message{
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         this.date = currentDateTime.format(formatter);
 
-        String choice = String.valueOf(priority.getSelectionModel().selectedItemProperty()).toLowerCase();
+        //String choice = String.valueOf(priority.getSelectionModel().selectedItemProperty()).toLowerCase();
 
-        switch(choice){
+        switch(priority.toLowerCase()){
             case "normal":
                 this.category = "Normal";
                 break;
@@ -32,13 +43,15 @@ public class Notification extends Message{
                 this.category = "Warning";
                 break;
         }
-        this.content = content.getText();
+//        this.content = content.getText().toString();
 
-
-
+        this.content = content;
+        System.out.println("this.content: " + this.content);
+        System.out.println("date: " + date);
     }
 
-
-
-
+    // Comparator for sorting by date in descending order
+    public static Comparator<Notification> dateComparator = Comparator
+            .comparing(Notification::getDate)
+            .reversed();
 }

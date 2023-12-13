@@ -21,6 +21,7 @@ public class MainPageClientController implements Initializable {
 
     Client user = (Client) DataBase.getInstance().getCurrentUser();
     Account current_acc = DataBase.getInstance().getCurrentAccount();
+
     @FXML
     private Button transfer;
 
@@ -95,8 +96,9 @@ public class MainPageClientController implements Initializable {
             accountID.setText("");
             amount.setText("");
             password.setText("");
-            Transaction newTrans = new Transaction(LocalDate.now().toString(), value);
+            Transaction newTrans = new Transaction(LocalDate.now().toString(), value,sender.getUser_name(),receiver.getUser_name());
             DataBase.getInstance().addTransaction(newTrans);
+            DataBase.getInstance().getTransactionHistory().sort(new TransactionCompare());
         }
         catch (MoneyExceptions e)
         {

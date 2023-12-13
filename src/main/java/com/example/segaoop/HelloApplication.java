@@ -18,9 +18,17 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException, ClassNotFoundException {
         DataBase.getInstance().loadFromFile();
-        for (String key : DataBase.getInstance().getAllEmployees().keySet())
+//        for (String key : DataBase.getInstance().getAllEmployees().keySet())
+//        {
+//            System.out.println("employee: " + key + " pass: " + DataBase.getInstance().getEmployee(key).getPassword());
+//        }
+        for(String key : DataBase.getInstance().getAllAccounts().keySet())
         {
-            System.out.println("employee: " + key + " pass: " + DataBase.getInstance().getEmployee(key).getPassword());
+            System.out.println("account owner: " + DataBase.getInstance().getAccount(key).getOwner().getId());
+            for (Notification notif : DataBase.getInstance().getAccount(key).getAllNotifications())
+            {
+                System.out.println("notif: " + notif.getContent()) ;
+            }
         }
 
         stg = stage;
