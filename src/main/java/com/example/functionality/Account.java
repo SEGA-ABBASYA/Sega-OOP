@@ -1,10 +1,17 @@
 package com.example.functionality;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Account implements Serializable {
+    public String getUser_name() {
+        return user_name;
+    }
+
     protected String user_name;
-    private int account_number;
+
+    private Integer account_number;
     Client owner;
 
     // The real pass taken from pass text field
@@ -12,13 +19,13 @@ public class Account implements Serializable {
 
     protected String hashed_pass;
 
-    public double balance;
+    public Double balance;
 
     // The account is saving (1) or current (0)
-    protected boolean acc_type;
+    protected Boolean acc_type;
 
     // (0) if monthly interest, (1) if yearly
-    protected boolean TypeOfInterest;
+    protected Boolean TypeOfInterest;
 
     protected float fees;
 
@@ -30,6 +37,26 @@ public class Account implements Serializable {
 
     // the value of money if he wants to pay his fees
     protected float fees_value;
+
+    // The Collection of Notifications for the account
+    ArrayList<Notification> accountNotification = new ArrayList<>();
+
+    public void addNotification(Notification newNotification) {
+
+        this.accountNotification.add(newNotification);
+        //---Sorting the Array After Adding the New Notification---//
+        Collections.sort(this.accountNotification,Notification.dateComparator);
+    }
+    public int countUnreadMessages(){
+        int unReadMessages = 0;
+        for(Notification n : accountNotification){
+            if(!n.getMessageReadStatus())
+            {
+                unReadMessages++;
+            }
+        }
+        return unReadMessages;
+    }
 
     PassHashing hash = new PassHashing();
    public void inner_hash(){
@@ -97,11 +124,13 @@ public class Account implements Serializable {
        }
     }
 
-    public Account(String user_name, String pass, double balance, Client owner) {
+    public Account(String user_name, String pass, double balance,Boolean State,Boolean acc_type, Client owner) {
         this.user_name = user_name;
         this.pass = pass;
 //        this.hashed_pass = hashed_pass;
         this.balance = balance;
+        this.acc_type = acc_type;
+        this.TypeOfInterest = State;
         this.owner = owner;
         this.account_number = ++DataBase.getInstance().lastAccountNumber;
         System.out.println("created new account");
@@ -111,7 +140,7 @@ public class Account implements Serializable {
         return hashed_pass;
     }
 
-    public int getAccount_number() {
+    public Integer getAccount_number() {
         return account_number;
     }
 
@@ -123,7 +152,27 @@ public class Account implements Serializable {
         return pass;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public Double getBalance() { return balance; }
+
+    public String getState()
+    {
+        if (TypeOfInterest)
+        {
+            return "Active";
+        }
+        else
+            return "Inactive";
+    }
+
+    public String getType()
+    {
+        if (acc_type)
+        {
+            return "Saving";
+        }
+        else
+        {
+            return "Current";
+        }
     }
 }

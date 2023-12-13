@@ -1,0 +1,24 @@
+/* style.css */
+
+/* Customize the text area */
+.text-area {
+    -fx-font-size: 14px;
+    -fx-font-family: "Arial";
+    -fx-text-fill: #333333; /* Text color */
+    -fx-background-color: #ffffff; /* Background color */
+    -fx-border-color: #999999; /* Border color */
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+    -fx-padding: 5px;
+}
+
+/* Hover effect */
+.text-area:hover {
+    -fx-background-color: #f0f0f0; /* Change background color on hover */
+}
+
+/* Focus effect */
+.text-area:focused {
+    -fx-border-color: #0078d4; /* Change border color on focus */
+    -fx-border-width: 2px;
+}
