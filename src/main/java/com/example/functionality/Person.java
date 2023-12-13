@@ -8,6 +8,6 @@ public abstract class Person
     protected String id;
     protected String firstName;
     protected String lastName;
-    protected String telephone;
+    protected String phoneNumber;
     protected String address;
 }

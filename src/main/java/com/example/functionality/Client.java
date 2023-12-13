@@ -1,9 +1,11 @@
 package com.example.functionality;
 
+import java.util.ArrayList;
 
 import java.util.ArrayList;
 
 public class Client extends Person{
+
     //private Integer id;
     public void setId(String id) {
         this.id = id;
@@ -11,6 +13,14 @@ public class Client extends Person{
     public String getId() {
         return id;
     }
+
+
+    //private Double Balance;
+    private Double Balance;
+    public void setBalance(Double Balance) {this.Balance = Balance;}
+    public Double getBalance() {return Balance;}
+
+
 
     //private String firstName;
     public void setFirstName(String firstName) {
@@ -20,6 +30,8 @@ public class Client extends Person{
         return firstName;
     }
 
+
+
     //private String lastName;
     public void setLastName(String lastName) {
         this.lastName = lastName;
@@ -28,58 +40,35 @@ public class Client extends Person{
         return lastName;
     }
 
+
     //private String telephone;
-    public String getTelephone() {
-        return telephone;
+    public void setTelephone(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    // PLACE HOLDER FOR ACCOUNTS ARRAY
-
-    private String state;
-    public String getState() {
-        return state;
-    }
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    private String role;
-    public String getRole() {
-        return role;
-    }
-    public void setRole(String role) {
-        this.role = role;
-    }
+    public String getTelephone() {return phoneNumber;}
 
 
-    //    private Float balance;
 
-    private String passwordHash;
-    public String getPasswordHash() {
-        return passwordHash;
+    // if saving account 1 or current account 0
+    private Boolean accountType;
+    public void setState(Boolean accountType) {this.accountType = accountType;}
+    public Boolean getState() {
+        return accountType;
     }
 
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
-    }
 
     ArrayList<Notification> clientNotification = new ArrayList<>();
-
     public void addNotification(Notification newNotification) {
         this.clientNotification.add(newNotification);
     }
 
-    public Client(String id, String firstName, String lastName, String passwordHash, String role, String state, String telephone)
+    public Client(String id, String firstName, String lastName, Boolean accountType , String phoneNumber , Double Balance)
     {
-        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.telephone = telephone;
-        this.passwordHash = passwordHash;
-        this.role = role;
-        this.state = state;
+        this.phoneNumber = phoneNumber;
+        this.Balance=Balance;
+        this.id = id;
+        this.accountType = accountType;
     }
 }

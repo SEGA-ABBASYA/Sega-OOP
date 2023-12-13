@@ -1,13 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.segaoop.CreateEmployee"
-            prefHeight="400.0" prefWidth="600.0">
-</AnchorPane>
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: linear-gradient(to right bottom,#89CFF0 , #ADD8E6,#FFFFFF);" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.segaoop.CreateEmployee">
+    <children>
+        <Button fx:id="ADD" layoutX="523.0" layoutY="637.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="150.0" style="-fx-background-radius: 20;" text="Create" />
+        <Button cancelButton="true" layoutX="754.0" layoutY="637.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="150.0" style="-fx-background-radius: 20;" text="Cancel" />
+        <TextField fx:id="FirstName" layoutX="184.0" layoutY="143.0" prefHeight="40.0" prefWidth="462.0" promptText="First Name" style="-fx-background-radius: 15;">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="18.0" />
+            </font></TextField>
+        <TextField fx:id="LastName" layoutX="702.0" layoutY="143.0" prefHeight="40.0" prefWidth="462.0" promptText="Last Name" style="-fx-background-radius: 15;">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="18.0" />
+            </font></TextField>
+        <TextField fx:id="TotalGrade" layoutX="702.0" layoutY="334.0" prefHeight="40.0" prefWidth="462.0" promptText=" Total grade (Excellent , V.Good , Good , Weak)" style="-fx-background-radius: 15;">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="18.0" />
+            </font></TextField>
+        <TextField fx:id="ID" layoutX="184.0" layoutY="334.0" prefHeight="40.0" prefWidth="462.0" promptText="ID" style="-fx-background-radius: 15;">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="18.0" />
+            </font></TextField>
+        <TextField fx:id="Position" alignment="BOTTOM_LEFT" layoutX="702.0" layoutY="244.0" prefHeight="40.0" prefWidth="462.0" promptText="Position" style="-fx-background-radius: 15;">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="18.0" />
+            </font></TextField>
+        <TextField fx:id="Address" layoutX="184.0" layoutY="244.0" prefHeight="40.0" prefWidth="462.0" promptText="Address" style="-fx-background-radius: 15;">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="18.0" />
+            </font></TextField>
+        <TextField fx:id="GraduatedCollage" layoutX="702.0" layoutY="419.0" prefHeight="40.0" prefWidth="462.0" promptText="Graduated collage" style="-fx-background-radius: 15;">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="18.0" />
+            </font></TextField>
+        <TextField fx:id="YearOfGraduation" alignment="BOTTOM_LEFT" layoutX="184.0" layoutY="419.0" prefHeight="40.0" prefWidth="462.0" promptText="Year of graduation" style="-fx-background-radius: 15;">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="18.0" />
+            </font>
+        </TextField>
+        <Text layoutX="523.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Employee" wrappingWidth="326.4000549316406">
+            <font>
+                <Font name="Dubai Regular" size="47.0" />
+            </font>
+        </Text>
+        <TextField fx:id="Salary" alignment="BOTTOM_LEFT" layoutX="184.0" layoutY="511.0" prefHeight="40.0" prefWidth="462.0" promptText="Salary" style="-fx-background-radius: 15;">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="18.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="PhoneNumber" alignment="BOTTOM_LEFT" layoutX="702.0" layoutY="511.0" prefHeight="40.0" prefWidth="462.0" promptText="Phone Number" style="-fx-background-radius: 15;">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="18.0" />
+            </font>
+        </TextField>
+    </children>
+</fx:root>

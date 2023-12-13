@@ -1,7 +1,7 @@
 package com.example.functionality;
 
 public class Employee extends Person{
-
+  // Salary , phonenumber
     protected String position,graduationCollage;
 
     protected float salary,totalGrade;
@@ -17,7 +17,7 @@ public class Employee extends Person{
         this.id=ID;
         this.firstName=fN;
         this.lastName=lF;
-        this.telephone=telephone;
+        this.phoneNumber=telephone;
     }
 
     public String getID(){
@@ -39,10 +39,10 @@ public class Employee extends Person{
         this.lastName=lN;
     }
     public String getTelephone(){
-        return telephone;
+        return phoneNumber;
     }
     public void setTelephone(String Tele){
-        this.telephone=Tele;
+        this.phoneNumber=Tele;
     }
     public String getAddress(){
         return id;
