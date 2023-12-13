@@ -132,7 +132,9 @@ public class EmployeeController implements Initializable {
 
     @FXML
     void RemoveSelectedItem(MouseEvent event) {
-
+        String s = ClientsTable.getSelectionModel().getSelectedItem().getUser_name();
+        DataBase.getInstance().getAllAccounts().remove(s);
+        updatelist();
     }
     @FXML
     void SendNotification(MouseEvent event) {
@@ -150,6 +152,15 @@ public class EmployeeController implements Initializable {
         NotificationTextArea.setText("");
         PriorityComboBox.getSelectionModel().clearSelection();
         PriorityComboBox.setPromptText("Select Priority");
+    }
+
+    void updatelist()
+    {
+        ObservableList<Account> tobeaddedlistfirst = FXCollections.observableArrayList();
+        for (String key:DataBase.getInstance().getAllAccounts().keySet()) {
+            tobeaddedlistfirst.add(DataBase.getInstance().getAccount(key));
+        }
+        ClientsTable.setItems(tobeaddedlistfirst);
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -170,11 +181,7 @@ public class EmployeeController implements Initializable {
         UsernameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUser_name()));
 
 
-        ObservableList<Account> tobeaddedlistfirst = FXCollections.observableArrayList();
-        for (String key:DataBase.getInstance().getAllAccounts().keySet()) {
-            tobeaddedlistfirst.add(DataBase.getInstance().getAccount(key));
-        }
-        ClientsTable.setItems(tobeaddedlistfirst);
+        updatelist();
     }
 }
 
