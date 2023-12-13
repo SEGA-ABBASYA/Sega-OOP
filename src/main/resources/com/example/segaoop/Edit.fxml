@@ -95,12 +95,12 @@
             <Font name="Arial Rounded MT Bold" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="username" layoutX="896.0" layoutY="360.0" prefHeight="42.0" prefWidth="342.0" promptText="Username" style="-fx-background-radius: 40;">
+      <TextField fx:id="username" layoutX="896.0" layoutY="426.0" prefHeight="42.0" prefWidth="342.0" promptText="Username" style="-fx-background-radius: 40;">
          <font>
             <Font name="Arial Rounded MT Bold" size="24.0" />
          </font>
       </TextField>
-      <TextField fx:id="password" layoutX="896.0" layoutY="426.0" prefHeight="42.0" prefWidth="342.0" promptText="Password" style="-fx-background-radius: 40;">
+      <TextField fx:id="password" layoutX="896.0" layoutY="501.0" prefHeight="42.0" prefWidth="342.0" promptText="Password" style="-fx-background-radius: 40;">
          <font>
             <Font name="Arial Rounded MT Bold" size="24.0" />
          </font>
@@ -110,5 +110,10 @@
             <Font name="Arial Rounded MT Bold" size="24.0" />
          </font>
       </TextField>
+      <Label layoutX="916.0" layoutY="360.0" text="Edit Your Client Password">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

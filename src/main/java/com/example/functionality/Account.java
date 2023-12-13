@@ -3,9 +3,19 @@ package com.example.functionality;
 import java.io.Serializable;
 
 public class Account implements Serializable {
+
+
+    public String getUser_name() {
+        return user_name;
+    }
+
     protected String user_name;
     private int account_number;
     Client owner;
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
 
     // The real pass taken from pass text field
     private String pass;
@@ -13,6 +23,8 @@ public class Account implements Serializable {
     protected String hashed_pass;
 
     public double balance;
+
+
 
     public double getBalance() {
         return balance;

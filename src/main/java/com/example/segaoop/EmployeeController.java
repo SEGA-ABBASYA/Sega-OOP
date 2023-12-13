@@ -95,8 +95,8 @@ public class EmployeeController implements Initializable {
     public void GoToEditEmployeeScene(MouseEvent event) throws IOException {
 
         HelloApplication test = new HelloApplication();
-        test.changeScene("Edit.fxml");
 
+        test.changeScene("Edit.fxml");
 
 
     }
