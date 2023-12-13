@@ -110,7 +110,7 @@
             <Font name="Arial Rounded MT Bold" size="24.0" />
          </font>
       </TextField>
-      <Label layoutX="916.0" layoutY="360.0" text="Edit Your Client Password">
+      <Label layoutX="916.0" layoutY="360.0" text="Edit Account Password">
          <font>
             <Font name="Arial Rounded MT Bold" size="24.0" />
          </font>
