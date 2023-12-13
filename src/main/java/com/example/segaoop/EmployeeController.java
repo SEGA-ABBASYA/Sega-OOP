@@ -83,6 +83,15 @@ public class EmployeeController implements Initializable {
     private TableColumn<Account, Double> BalanceColumn;
 
     @FXML
+    private TextField ReportSubjectTextField;
+
+    @FXML
+    private TextArea ReportTextArea;
+
+    @FXML
+    private Button SendReportButton;
+
+    @FXML
     private TableColumn<Account, String> TelephoneNumberColumn;
 
     @FXML

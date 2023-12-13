@@ -58,7 +58,34 @@
             </Tab>
             <Tab text="Send Report">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="720.0" fitWidth="1287.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@mango.jpg" />
+                           </image>
+                        </ImageView>
+                        <TextArea fx:id="ReportTextArea" layoutX="25.0" layoutY="225.0" prefHeight="394.0" prefWidth="892.0" promptText="Type Report Here" stylesheets="@TextAreaStyle.css">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </TextArea>
+                        <TextField fx:id="ReportSubjectTextField" layoutX="25.0" layoutY="169.0" prefHeight="38.0" prefWidth="397.0" promptText="Type Report Subject Here" style="-fx-background-color: white; -fx-border-radius: 50; -fx-background-radius: 10;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="SendReportButton" layoutX="965.0" layoutY="564.0" mnemonicParsing="false" onMouseClicked="#SendNotification" prefHeight="54.0" prefWidth="268.0" stylesheets="@ButtonStyle.css" text="Send Message" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="18.0" />
+                           </font>
+                        </Button>
+                        <Text fx:id="NameText1" fill="#3300ff" layoutX="305.0" layoutY="126.0" stroke="WHITE" strokeWidth="2.0" text="Send Report to Admin" textAlignment="CENTER" wrappingWidth="670.4033164978027">
+                           <font>
+                              <Font size="64.0" />
+                           </font>
+                        </Text>
+                     </children></AnchorPane>
               </content>
             </Tab>
             <Tab text="Create Account">
