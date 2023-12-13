@@ -96,7 +96,7 @@ public class EmployeeController implements Initializable {
         ObservableList<Account> tobeaddedlist = FXCollections.observableArrayList();
         for (String key:DataBase.getInstance().getAllAccounts().keySet()) {
 
-            if (key.contains(SearchTextField.getText().toLowerCase()))
+            if (key.contains(SearchTextField.getText().toString().toLowerCase()))
             {
                 tobeaddedlist.add(DataBase.getInstance().getAccount(key));
             }
@@ -136,7 +136,17 @@ public class EmployeeController implements Initializable {
     }
     @FXML
     void SendNotification(MouseEvent event) {
-        ClientsTable.getSelectionModel().getSelectedItem().addNotification(new Notification(ClientsTable,PriorityComboBox,NotificationTextArea));
+        String receiverUserName = ClientsTable.getSelectionModel().getSelectedItem().getUser_name();
+        String choice = String.valueOf(PriorityComboBox.getSelectionModel().selectedItemProperty()).toLowerCase();
+        String content = NotificationTextArea.getText().toString();
+        Account receiver = ClientsTable.getSelectionModel().getSelectedItem();
+        DataBase.getInstance().getAccount(receiverUserName).addNotification(new Notification(receiver,choice,content));
+
+        //DataBase.getInstance().getAccount(receiverUserName).addNotification(new Notification(ClientsTable,PriorityComboBox,NotificationTextArea));
+        //ClientsTable.getSelectionModel().getSelectedItem().addNotification(new Notification(ClientsTable,PriorityComboBox,NotificationTextArea));
+
+
+
         NotificationTextArea.setText("");
         PriorityComboBox.getSelectionModel().clearSelection();
         PriorityComboBox.setPromptText("Select Priority");

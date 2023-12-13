@@ -175,4 +175,8 @@ public class Account implements Serializable {
             return "Current";
         }
     }
+
+    public ArrayList<Notification> getAllNotifications() {
+        return accountNotification;
+    }
 }
