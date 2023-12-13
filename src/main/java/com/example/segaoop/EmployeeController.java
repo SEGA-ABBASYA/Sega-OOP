@@ -92,6 +92,9 @@ public class EmployeeController implements Initializable {
     private TableColumn<Account, String> UsernameColumn;
 
     @FXML
+    private Label somethingNotSelectedMessage;
+
+    @FXML
     void BeginSearch(MouseEvent event) {
         ObservableList<Account> tobeaddedlist = FXCollections.observableArrayList();
         for (String key:DataBase.getInstance().getAllAccounts().keySet()) {
@@ -138,11 +141,24 @@ public class EmployeeController implements Initializable {
     }
     @FXML
     void SendNotification(MouseEvent event) {
+
+        if(PriorityComboBox.getSelectionModel().selectedItemProperty().getValue() == null || NotificationTextArea.getText().toString().isEmpty())
+        {
+            somethingNotSelectedMessage.setText("Please Type your Message\n and Choose it's Urgency");
+            return;
+        }
+        else
+        {
+            somethingNotSelectedMessage.setText("");
+        }
+
         String receiverUserName = ClientsTable.getSelectionModel().getSelectedItem().getUser_name();
-        String choice = String.valueOf(PriorityComboBox.getSelectionModel().selectedItemProperty()).toLowerCase();
+
+        String choice = String.valueOf(PriorityComboBox.getSelectionModel().selectedItemProperty().getValue().toString()).toLowerCase();
         String content = NotificationTextArea.getText().toString();
-        Account receiver = ClientsTable.getSelectionModel().getSelectedItem();
-        DataBase.getInstance().getAccount(receiverUserName).addNotification(new Notification(receiver,choice,content));
+        Account receiver = (Account) ClientsTable.getSelectionModel().getSelectedItem();
+        DataBase.getInstance().getAccount(receiverUserName).addNotification(new Notification(choice,content));
+//        DataBase.getInstance().getAccount(receiverUserName).addNotification(new Notification(receiver,choice,content));
 
         //DataBase.getInstance().getAccount(receiverUserName).addNotification(new Notification(ClientsTable,PriorityComboBox,NotificationTextArea));
         //ClientsTable.getSelectionModel().getSelectedItem().addNotification(new Notification(ClientsTable,PriorityComboBox,NotificationTextArea));
@@ -164,6 +180,7 @@ public class EmployeeController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        somethingNotSelectedMessage.setText("");
         Employee curracc = (Employee)DataBase.getInstance().getCurrentUser();
         NameText.setText(curracc.firstName + ' ' + curracc.lastName);
         IDText.setText("ID: " + curracc.id);
