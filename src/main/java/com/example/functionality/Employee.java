@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Employee extends Person{
 
     protected String position,graduationCollage;
-    protected String password;
+    public String password;
     protected float salary,totalGrade;
     protected int graduationYear;
     ArrayList<Notification> sentNotificationHistory = new ArrayList<>();
@@ -73,9 +73,7 @@ public class Employee extends Person{
     public float getTotalGrade() {
         return totalGrade;
     }
-    public void setTotalGrade(float totalGrade) {
-        this.totalGrade = totalGrade;
-    }
+    public void setTotalGrade(float totalGrade) {this.totalGrade = totalGrade;}
     public int getGraduationYear() {
         return graduationYear;
     }

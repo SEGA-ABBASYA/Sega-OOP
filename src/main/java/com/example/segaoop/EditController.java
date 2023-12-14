@@ -1,165 +1,134 @@
 package com.example.segaoop;
 
 
-
+import com.example.functionality.*;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.scene.input.MouseEvent;
 
-public class EditController {
+public class EditController implements Initializable {
 
 
 
     @FXML
     AnchorPane pane;
-
     @FXML
     protected Button Apply,Cancel;
     @FXML
-    protected TextField passwor,ID,UserName,FirstName,LastName,AccountNum,PhoneNum,AccState,TypeAcc,Balance;
-    @FXML
-    protected String UserName_,FirstName_,LastName_,AccState_,TypeAcc_;
-    @FXML
-    protected int ID_,AccountNum_,PhoneNum_;
-    @FXML
-    protected TextField position,address,gradColl,YrGradm,Tgrade;
-    @FXML
-    protected String position_,address_,gradColl_;
-    @FXML
-    protected float YrGradm_,Tgrade_;
-    @FXML
-    protected float Balance_;
-    @FXML
-    protected Label accountnuml,uswernamel,passwordl,phonenuml,accstatel,typeaccl,balancel,addressl,positionl,colgradl,tgradl,yrgradl;
-
+    protected TextField FirstName,FirstNameC,LastName,LastNameC,position,address,phoneC,ID,accountstate,acctype,password,username;
 
 
     @FXML
-    void ReturnBackTo(MouseEvent event) {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Employee emp = (Employee) DataBase.getInstance().getCurrentUser();
+
+        FirstName.setText(emp.getfirstName().toString());
+        LastName.setText(emp.getlastName().toString());
+        address.setText(emp.getAddress().toString());
+        position.setText(emp.getPosition().toString());
+
+    }
+
+   /* void getClient(MouseEvent event)  {
+
+        Client client = DataBase.getInstance().getClient(this.ID.getText().toString());
+
+        FirstNameC.setText(client.getFirstName().toString());
+        LastNameC.setText(client.getLastName().toString());
+        phoneC.setText(client.getTelephone().toString());
+        accountstate.setText(client.getState().toString());
+
+
+    }*/
+
+    @FXML
+    public void SaveChanges (MouseEvent event) throws IOException {
+
+        Employee emp = (Employee) DataBase.getInstance().getCurrentUser();
+
+        Client client = DataBase.getInstance().getClient(this.ID.getText().toString());
+
+
+        if(!this.FirstName.getText().isEmpty()) {
+            emp.setfirstName(this.FirstName.getText().toString());
+        }
+        if(!this.LastName.getText().isEmpty()) {
+            emp.setlastName(this.LastName.getText().toString());
+        }
+        if(!this.position.getText().isEmpty()) {
+            emp.setPosition(this.position.getText().toString());
+        }
+        if(!this.address.getText().isEmpty()) {
+            emp.setAddress(this.address.getText().toString());
+        }
+
+
+
+        if(!this.FirstNameC.getText().isEmpty()) {
+            client.setFirstName(this.FirstNameC.getText().toString());
+        }
+        if(!this.LastNameC.getText().isEmpty()) {
+            client.setLastName(this.LastNameC.getText().toString());
+        }
+        if(!this.phoneC.getText().isEmpty()) {
+            client.setTelephone(this.phoneC.getText().toString());
+        }
+        if(!this.accountstate.getText().isEmpty()) {
+            client.setState(this.accountstate.getText().toString());
+        }
+        if(!username.getText().isEmpty()) {
+
+            Account acc = DataBase.getInstance().getAccount(this.username.getText().toString());
+
+            if (!password.getText().isEmpty()){
+                acc.setPass(password.getText().toString());
+
+            }
+            if (!acctype.getText().isEmpty() && (acctype.getText().equals("Saving") || acctype.getText().equals("saving"))) {
+                acc.acc_type = true;
+            } else
+                acc.acc_type = false;
+        }
+
+        HelloApplication helloApplication=new HelloApplication();
+        pane.setVisible(false);
+        helloApplication.changeScene("hello-view.fxml");
+
+    }
+    @FXML
+    public void ReturnBackTo(MouseEvent event) throws IOException {
 
         pane.setVisible(false);
+        HelloApplication he = new HelloApplication();
 
-
-
+        he.changeScene("hello-view.fxml");
     }
-
-    @FXML
-    protected void SaveChanges (MouseEvent event,String t) {
-
-        if (t.equals("Client")) {
-            ID_ = Integer.parseInt(this.ID.getText());
-            UserName_ = this.UserName.getText();
-            FirstName_ = this.FirstName.getText();
-            LastName_ = this.LastName.getText();
-            AccountNum_ = Integer.parseInt(this.AccountNum.getText());
-            PhoneNum_ = Integer.parseInt(this.PhoneNum.getText());
-            AccState_ = this.AccState.getText();
-            TypeAcc_ = this.TypeAcc.getText();
-            Balance_ = Integer.parseInt(this.Balance.getText());
-
-            position.setVisible(false);
-            address.setVisible(false);
-            gradColl.setVisible(false);
-            YrGradm.setVisible(false);
-            Tgrade.setVisible(false);
-            addressl.setVisible(false);
-            positionl.setVisible(false);
-            colgradl.setVisible(false);
-            yrgradl.setVisible(false);
-            tgradl.setVisible(false);
-
-
-
-        }
-
-        if (t.equals("Employee")){
-
-            ID_ = Integer.parseInt(this.ID.getText());
-            UserName_ = this.UserName.getText();
-            FirstName_ = this.FirstName.getText();
-            LastName_ = this.LastName.getText();
-            position_=this.position.getText();
-            address_= this.address.getText();
-            gradColl_= this.gradColl.getText();
-            YrGradm_= Float.parseFloat(this.YrGradm.getText());
-            Tgrade_ =  Float.parseFloat(this.Tgrade.getText());
-
-            AccountNum.setVisible(false);
-            PhoneNum.setVisible(false);
-            AccState.setVisible(false);
-            TypeAcc.setVisible(false);
-            Balance.setVisible(false);
-            accountnuml.setVisible(false);
-            uswernamel.setVisible(false);
-            passwordl.setVisible(false);
-            phonenuml.setVisible(false);
-            accstatel.setVisible(false);
-            typeaccl.setVisible(false);
-            balancel.setVisible(false);
-
-
-
-
-        }
-
-
-
-    }
-
-
-   /* protected int ReturnID (){
-
-        return Integer.parseInt(this.ID.getText());
-    }
-    protected String ReturnUserName (){
-
-        return this.UserName.getText();
-    }
-    protected String ReturnFirstName (){
-
-        return this.FirstName.getText();
-    }
-    protected String ReturnLastName (){
-
-        return this.LastName.getText();
-    }
-    protected int ReturnAccountNum (){
-
-        return Integer.parseInt(this.AccountNum.getText());
-    }
-    protected int ReturnPhoneNum (){
-
-        return Integer.parseInt(this.PhoneNum.getText());
-    }protected String ReturnAccState (){
-
-        return this.AccState.getText();
-    }
-    protected String ReturnTypeAcc (){
-
-        return this.TypeAcc.getText();
-    }
-    protected int ReturnBalance (){
-
-        return Integer.parseInt(this.Balance.getText());
-    }
-*/
-
 
 
 
 }
+
+
+

@@ -205,7 +205,7 @@ public class DataBase implements Serializable {
         DataBase.getInstance().addClient(tuco);
         DataBase.getInstance().addAccount(toco);
 
-        Employee em = new Employee("gus", "Gustavo", "Fring", "0101029506", "Los Pllos Hermanos", "normal", "Albuquerque University", 20000, 4, 2027, "a");
+        Employee em = new Employee("gus", "Gustavo", "Fring", "0101029506", "Los Pllos Hermanos", "normal", "Albuquerque University", 20000,  4 , 2027, "a");
         DataBase.getInstance().addEmployee(em.getID() ,em);
 
         /*for (int i=0;i<30;i++)

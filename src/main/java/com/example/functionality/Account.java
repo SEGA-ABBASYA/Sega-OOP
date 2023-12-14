@@ -14,12 +14,22 @@ public class Account implements Serializable {
     private Integer account_number;
     Client owner;
 
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
     // The real pass taken from pass text field
     private String pass;
 
     protected String hashed_pass;
 
     public Double balance;
+
+
+
+    public double getBalance() {
+        return balance;
+    }
 
     // The account is saving (1) or current (0)
     protected Boolean acc_type;
@@ -152,7 +162,7 @@ public class Account implements Serializable {
         return pass;
     }
 
-    public Double getBalance() { return balance; }
+
 
     public String getState()
     {
