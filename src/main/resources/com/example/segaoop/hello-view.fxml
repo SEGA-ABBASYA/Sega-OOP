@@ -38,7 +38,7 @@
                               <Font size="64.0" />
                            </font>
                         </Text>
-                        <Button fx:id="EditMyAccount" layoutX="516.0" layoutY="358.0" mnemonicParsing="false" onMouseClicked="#GoToEditEmployeeScene" prefHeight="68.0" prefWidth="282.0" stylesheets="@ButtonStyle.css" text="Edit My Account">
+                        <Button fx:id="EditMyAccount" layoutX="516.0" layoutY="358.0" mnemonicParsing="false" onAction="#GoToEditEmployeeScene" prefHeight="68.0" prefWidth="282.0" stylesheets="@ButtonStyle.css" text="Edit My Account">
                            <font>
                               <Font name="Calibri" size="32.0" />
                            </font>

@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,6 +23,7 @@ public class HelloApplication extends Application {
 //        {
 //            System.out.println("employee: " + key + " pass: " + DataBase.getInstance().getEmployee(key).getPassword());
 //        }
+        System.out.println("hector el sha2y: " + DataBase.getInstance().getClient("hector").telephone);
         for(String key : DataBase.getInstance().getAllAccounts().keySet())
         {
             System.out.println("account owner: " + DataBase.getInstance().getAccount(key).getOwner().getId());

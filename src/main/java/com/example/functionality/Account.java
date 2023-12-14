@@ -32,7 +32,7 @@ public class Account implements Serializable {
     }
 
     // The account is saving (1) or current (0)
-    protected Boolean acc_type;
+    public Boolean acc_type;
 
     // (0) if monthly interest, (1) if yearly
     protected Boolean TypeOfInterest;

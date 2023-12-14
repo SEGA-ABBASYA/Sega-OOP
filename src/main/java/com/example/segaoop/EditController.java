@@ -48,7 +48,6 @@ public class EditController implements Initializable {
         LastName.setText(emp.getlastName().toString());
         address.setText(emp.getAddress().toString());
         position.setText(emp.getPosition().toString());
-
     }
 
    /* void getClient(MouseEvent event)  {
@@ -111,11 +110,6 @@ public class EditController implements Initializable {
             } else
                 acc.acc_type = false;
         }
-
-        HelloApplication helloApplication=new HelloApplication();
-        pane.setVisible(false);
-        helloApplication.changeScene("hello-view.fxml");
-
     }
     @FXML
     public void ReturnBackTo(MouseEvent event) throws IOException {

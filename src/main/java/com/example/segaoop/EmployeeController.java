@@ -119,18 +119,19 @@ public class EmployeeController implements Initializable {
 
 
     @FXML
-    void GoToCreateScene(MouseEvent event) {
+    void GoToCreateScene() {
 
     }
 
     @FXML
-    void GoToEditScene(MouseEvent event) {
+    void GoToEditScene() {
 
     }
 
     @FXML
-    void GoToEditEmployeeScene(MouseEvent event) {
-
+    void GoToEditEmployeeScene() throws IOException {
+        HelloApplication helloApplication = new HelloApplication();
+        helloApplication.changeScene("Edit.fxml");
     }
 
     @FXML
