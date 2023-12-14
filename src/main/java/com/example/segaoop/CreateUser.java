@@ -1,4 +1,8 @@
 package com.example.segaoop;
+import com.example.functionality.Account;
+import com.example.functionality.Client;
+import com.example.functionality.DataBase;
+import com.example.functionality.Employee;
 import javafx.application.Application;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -22,28 +26,100 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CreateUser {
-    @FXML
-    private Button Done ;
-    @FXML
-    private TextField FirstName ;
-    @FXML
-    private TextField LastName ;
-    @FXML
-    private TextField ID ;
-    @FXML
-    private TextField Balance ;
 
     @FXML
-    public ChoiceBox<String>accountType;
+    private TextField FirstName;
+    String firstName = FirstName.getText();
+
     @FXML
-    private TextField PhoneNumber ;
+    private TextField LastName;
+    String lastName = LastName.getText();
     @FXML
-    private TextField password ;
+    private TextField ID;
+    String id = ID.getText();
     @FXML
-    private TextField confirm_password ;
+    private TextField Balance;
+    String balance = Balance.getText();
+    double balancee = Double.parseDouble(balance);
     @FXML
-    private TextField UserName ;
+    private TextField AccountType;
+    String accountType = AccountType.getText();
+    @FXML
+    private TextField PhoneNumber;
+    String phoneNumber = PhoneNumber.getText();
+
+    @FXML
+    private TextField password;
+    String Password = password.getText();
+
+    @FXML
+    private TextField confirm_password;
+    String confirmPassword = confirm_password.getText();
+
+    @FXML
+    private TextField UserName;
+    String userName = UserName.getText();
+
+    @FXML
+    public Button ADD;
+
+    @FXML
+    public Button cancel;
+
+        public boolean accountconventor(String accountType) {
+             if (accountType.contains("Saving account") || accountType.contains("saving account") || accountType.contains("Saving Account") || accountType.contains("saving Account") || accountType.contains("savingaccount")) {
+              return true;
+               }
+            return false;
+        }
+
+        @FXML
+        private Label passworderrorLabel = new Label("Passwords are not the same.");
+        @FXML
+        private Label created = new Label("Created successfully.");
+         private boolean fieldsNotEqual;
+         private boolean flagforCreate = false;
 
 
+         public void updateCreateSuccussfully(){
+         created.setVisible(true);
+         // call database and then back to next scene
+         }
+
+        public void cancelCreate(){
+            created.setVisible(false);
+        // back to last scene
+        }
+
+         public void comparePasswords() {
+
+                passworderrorLabel.setVisible(false);
+
+             password.textProperty().addListener((observable, oldValue, newValue) -> {
+                 updateErrorLabel();
+             });
+             confirm_password.textProperty().addListener((observable, oldValue, newValue) -> {
+                 updateErrorLabel();
+             });
+                System.out.println("Entered first");
+        }
+
+
+        public void updateErrorLabel() {
+            fieldsNotEqual = !password.getText().equals(confirm_password.getText());
+            passworderrorLabel.setVisible(fieldsNotEqual);
+            System.out.println("Entered second");
+        }
+
+
+        public void AddingClient(){
+            if(!fieldsNotEqual) {
+                if (DataBase.getInstance().getCurrentUser() instanceof Employee) {
+                    // add client
+                    Client x = new Client(id, firstName, lastName, accountconventor(accountType), phoneNumber,balancee);
+                    DataBase.getInstance().addClient(x.getId(), x);
+                }
+            }
+        }
 
 }

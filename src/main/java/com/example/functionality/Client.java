@@ -1,7 +1,7 @@
 package com.example.functionality;
 
-
 import java.util.ArrayList;
+
 
 public class Client extends Person{
     //private Integer id;
@@ -36,34 +36,23 @@ public class Client extends Person{
         this.telephone = telephone;
     }
 
-    private String state;
-    public String getState() {
-        return state;
-    }
-    public void setState(String state) {
-        this.state = state;
-    }
 
 
-    private String password;
-    public String getPassword() {
-        return password;
+
+
+
+
+    ArrayList<Notification> clientNotification = new ArrayList<>();
+    public void addNotification(Notification newNotification) {
+        this.clientNotification.add(newNotification);
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-
-
-    public Client(String id, String firstName, String lastName, String password, String state, String telephone)
+    public Client(String id, String firstName, String lastName, String telephone)
     {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.telephone = telephone;
-        this.password = password;
-        this.state = state;
         System.out.println("created new client");
     }
 }
