@@ -77,7 +77,7 @@
          </font>
       </Label>
       <DatePicker fx:id="JoinDatePicker" layoutX="718.0" layoutY="315.0" prefHeight="33.0" prefWidth="454.0" promptText="Date of Join" />
-      <Text fx:id="ErrorText" fill="WHITE" layoutX="523.0" layoutY="604.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="234.13665771484375">
+      <Text fx:id="ErrorText" fill="WHITE" layoutX="305.0" layoutY="677.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="669.3366088867188">
          <font>
             <Font size="25.0" />
          </font>

@@ -153,13 +153,13 @@ public class CreateUser {
             return;
         }
 
-        if (!password.getText().isEmpty())
+        if (!password.getText().isEmpty() && !checklongpassword(password.getText()))
         {
             Password = password.getText();
         }
         else
         {
-            ErrorText.setText("Please Enter Password");
+            ErrorText.setText("Please Enter Password in a right way and not less than 8 characters");
             ErrorText.setFill(Color.RED);
             return;
         }
@@ -181,7 +181,7 @@ public class CreateUser {
         }
         else
         {
-            ErrorText.setText("Please Confirm your Password");
+            ErrorText.setText("Please Enter you Confirm Password in a right way and not less than 8 characters");
             ErrorText.setFill(Color.RED);
             return;
         }
@@ -249,27 +249,9 @@ public class CreateUser {
         // back to last scene
         }
 
-         public void comparePasswords() {
-
-                passworderrorLabel.setVisible(false);
-
-             password.textProperty().addListener((observable, oldValue, newValue) -> {
-                 updateErrorLabel();
-             });
-             confirm_password.textProperty().addListener((observable, oldValue, newValue) -> {
-                 updateErrorLabel();
-             });
-                System.out.println("Entered first");
-        }
-
-
-        public void updateErrorLabel() {
-            fieldsNotEqual = !password.getText().equals(confirm_password.getText());
-            passworderrorLabel.setVisible(fieldsNotEqual);
-            System.out.println("Entered second");
-        }
-
-
+    public boolean checklongpassword(String password) {
+        return password.length() < 8;
+    }
         public void AddingClient(){
             if(!fieldsNotEqual) {
                 if (DataBase.getInstance().getCurrentUser() instanceof Employee) {
