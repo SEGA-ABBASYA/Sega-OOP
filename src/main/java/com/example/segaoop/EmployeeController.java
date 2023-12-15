@@ -83,15 +83,6 @@ public class EmployeeController implements Initializable {
     private TableColumn<Account, Double> BalanceColumn;
 
     @FXML
-    private TextField ReportSubjectTextField;
-
-    @FXML
-    private TextArea ReportTextArea;
-
-    @FXML
-    private Button SendReportButton;
-
-    @FXML
     private TableColumn<Account, String> TelephoneNumberColumn;
 
     @FXML
@@ -102,6 +93,19 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private Label somethingNotSelectedMessage;
+
+    //---Report---//
+    @FXML
+    private TextField ReportSubjectTextField;
+
+    @FXML
+    private TextArea ReportTextArea;
+
+    @FXML
+    private Button SendReportButton;
+
+    @FXML
+    private Label report_or_subject_empty_message;
 
     @FXML
     void BeginSearch(MouseEvent event) {
@@ -149,6 +153,7 @@ public class EmployeeController implements Initializable {
         DataBase.getInstance().getAllAccounts().remove(s);
         updatelist();
     }
+    //--Messages--//
     @FXML
     void SendNotification(MouseEvent event) {
 
@@ -179,6 +184,25 @@ public class EmployeeController implements Initializable {
         PriorityComboBox.getSelectionModel().clearSelection();
         PriorityComboBox.setPromptText("Select Priority");
     }
+    @FXML
+    void sendReport(MouseEvent event) {
+        String subjectText = ReportSubjectTextField.getText();
+        String bodyText = ReportTextArea.getText();
+        if(subjectText.isEmpty() || bodyText.isEmpty())
+        {
+            report_or_subject_empty_message.setText("Subject or Report Body is Empty ⚠️");
+
+        }
+        else
+        {
+            report_or_subject_empty_message.setText("");
+            DataBase.getInstance().addReport(new Report(ReportSubjectTextField,ReportTextArea));
+            ReportTextArea.setText("");
+            ReportSubjectTextField.setText("");
+        }
+    }
+
+    //--End Messages--//
 
     void updatelist()
     {

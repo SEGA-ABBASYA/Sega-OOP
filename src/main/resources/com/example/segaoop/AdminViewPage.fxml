@@ -134,7 +134,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <TableView fx:id="employeeTable" layoutY="7.0" prefHeight="691.0" prefWidth="874.0" stylesheets="@stylefortable.css">
+                  <TableView fx:id="employeeTable" prefHeight="691.0" prefWidth="874.0" stylesheets="@stylefortable.css">
                      <columns>
                         <TableColumn fx:id="EmployeeID" prefWidth="44.000000953674316" text="ID" />
                         <TableColumn fx:id="FirstNameEmployee" minWidth="0.0" prefWidth="119.19997787475586" text="First Name" />
