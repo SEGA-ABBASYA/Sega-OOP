@@ -1,66 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: linear-gradient(to right bottom,#89CFF0 , #ADD8E6,#FFFFFF); -fx-effect: ;" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.segaoop.CreateUser">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: linear-gradient(to right bottom,#89CFF0 , #ADD8E6,#FFFFFF);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.segaoop.CreateUser">
    <children>
-      <Button fx:id="ADD" layoutX="501.0" layoutY="635.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="150.0" style="-fx-background-radius: 20;" text="Create" />
-      <Button fx:id="cancel" cancelButton="true" layoutX="766.0" layoutY="635.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="150.0" style="-fx-background-radius: 20;" text="Cancel" />
-      <TextField fx:id="FirstName" layoutX="196.0" layoutY="141.0" prefHeight="40.0" prefWidth="462.0" promptText="First Name" style="-fx-background-radius: 15;">
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@mango.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="ADD" layoutX="182.0" layoutY="566.0" mnemonicParsing="false" onMouseClicked="#AddAccount" prefHeight="56.0" prefWidth="150.0" stylesheets="@ButtonStyle.css" text="Create">
+         <font>
+            <Font size="26.0" />
+         </font></Button>
+      <Button fx:id="cancel" cancelButton="true" layoutX="945.0" layoutY="570.0" mnemonicParsing="false" onMouseClicked="#ClearButtonFunction" prefHeight="56.0" prefWidth="150.0" stylesheets="@ButtonStyle.css" text="Clear">
+         <font>
+            <Font size="26.0" />
+         </font></Button>
+      <TextField fx:id="FirstName" layoutX="102.0" layoutY="127.0" prefHeight="40.0" prefWidth="462.0" promptText="First Name" style="-fx-background-radius: 15;">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font></TextField>
-      <TextField fx:id="LastName" layoutX="714.0" layoutY="141.0" prefHeight="40.0" prefWidth="462.0" promptText="Last Name" style="-fx-background-radius: 15;">
+      <TextField fx:id="LastName" layoutX="714.0" layoutY="127.0" prefHeight="40.0" prefWidth="462.0" promptText="Last Name" style="-fx-background-radius: 15;">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font></TextField>
-      <TextField fx:id="ID" layoutX="714.0" layoutY="440.0" prefHeight="40.0" prefWidth="462.0" promptText="ID" style="-fx-background-radius: 15;">
+      <TextField fx:id="ID" layoutX="714.0" layoutY="400.0" prefHeight="40.0" prefWidth="462.0" promptText="ID" style="-fx-background-radius: 15;">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font></TextField>
-      <TextField fx:id="password" layoutX="196.0" layoutY="527.0" prefHeight="40.0" prefWidth="462.0" promptText="Password" style="-fx-background-radius: 15;">
+      <TextField fx:id="password" layoutX="102.0" layoutY="487.0" prefHeight="40.0" prefWidth="462.0" promptText="Password" style="-fx-background-radius: 15;">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font></TextField>
-      <TextField fx:id="confirm_password" layoutX="714.0" layoutY="527.0" prefHeight="40.0" prefWidth="462.0" promptText="Confirmation Password" style="-fx-background-radius: 15;">
+      <TextField fx:id="confirm_password" layoutX="714.0" layoutY="487.0" prefHeight="40.0" prefWidth="462.0" promptText="Confirmation Password" style="-fx-background-radius: 15;">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font></TextField>
-      <TextField fx:id="PhoneNumber" alignment="BOTTOM_LEFT" layoutX="714.0" layoutY="260.0" prefHeight="40.0" prefWidth="462.0" promptText="Phone Number" style="-fx-background-radius: 15;">
+      <TextField fx:id="PhoneNumber" alignment="BOTTOM_LEFT" layoutX="714.0" layoutY="220.0" prefHeight="40.0" prefWidth="462.0" promptText="Phone Number" style="-fx-background-radius: 15;">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font></TextField>
-      <TextField fx:id="UserName" layoutX="196.0" layoutY="260.0" prefHeight="40.0" prefWidth="462.0" promptText="User Name" style="-fx-background-radius: 15;">
+      <TextField fx:id="UserName" layoutX="102.0" layoutY="220.0" prefHeight="40.0" prefWidth="462.0" promptText="User Name" style="-fx-background-radius: 15;">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font></TextField>
-      <TextField fx:id="Balance" layoutX="468.0" layoutY="360.0" prefHeight="40.0" prefWidth="462.0" promptText="Balance" style="-fx-background-radius: 15;">
+      <TextField fx:id="Balance" layoutX="102.0" layoutY="312.0" prefHeight="40.0" prefWidth="462.0" promptText="Balance" style="-fx-background-radius: 15;">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font></TextField>
-      <TextField fx:id="AccountType" alignment="BOTTOM_LEFT" layoutX="196.0" layoutY="440.0" prefHeight="40.0" prefWidth="462.0" promptText="Saving Account or Current Account" style="-fx-background-radius: 15;">
+      <TextField fx:id="AccountType" alignment="BOTTOM_LEFT" layoutX="102.0" layoutY="400.0" prefHeight="40.0" prefWidth="462.0" promptText="Saving Account or Current Account" style="-fx-background-radius: 15;">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
       </TextField>
-      <Text layoutX="576.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Client" wrappingWidth="275.199951171875">
+      <Text fill="#3c00ff" layoutX="409.0" layoutY="86.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="Create Client" textAlignment="CENTER" wrappingWidth="462.39999999999986">
          <font>
-            <Font name="Dubai Regular" size="47.0" />
+            <Font name="SEGA LOGO FONT" size="47.0" />
          </font>
       </Text>
-      <Label fx:id="passworderrorLabel" layoutX="554.0" layoutY="585.0" text="Error enter again the password" textFill="RED">
+      <Label fx:id="passworderrorLabel" layoutX="554.0" layoutY="585.0" text="Error enter again the password" textFill="RED" visible="false">
          <font>
             <Font name="Arial Rounded MT Bold" size="21.0" />
          </font></Label>
-      <Label fx:id="created" layoutX="622.0" layoutY="598.0" text="Created successfully" textFill="#00ff22">
+      <Label fx:id="created" layoutX="622.0" layoutY="598.0" text="Created successfully" textFill="#00ff22" visible="false">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
       </Label>
+      <DatePicker fx:id="JoinDatePicker" layoutX="718.0" layoutY="315.0" prefHeight="33.0" prefWidth="454.0" promptText="Date of Join" />
+      <Text fx:id="ErrorText" fill="WHITE" layoutX="523.0" layoutY="604.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="234.13665771484375">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
    </children>
-</fx:root>
+</AnchorPane>
