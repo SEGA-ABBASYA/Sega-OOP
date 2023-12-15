@@ -1,8 +1,9 @@
 package com.example.functionality;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Employee extends Person{
+public class Employee extends Person implements Serializable {
 
     protected String position,graduationCollage;
     public String password;

@@ -64,7 +64,7 @@
             <Font name="Impact" size="36.0" />
          </font>
       </Text>
-      <Button fx:id="login" layoutX="543.0" layoutY="613.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="158.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #3cb4ff;" stylesheets="@ButtonStyle.css" text="Login" textFill="#a36deb">
+      <Button fx:id="login" layoutX="544.0" layoutY="582.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="158.0" stylesheets="@ButtonStyle.css" text="Login" textFill="#a36deb">
          <font>
             <Font name="Impact" size="24.0" />
          </font>
@@ -74,13 +74,13 @@
             <Image url="@../../../LoginMaterial/photo_2023-11-30_16-58-32-removebg-preview.png" />
          </image>
       </ImageView>
-      <PasswordField fx:id="password" layoutX="527.0" layoutY="374.0" prefHeight="44.0" prefWidth="302.0" promptText="*******" style="-fx-border-radius: 50; -fx-background-radius: 50;" />
-      <Label fx:id="output" layoutX="425.0" layoutY="535.0" prefHeight="47.0" prefWidth="391.0" textAlignment="CENTER" textFill="#a8b9ff">
+      <PasswordField fx:id="password" layoutX="527.0" layoutY="374.0" prefHeight="44.0" prefWidth="302.0" style="-fx-border-radius: 50; -fx-background-radius: 50;" />
+      <Label fx:id="output" layoutX="427.0" layoutY="521.0" prefHeight="47.0" prefWidth="391.0" textAlignment="CENTER" textFill="#a8b9ff">
          <font>
             <Font name="Impact" size="24.0" />
          </font>
       </Label>
-      <RadioButton fx:id="asEmployee" alignment="CENTER_LEFT" layoutX="538.0" layoutY="464.0" minWidth="200.0" mnemonicParsing="false" onMouseClicked="#isSelected" text="Employee" textFill="#a8b9ff">
+      <RadioButton fx:id="asEmployee" alignment="CENTER_LEFT" layoutX="494.0" layoutY="464.0" minWidth="200.0" mnemonicParsing="false" onMouseClicked="#isSelected" text="Employee" textFill="#a8b9ff">
          <font>
             <Font name="Impact" size="30.0" />
          </font>
@@ -88,7 +88,7 @@
             <ToggleGroup fx:id="x" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="asClient" alignment="CENTER_LEFT" layoutX="726.0" layoutY="464.0" minWidth="200.0" mnemonicParsing="false" onMouseClicked="#isSelected" text="Client" textFill="#a8b9ff" toggleGroup="$x">
+      <RadioButton fx:id="asClient" alignment="CENTER_LEFT" layoutX="702.0" layoutY="464.0" minWidth="200.0" mnemonicParsing="false" onMouseClicked="#isSelected" selected="true" text="Client" textFill="#a8b9ff" toggleGroup="$x">
          <font>
             <Font name="Impact" size="30.0" />
          </font>

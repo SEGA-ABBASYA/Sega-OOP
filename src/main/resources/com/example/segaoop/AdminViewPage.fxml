@@ -41,7 +41,7 @@
                <children>
                   <AnchorPane layoutX="-16.0" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="ClientsTable" layoutX="11.0" prefHeight="691.0" prefWidth="874.0" stylesheets="@stylefortable.css">
+                        <TableView fx:id="ClientsTable" layoutX="14.0" prefHeight="691.0" prefWidth="866.0" stylesheets="@stylefortable.css">
                            <columns>
                               <TableColumn fx:id="IDColumn" prefWidth="44.000000953674316" text="ID" />
                               <TableColumn fx:id="FirstNameColumn" minWidth="0.0" prefWidth="119.19997787475586" text="First Name" />
@@ -80,7 +80,7 @@
                                     <Font name="Calibri" size="18.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="DeleteButton" layoutX="119.0" layoutY="95.0" mnemonicParsing="false" onMouseClicked="#RemoveSelectedItem" prefHeight="54.0" prefWidth="79.0" stylesheets="@ButtonStyle.css" text="Delete" textAlignment="CENTER">
+                              <Button fx:id="DeleteButton" layoutX="289.0" layoutY="95.0" mnemonicParsing="false" onMouseClicked="#RemoveSelectedItem" prefHeight="54.0" prefWidth="79.0" stylesheets="@ButtonStyle.css" text="Delete" textAlignment="CENTER">
                                  <font>
                                     <Font name="Calibri" size="18.0" />
                                  </font>
@@ -125,7 +125,7 @@
                                     <Font name="Calibri" size="18.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="DeleteButton1" layoutX="119.0" layoutY="95.0" mnemonicParsing="false" onMouseClicked="#RemoveSelectedItem" prefHeight="54.0" prefWidth="79.0" stylesheets="@ButtonStyle.css" text="Delete" textAlignment="CENTER">
+                              <Button fx:id="DeleteButton1" layoutX="289.0" layoutY="95.0" mnemonicParsing="false" onMouseClicked="#RemoveSelectedItem" prefHeight="54.0" prefWidth="79.0" stylesheets="@ButtonStyle.css" text="Delete" textAlignment="CENTER">
                                  <font>
                                     <Font name="Calibri" size="18.0" />
                                  </font>
@@ -134,7 +134,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <TableView fx:id="employeeTable" layoutY="7.0" prefHeight="691.0" prefWidth="874.0" stylesheets="@stylefortable.css">
+                  <TableView fx:id="employeeTable" layoutY="-1.0" prefHeight="691.0" prefWidth="880.0" stylesheets="@stylefortable.css">
                      <columns>
                         <TableColumn fx:id="EmployeeID" prefWidth="44.000000953674316" text="ID" />
                         <TableColumn fx:id="FirstNameEmployee" minWidth="0.0" prefWidth="119.19997787475586" text="First Name" />

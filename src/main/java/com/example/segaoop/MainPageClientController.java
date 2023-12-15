@@ -110,7 +110,7 @@ public class MainPageClientController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        name_title.setText(user.firstName + " " + user.lastName);
+        name_title.setText(user.getFirstName() + " " + user.getLastName());
         balance_title.setText(String.valueOf(current_acc.balance));
         acc_id_title.setText(String.valueOf(current_acc.getAccount_number()));
     }

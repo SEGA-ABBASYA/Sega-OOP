@@ -1,9 +1,10 @@
 package com.example.functionality;
 import com.example.segaoop.*;
 
+import java.io.Serializable;
 import java.util.*;
 
-public abstract class Person
+public abstract class Person implements Serializable
 {
     protected String id;
     protected String firstName;

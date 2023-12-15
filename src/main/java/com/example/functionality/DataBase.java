@@ -61,7 +61,7 @@ public class DataBase implements Serializable {
 //            e.printStackTrace();
             File newFile = new File("database.ser");
             newFile.createNewFile();
-            Client lalo = new Client("lalo", "lalo", "salamanca", "lalo123", "working", "0101111111");
+            Client lalo = new Client("lalo", "lalo", "salamanca","0101111111");
             Account lolo = new Account("lalo", "lalo123", 8000, false,true,lalo);
             DataBase.getInstance().addClient(lalo);
         } catch (ClassNotFoundException e) {
@@ -195,12 +195,12 @@ public class DataBase implements Serializable {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         DataBase.getInstance().loadFromFile();
 
-        Client lalo = new Client("hector", "hector", "salamanca", "a", "working", "0101111111");
+        Client lalo = new Client("hector", "hector", "salamanca", "0101111111");
         Account lolo = new Account("hector", "a", 8000, true,true,lalo);
         DataBase.getInstance().addClient(lalo);
         DataBase.getInstance().addAccount(lolo);
 
-        Client tuco = new Client("tuco", "tuco", "salamanca", "a", "working", "0101111111");
+        Client tuco = new Client("tuco", "tuco", "salamanca", "0101111111");
         Account toco = new Account("tuco", "a", 8000,true,true, tuco);
         DataBase.getInstance().addClient(tuco);
         DataBase.getInstance().addAccount(toco);

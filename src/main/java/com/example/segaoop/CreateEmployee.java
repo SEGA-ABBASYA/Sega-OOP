@@ -53,7 +53,7 @@ public class CreateEmployee {
         }
     }
 
-
+    String password = "";
     @FXML
     TextField ID;
     String id = ID.getText();
@@ -87,7 +87,7 @@ public class CreateEmployee {
         if(((Employee)DataBase.getInstance().getCurrentUser()).getPosition().equals("admin")) {
              if (DataBase.getInstance().getCurrentUser() instanceof Employee) {
                // add employee
-              Employee x = new Employee(id,firstName,lastName,phoneNumber,address,position,graduatedCollage,sal_ary,convertGradeToGPA(totalGrade),graduationyear);
+              Employee x = new Employee(id,firstName,lastName,phoneNumber,address,position,graduatedCollage,sal_ary,convertGradeToGPA(totalGrade),graduationyear,password);
                DataBase.getInstance().addEmployee(x.getID(),x);
           }
         }

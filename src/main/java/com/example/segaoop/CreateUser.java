@@ -116,8 +116,8 @@ public class CreateUser {
             if(!fieldsNotEqual) {
                 if (DataBase.getInstance().getCurrentUser() instanceof Employee) {
                     // add client
-                    Client x = new Client(id, firstName, lastName, accountconventor(accountType), phoneNumber,balancee);
-                    DataBase.getInstance().addClient(x.getId(), x);
+                    Client x = new Client(id, firstName, lastName, phoneNumber);
+                    DataBase.getInstance().addClient(x);
                 }
             }
         }

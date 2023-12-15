@@ -2,17 +2,24 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ContextMenu?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="pane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: linear-gradient(to Left bottom,#0000FF,ADD8E6,#FFFFFF);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.segaoop.EditController">
    <children>
-      <Button fx:id="Cancel" layoutX="760.0" layoutY="578.0" mnemonicParsing="false" onMouseClicked="#ReturnBackTo" prefHeight="74.0" prefWidth="195.0" style="-fx-background-radius: 30;" text="Cancel">
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@mango.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="Cancel" layoutX="798.0" layoutY="578.0" mnemonicParsing="false" onMouseClicked="#ReturnBackTo" prefHeight="74.0" prefWidth="195.0" stylesheets="@ButtonStyle.css" text="Cancel">
          <font>
-            <Font name="Arial Rounded MT Bold" size="18.0" />
+            <Font name="Arial Rounded MT Bold" size="28.0" />
          </font></Button>
       <TextField fx:id="position" layoutX="447.0" layoutY="212.0" prefHeight="70.0" prefWidth="386.0" promptText="Your Position" style="-fx-background-radius: 40;">
          <contextMenu>
@@ -55,14 +62,9 @@
             <Font name="Arial Rounded MT Bold" size="24.0" />
          </font>
       </TextField>
-      <Label layoutX="552.0" layoutY="26.0" prefHeight="42.0" prefWidth="242.0" text="Edit Your Account" textAlignment="CENTER">
+      <Button fx:id="Apply" layoutX="348.0" layoutY="578.0" mnemonicParsing="false" onMouseClicked="#SaveChanges" prefHeight="74.0" prefWidth="195.0" stylesheets="@ButtonStyle.css" text="Apply">
          <font>
-            <Font name="Arial Rounded MT Bold" size="26.0" />
-         </font>
-      </Label>
-      <Button fx:id="Apply" layoutX="444.0" layoutY="578.0" mnemonicParsing="false" onMouseClicked="#SaveChanges" prefHeight="74.0" prefWidth="195.0" style="-fx-background-radius: 30;" text="Apply">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="18.0" />
+            <Font name="Arial Rounded MT Bold" size="28.0" />
          </font>
       </Button>
       <TextField fx:id="LastNameC" layoutX="26.0" layoutY="501.0" prefHeight="42.0" prefWidth="342.0" promptText="Last Name" style="-fx-background-radius: 40;">
@@ -90,11 +92,6 @@
             <Font name="Arial Rounded MT Bold" size="24.0" />
          </font>
       </TextField>
-      <Label layoutX="521.0" layoutY="296.0" text="Edit Client Information">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="24.0" />
-         </font>
-      </Label>
       <TextField fx:id="username" layoutX="896.0" layoutY="426.0" prefHeight="42.0" prefWidth="342.0" promptText="Username" style="-fx-background-radius: 40;">
          <font>
             <Font name="Arial Rounded MT Bold" size="24.0" />
@@ -110,10 +107,20 @@
             <Font name="Arial Rounded MT Bold" size="24.0" />
          </font>
       </TextField>
-      <Label layoutX="916.0" layoutY="360.0" text="Edit Account Password">
+      <Text fill="#2200ff" layoutX="452.0" layoutY="63.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="edit your account" textAlignment="CENTER">
          <font>
-            <Font name="Arial Rounded MT Bold" size="24.0" />
+            <Font name="SEGA LOGO FONT" size="36.0" />
          </font>
-      </Label>
+      </Text>
+      <Text fill="#2200ff" layoutX="896.0" layoutY="393.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="edit account password" textAlignment="CENTER">
+         <font>
+            <Font name="SEGA LOGO FONT" size="23.0" />
+         </font>
+      </Text>
+      <Text fill="#2200ff" layoutX="465.0" layoutY="339.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="edit client information" textAlignment="CENTER">
+         <font>
+            <Font name="SEGA LOGO FONT" size="25.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

@@ -1,9 +1,10 @@
 package com.example.functionality;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class Client extends Person{
+public class Client extends Person implements Serializable {
     //private Integer id;
     public void setId(String id) {
         this.id = id;
@@ -37,15 +38,10 @@ public class Client extends Person{
     }
 
 
-
-
-
-
-
-    ArrayList<Notification> clientNotification = new ArrayList<>();
-    public void addNotification(Notification newNotification) {
-        this.clientNotification.add(newNotification);
-    }
+//    ArrayList<Notification> clientNotification = new ArrayList<>();
+//    public void addNotification(Notification newNotification) {
+//        this.clientNotification.add(newNotification);
+//    }
 
     public Client(String id, String firstName, String lastName, String telephone)
     {

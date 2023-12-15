@@ -36,6 +36,7 @@ public class Account implements Serializable {
 
     // (0) if monthly interest, (1) if yearly
     protected Boolean TypeOfInterest;
+    protected Boolean State;
 
     protected float fees;
 
@@ -140,15 +141,12 @@ public class Account implements Serializable {
 //        this.hashed_pass = hashed_pass;
         this.balance = balance;
         this.acc_type = acc_type;
-        this.TypeOfInterest = State;
+        this.State = State;
         this.owner = owner;
         this.account_number = ++DataBase.getInstance().lastAccountNumber;
         System.out.println("created new account");
     }
 
-    public String getHashed_pass() {
-        return hashed_pass;
-    }
 
     public Integer getAccount_number() {
         return account_number;
@@ -162,11 +160,13 @@ public class Account implements Serializable {
         return pass;
     }
 
-
+    public void setState(Boolean state) {
+        State = state;
+    }
 
     public String getState()
     {
-        if (TypeOfInterest)
+        if (State)
         {
             return "Active";
         }

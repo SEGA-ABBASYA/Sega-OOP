@@ -94,16 +94,18 @@ public class EditController implements Initializable {
         if(!this.phoneC.getText().isEmpty()) {
             client.setTelephone(this.phoneC.getText().toString());
         }
-        if(!this.accountstate.getText().isEmpty()) {
-            client.setState(this.accountstate.getText().toString());
-        }
         if(!username.getText().isEmpty()) {
 
             Account acc = DataBase.getInstance().getAccount(this.username.getText().toString());
 
+            if(!this.accountstate.getText().isEmpty()) {
+                if (this.accountstate.getText().equals("Active"))
+                    acc.setState(true);
+                else if (this.accountstate.getText().equals("Inactive"))
+                    acc.setState(false);
+            }
             if (!password.getText().isEmpty()){
                 acc.setPass(password.getText().toString());
-
             }
             if (!acctype.getText().isEmpty() && (acctype.getText().equals("Saving") || acctype.getText().equals("saving"))) {
                 acc.acc_type = true;

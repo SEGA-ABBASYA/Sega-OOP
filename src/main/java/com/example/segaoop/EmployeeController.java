@@ -192,8 +192,8 @@ public class EmployeeController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         somethingNotSelectedMessage.setText("");
         Employee curracc = (Employee)DataBase.getInstance().getCurrentUser();
-        NameText.setText(curracc.firstName + ' ' + curracc.lastName);
-        IDText.setText("ID: " + curracc.id);
+        NameText.setText(curracc.getfirstName() + ' ' + curracc.getlastName());
+        IDText.setText("ID: " + curracc.getID());
 
         PriorityComboBox.getItems().addAll("Normal","Important","Warning");
 

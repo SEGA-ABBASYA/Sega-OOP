@@ -23,7 +23,7 @@ public class HelloApplication extends Application {
 //        {
 //            System.out.println("employee: " + key + " pass: " + DataBase.getInstance().getEmployee(key).getPassword());
 //        }
-        System.out.println("hector el sha2y: " + DataBase.getInstance().getClient("hector").telephone);
+        System.out.println("hector el sha2y: " + DataBase.getInstance().getClient("hector").getTelephone());
         for(String key : DataBase.getInstance().getAllAccounts().keySet())
         {
             System.out.println("account owner: " + DataBase.getInstance().getAccount(key).getOwner().getId());
