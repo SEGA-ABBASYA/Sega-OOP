@@ -96,7 +96,7 @@ public class MainPageClientController implements Initializable {
             accountID.setText("");
             amount.setText("");
             password.setText("");
-            Transaction newTrans = new Transaction(LocalDate.now().toString(), value,sender.getUser_name(),receiver.getUser_name());
+            Transaction newTrans = new Transaction(value,sender.getUser_name(),receiver.getUser_name(),"Transfer");
             DataBase.getInstance().addTransaction(newTrans);
             DataBase.getInstance().getTransactionHistory().sort(new TransactionCompare());
         }

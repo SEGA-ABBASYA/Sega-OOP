@@ -1,10 +1,11 @@
 package com.example.functionality;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Transaction implements Serializable {
-    protected String transactionDate;
+    public String transactionDate;
     protected double amount;
 
     protected int balance =9000;
@@ -14,16 +15,20 @@ public class Transaction implements Serializable {
     protected Bank branch;
     protected String transactionID;
 
-    public Transaction(String transactionDate, double amount) {
-        this.transactionDate = transactionDate;
-        this.amount = amount;
+    protected String employee;
+    public Transaction() {
+
     }
 
-    public Transaction(String transactionDate, double amount, String sender, String receiverUserName) {
-        this.transactionDate = transactionDate;
+    public Transaction(double amount, String sender, String receiverUserName,String type) {
+        LocalDateTime transactionDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        this.transactionDate = transactionDateTime.format(formatter);
         this.amount = amount;
         this.sender = sender;
         this.receiver = receiverUserName;
+        this.type=type;
+        this.transactionID= String.valueOf((++DataBase.getInstance().lastTransactionID));
     }
 
     public Transaction(String transactionDate, double amount, String sender, String receiverUserName, String type, String transactionID) {
@@ -87,15 +92,17 @@ public class Transaction implements Serializable {
         return branch;
     }
 
-    public void setBranch(Bank branch) {
-        this.branch = branch;
+    public void setBranch(Bank branch) { this.branch = branch; }
+
+    public String getTransactionID() { return transactionID; }
+
+    public void setTransactionID(String transactionID) { this.transactionID = transactionID; }
+
+    public String getEmployee() {
+        return employee;
     }
 
-    public String getTransactionID() {
-        return transactionID;
-    }
-
-    public void setTransactionID(String transactionID) {
-        this.transactionID = transactionID;
+    public void setEmployee(String employee) {
+        this.employee = employee;
     }
 }

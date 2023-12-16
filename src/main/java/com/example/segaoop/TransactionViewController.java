@@ -41,6 +41,9 @@ public class TransactionViewController implements Initializable {
     private TableColumn<Transaction, String> Branch_Column;
 
     @FXML
+    private TableColumn<Transaction, String> Employee_Column;
+
+    @FXML
     private Label DateLabel;
 
     @FXML
@@ -89,17 +92,17 @@ public class TransactionViewController implements Initializable {
         System.out.println("date reset");
         DateLabel.setText("Reset Transactions.");
     }
-    private static LocalDate generateRandomDate(LocalDate startDate, LocalDate endDate) {
+    /*private static LocalDate generateRandomDate(LocalDate startDate, LocalDate endDate) {
         Random random = new Random();
         long startEpochDay = startDate.toEpochDay();
         long endEpochDay = endDate.toEpochDay();
         long randomEpochDay = startEpochDay + random.nextInt((int) (endEpochDay - startEpochDay + 1));
         return LocalDate.ofEpochDay(randomEpochDay);
-    }//generate random dates to save in the transactions
+    }*///generate random dates to save in the transactions
     void makeTransaction()
     {
-        LocalDate startDate = LocalDate.of(2020, 1, 1);
-        LocalDate endDate = LocalDate.of(2023, 12, 31);
+        //LocalDate startDate = LocalDate.of(2020, 1, 1);
+        //LocalDate endDate = LocalDate.of(2023, 12, 31);
 
         if (DataBase.getInstance().getCurrentUser() instanceof Employee)
          {
@@ -133,8 +136,8 @@ public class TransactionViewController implements Initializable {
     {
         if (selectedDates.size() == 2){
             TransactionList.stream()
-                    .filter(tr -> tr.getTransactionDate().compareTo(selectedDates.get(0).toString())>=0)
-                    .filter(tr -> tr.getTransactionDate().compareTo(selectedDates.get(1).toString())<=0)
+                    .filter(tr -> tr.getTransactionDate().substring(0,10).compareTo(selectedDates.get(0).toString())>=0)
+                    .filter(tr -> tr.getTransactionDate().substring(0,10).compareTo(selectedDates.get(1).toString())<=0)
                     .forEach(tr -> observedTransactionList.add(tr));
 
             /*for (Transaction i:TransactionList) {
@@ -148,7 +151,7 @@ public class TransactionViewController implements Initializable {
         else if (selectedDates.size()==1)
         {
             TransactionList.stream()
-                    .filter(tr -> tr.getTransactionDate().compareTo(selectedDates.get(0).toString())>=0)
+                    .filter(tr -> tr.getTransactionDate().substring(0,10).compareTo(selectedDates.get(0).toString())>=0)
                     .forEach(tr -> observedTransactionList.add(tr));
 
             /*for (Transaction i:TransactionList) {
@@ -208,6 +211,7 @@ public class TransactionViewController implements Initializable {
         Receiver_Column.setCellValueFactory(new PropertyValueFactory<>("Receiver"));
         TransactionID_Column.setCellValueFactory(new PropertyValueFactory<>("TransactionID"));
         Branch_Column.setCellValueFactory(new PropertyValueFactory<>("Branch"));
+        Employee_Column.setCellValueFactory(new PropertyValueFactory<>("Employee"));
 
         makeTransaction();
         TransactionList.sort(new TransactionCompare());
