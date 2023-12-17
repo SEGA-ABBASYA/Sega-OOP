@@ -133,7 +133,6 @@
                   </fx:include>
                </content>
             </Tab>
-            <Tab text="Take Deposit" />
          </tabs>
       </TabPane>
    </children>

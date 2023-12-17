@@ -31,13 +31,15 @@ public class Transaction implements Serializable {
         this.transactionID= String.valueOf((++DataBase.getInstance().lastTransactionID));
     }
 
-    public Transaction(String transactionDate, double amount, String sender, String receiverUserName, String type, String transactionID) {
-        this.transactionDate = transactionDate;
+    public Transaction(String employeeName,double amount,String receiverUserName, String type) {
+        LocalDateTime transactionDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        this.transactionDate = transactionDateTime.format(formatter);
         this.amount = amount;
-        this.sender = sender;
         this.receiver = receiverUserName;
         this.type = type;
-        this.transactionID = transactionID;
+        this.transactionID= String.valueOf((++DataBase.getInstance().lastTransactionID));
+        this.employee=employeeName;
     }
 
     public String getTransactionDate() {
