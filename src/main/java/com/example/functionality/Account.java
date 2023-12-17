@@ -25,8 +25,6 @@ public class Account implements Serializable {
 
     public Double balance;
 
-
-
     public double getBalance() {
         return balance;
     }
@@ -79,6 +77,14 @@ public class Account implements Serializable {
        {
            fees += 50;
        }
+   }
+
+   public double getTransferFees()
+   {
+       if(balance < 3000)
+           return 15;
+       else
+           return 5;
    }
 
 //    public void update_balance(boolean operation, double value) throws MoneyExceptions
