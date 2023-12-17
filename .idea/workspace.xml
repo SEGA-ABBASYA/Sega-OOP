@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25462b22-c2ef-496d-9000-14184238f1c3" name="Changes" comment="EDIT DONEE">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/NotificationBox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/NotificationBox.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Account.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/segaoop/MainPageClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/MainPageClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/segaoop/NotificationBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/NotificationBox.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/MainPageClientController.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/MainPageClientController.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +50,9 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -71,6 +72,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DataBase" />
         <item itemvalue="Application.DataBase" />
         <item itemvalue="Application.DataBase" />
       </list>

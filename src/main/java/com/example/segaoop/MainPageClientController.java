@@ -115,10 +115,18 @@ public class MainPageClientController implements Initializable {
         name_title.setText(user.getFirstName() + " " + user.getLastName());
         balance_title.setText(String.valueOf(current_acc.balance));
         acc_id_title.setText(String.valueOf(current_acc.getAccount_number()));
-        notificationsVbox.setSpacing(100);
-        for (int i = 0; i < 100; i++) {
+        notificationsVbox.setSpacing(15);
+//        for (int i = 0; i < 100; i++) {
+//            try {
+//                notificationsVbox.getChildren().add(new NotificationBox().getNotificationBox("someone", "lorem epsum"));
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
+        for(Notification notif : DataBase.getInstance().getCurrentAccount().getAllNotifications())
+        {
             try {
-                notificationsVbox.getChildren().add(new NotificationBox().getNotificationBox("someone", "lorem epsum"));
+                notificationsVbox.getChildren().add(new NotificationBox().getNotificationBox(notif.getContent(), notif.getCategory()));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
