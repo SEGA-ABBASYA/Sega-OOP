@@ -4,17 +4,13 @@ import com.example.functionality.*;
 import com.example.functionality.DataBase;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
-import java.nio.channels.FileChannel;
 import java.time.LocalDate;
-import java.time.chrono.ChronoLocalDate;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class MainPageClientController implements Initializable {
@@ -43,6 +39,11 @@ public class MainPageClientController implements Initializable {
 
     @FXML
     private Button logOutButton;
+
+    @FXML
+    private ScrollPane scrollpane;
+    @FXML
+    private VBox notificationsVbox;
 
     @FXML
     protected void transferMoney()
@@ -86,6 +87,7 @@ public class MainPageClientController implements Initializable {
     {
         try
         {
+//            sender.decreaseBalance(value + sender.getTransferFees());
             sender.decreaseBalance(value);
             receiver.increaseBalance(value);
             System.out.println("new sender balance: " + sender.balance);
@@ -113,6 +115,14 @@ public class MainPageClientController implements Initializable {
         name_title.setText(user.getFirstName() + " " + user.getLastName());
         balance_title.setText(String.valueOf(current_acc.balance));
         acc_id_title.setText(String.valueOf(current_acc.getAccount_number()));
+        notificationsVbox.setSpacing(100);
+        for (int i = 0; i < 100; i++) {
+            try {
+                notificationsVbox.getChildren().add(new NotificationBox().getNotificationBox("someone", "lorem epsum"));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     @FXML
