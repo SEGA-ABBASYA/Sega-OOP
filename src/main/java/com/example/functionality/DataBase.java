@@ -17,11 +17,12 @@ public class DataBase implements Serializable {
     // maps account owner username to account
     HashMap<String, Account> accounts = new HashMap<>();
     ArrayList<Transaction> transactionHistory = new ArrayList<>();
+    ArrayList<Report> sentReports = new ArrayList<>();
     HashMap<Integer, Bank> bankBranches = new HashMap<>();
     Person currentUser;
     Account currentAccount;
     Employee admin;
-    public  int lastAccountNumber;
+    public int lastAccountNumber;
     public int lastTransactionID;
 
     //__________________________SINGLETON_________________________________________
@@ -127,6 +128,8 @@ public class DataBase implements Serializable {
         return transactionHistory;
     }
 
+    public ArrayList<Report> getSentReports() {return sentReports;}
+
     public void addClient(Client client)
     {
         clients.put(client.getId(), client);
@@ -149,6 +152,7 @@ public class DataBase implements Serializable {
     {
         transactionHistory.add(transaction);
     }
+    public void addReport(Report report) {sentReports.add(report);}
 
     public void addBranch(Integer id ,Bank branch)
     {
@@ -236,6 +240,9 @@ public class DataBase implements Serializable {
         }
         if(DataBase.getInstance().getAllAccounts().containsKey("a"))
             System.out.println("!!found lalo");
+
+        for(Report r : DataBase.getInstance().getSentReports())
+            System.out.println(r.getCategory());
 
         DataBase.getInstance().saveToFile();
     }
