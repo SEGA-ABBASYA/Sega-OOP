@@ -76,7 +76,7 @@
                               <Font size="16.0" />
                            </font>
                         </TextField>
-                        <Button fx:id="SendReportButton" layoutX="965.0" layoutY="564.0" mnemonicParsing="false" onMouseClicked="#SendNotification" prefHeight="54.0" prefWidth="268.0" stylesheets="@ButtonStyle.css" text="Send Message" textAlignment="CENTER">
+                        <Button fx:id="SendReportButton" layoutX="965.0" layoutY="564.0" mnemonicParsing="false" onMouseClicked="#sendReport" prefHeight="54.0" prefWidth="268.0" stylesheets="@ButtonStyle.css" text="Send Message" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri" size="18.0" />
                            </font>
@@ -86,6 +86,11 @@
                               <Font size="64.0" />
                            </font>
                         </Text>
+                        <Label fx:id="report_or_subject_empty_message" alignment="CENTER" layoutX="965.0" layoutY="389.0" prefHeight="102.0" prefWidth="267.0" textAlignment="CENTER" textFill="#b51d1d" wrapText="true">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
                      </children></AnchorPane>
               </content>
             </Tab>
