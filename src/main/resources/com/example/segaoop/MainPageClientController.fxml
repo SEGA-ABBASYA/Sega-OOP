@@ -158,9 +158,9 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ScrollPane fx:id="scrollpane" layoutX="352.0" layoutY="18.0" prefHeight="655.0" prefWidth="519.0" style="-fx-background-color: TRANSPARENT;">
+                        <ScrollPane fx:id="scrollpane" layoutX="352.0" layoutY="18.0" prefHeight="655.0" prefWidth="519.0" style="-fx-background-color: #3f2aaa;">
                            <content>
-                              <VBox fx:id="notificationsVbox" prefHeight="651.0" prefWidth="515.0" />
+                              <VBox fx:id="notificationsVbox" prefHeight="653.0" prefWidth="501.0" style="-fx-background-color: #3f2aaa;" />
                            </content>
                         </ScrollPane>
                      </children>
