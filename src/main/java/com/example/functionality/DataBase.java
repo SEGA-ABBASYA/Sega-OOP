@@ -21,8 +21,8 @@ public class DataBase implements Serializable {
     Person currentUser;
     Account currentAccount;
     Employee admin;
-    public  int lastAccountNumber;
-
+    public int lastAccountNumber;
+    public int lastTransactionID;
     //__________________________SINGLETON_________________________________________
     private static DataBase instance;
 
@@ -37,6 +37,7 @@ public class DataBase implements Serializable {
 
     private DataBase() {
         lastAccountNumber = 100;
+        lastTransactionID = 100;
     }
 
     //___________________________FILE SYSTEM____________________________________
