@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 public class Report extends Message implements Serializable {
 
+    private String status;
     public Report(TextField subject, TextArea content){
 
         sender = (Employee) DataBase.getInstance().getCurrentUser();
@@ -18,10 +19,22 @@ public class Report extends Message implements Serializable {
         this.date = currentDateTime.format(formatter);
 
         this.category = subject.getText().toString();
-
-
         this.content = content.getText().toString();
+        this.status = "📬";
 
     }
 
+    @Override
+    public void setAsRead() {
+        super.setAsRead();
+        this.status = "📭";
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

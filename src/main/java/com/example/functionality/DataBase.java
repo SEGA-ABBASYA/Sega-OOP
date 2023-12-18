@@ -20,6 +20,7 @@ public class DataBase implements Serializable {
     ArrayList<Report> sentReports = new ArrayList<>();
     HashMap<Integer, Bank> bankBranches = new HashMap<>();
     Person currentUser;
+    Report selectedReport;
     Account currentAccount;
     Employee admin;
     public  int lastAccountNumber;
@@ -166,10 +167,12 @@ public class DataBase implements Serializable {
     {
         return currentUser;
     }
+    public Report getSelectedReport(){return selectedReport;}
 
     public void setCurrentUser(Person currentUser) {
         this.currentUser = currentUser;
     }
+    public void setSelectedReport(Report selectedReport) {this.selectedReport = selectedReport;}
 
     public Account getCurrentAccount() {
         return currentAccount;

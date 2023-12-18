@@ -5,7 +5,6 @@ import java.io.Serializable;
 public abstract class Message implements Serializable
 {
     protected Employee sender = null;
-    protected Account receiver = null;
     boolean messageReadStatus;
     protected String content = null;
     protected String category = null;
@@ -15,17 +14,11 @@ public abstract class Message implements Serializable
         return sender;
     }
 
-
-    public Account getReceiver() {
-        return receiver;
-    }
-
-
     public boolean getMessageReadStatus() {
         return messageReadStatus;
     }
 
-    public void setAtRead() {
+    public void setAsRead() {
         this.messageReadStatus = true;
     }
 
