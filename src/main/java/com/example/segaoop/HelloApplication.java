@@ -40,6 +40,7 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
+
     @Override
     public void stop() throws IOException {
         //System.out.println("good bye");
