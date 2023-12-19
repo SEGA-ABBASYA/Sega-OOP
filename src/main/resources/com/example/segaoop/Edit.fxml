@@ -10,18 +10,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="pane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: linear-gradient(to Left bottom,#0000FF,ADD8E6,#FFFFFF);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.segaoop.EditController">
+<AnchorPane fx:id="pane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: linear-gradient(to Left bottom,#0000FF,ADD8E6,#FFFFFF);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.segaoop.EditEmpView">
    <children>
       <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@mango.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="Cancel" layoutX="798.0" layoutY="578.0" mnemonicParsing="false" onMouseClicked="#ReturnBackTo" prefHeight="74.0" prefWidth="195.0" stylesheets="@ButtonStyle.css" text="Cancel">
+      <Button fx:id="Cancel" layoutX="744.0" layoutY="578.0" mnemonicParsing="false" onMouseClicked="#ReturnBackTo" prefHeight="74.0" prefWidth="195.0" stylesheets="@ButtonStyle.css" text="Cancel">
          <font>
             <Font name="Arial Rounded MT Bold" size="28.0" />
          </font></Button>
-      <TextField fx:id="position" layoutX="447.0" layoutY="212.0" prefHeight="70.0" prefWidth="386.0" promptText="Your Position" style="-fx-background-radius: 40;">
+      <TextField fx:id="position" layoutX="702.0" layoutY="325.0" prefHeight="100.0" prefWidth="386.0" promptText="Your Position" style="-fx-background-radius: 40;">
          <contextMenu>
             <ContextMenu anchorLocation="WINDOW_TOP_LEFT">
                <items>
@@ -30,10 +30,10 @@
             </ContextMenu>
          </contextMenu>
          <font>
-            <Font name="Arial Rounded MT Bold" size="24.0" />
+            <Font name="Arial Rounded MT Bold" size="36.0" />
          </font>
       </TextField>
-      <TextField fx:id="address" layoutX="446.0" layoutY="91.0" prefHeight="70.0" prefWidth="386.0" promptText="Address" style="-fx-background-radius: 40;">
+      <TextField fx:id="address" layoutX="702.0" layoutY="126.0" prefHeight="100.0" prefWidth="386.0" promptText="Address" style="-fx-background-radius: 40;">
          <contextMenu>
             <ContextMenu anchorLocation="WINDOW_TOP_LEFT">
                <items>
@@ -42,15 +42,15 @@
             </ContextMenu>
          </contextMenu>
          <font>
-            <Font name="Arial Rounded MT Bold" size="24.0" />
+            <Font name="Arial Rounded MT Bold" size="36.0" />
          </font>
       </TextField>
-      <TextField fx:id="FirstName" layoutX="14.0" layoutY="91.0" prefHeight="70.0" prefWidth="385.0" promptText="First Name" style="-fx-background-radius: 40;">
+      <TextField fx:id="FirstName" layoutX="155.0" layoutY="126.0" prefHeight="100.0" prefWidth="385.0" promptText="First Name" style="-fx-background-radius: 40;">
          <font>
-            <Font name="Arial Rounded MT Bold" size="24.0" />
+            <Font name="Arial Rounded MT Bold" size="36.0" />
          </font>
       </TextField>
-      <TextField fx:id="LastName" layoutX="13.0" layoutY="212.0" prefHeight="70.0" prefWidth="386.0" promptText="Last Name" style="-fx-background-radius: 40;">
+      <TextField fx:id="LastName" layoutX="155.0" layoutY="325.0" prefHeight="100.0" prefWidth="386.0" promptText="Last Name" style="-fx-background-radius: 40;">
          <contextMenu>
             <ContextMenu anchorLocation="WINDOW_TOP_LEFT">
                <items>
@@ -59,67 +59,17 @@
             </ContextMenu>
          </contextMenu>
          <font>
-            <Font name="Arial Rounded MT Bold" size="24.0" />
+            <Font name="Arial Rounded MT Bold" size="36.0" />
          </font>
       </TextField>
-      <Button fx:id="Apply" layoutX="348.0" layoutY="578.0" mnemonicParsing="false" onMouseClicked="#SaveChanges" prefHeight="74.0" prefWidth="195.0" stylesheets="@ButtonStyle.css" text="Apply">
+      <Button fx:id="Apply" layoutX="320.0" layoutY="578.0" mnemonicParsing="false" onMouseClicked="#SaveChanges" prefHeight="74.0" prefWidth="195.0" stylesheets="@ButtonStyle.css" text="Apply">
          <font>
             <Font name="Arial Rounded MT Bold" size="28.0" />
          </font>
       </Button>
-      <TextField fx:id="LastNameC" layoutX="26.0" layoutY="501.0" prefHeight="42.0" prefWidth="342.0" promptText="Last Name" style="-fx-background-radius: 40;">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="24.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="phoneC" layoutX="481.0" layoutY="360.0" prefHeight="42.0" prefWidth="342.0" promptText="Phone Number" style="-fx-background-radius: 40;">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="24.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="accountstate" layoutX="481.0" layoutY="426.0" prefHeight="42.0" prefWidth="342.0" promptText="Account State" style="-fx-background-radius: 40;">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="24.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="ID" layoutX="26.0" layoutY="360.0" prefHeight="42.0" prefWidth="342.0" promptText="ID" style="-fx-background-radius: 40;">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="24.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="FirstNameC" layoutX="26.0" layoutY="426.0" prefHeight="42.0" prefWidth="342.0" promptText="First Name" style="-fx-background-radius: 40;">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="24.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="username" layoutX="896.0" layoutY="426.0" prefHeight="42.0" prefWidth="342.0" promptText="Username" style="-fx-background-radius: 40;">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="24.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="password" layoutX="896.0" layoutY="501.0" prefHeight="42.0" prefWidth="342.0" promptText="Password" style="-fx-background-radius: 40;">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="24.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="acctype" layoutX="481.0" layoutY="501.0" prefHeight="42.0" prefWidth="342.0" promptText="Account Type" style="-fx-background-radius: 40;">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="24.0" />
-         </font>
-      </TextField>
-      <Text fill="#2200ff" layoutX="452.0" layoutY="63.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="edit your account" textAlignment="CENTER">
+      <Text fill="#2200ff" layoutX="452.0" layoutY="63.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="Edit Your Account" textAlignment="CENTER">
          <font>
             <Font name="SEGA LOGO FONT" size="36.0" />
-         </font>
-      </Text>
-      <Text fill="#2200ff" layoutX="896.0" layoutY="393.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="edit account password" textAlignment="CENTER">
-         <font>
-            <Font name="SEGA LOGO FONT" size="23.0" />
-         </font>
-      </Text>
-      <Text fill="#2200ff" layoutX="465.0" layoutY="339.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="edit client information" textAlignment="CENTER">
-         <font>
-            <Font name="SEGA LOGO FONT" size="25.0" />
          </font>
       </Text>
    </children>

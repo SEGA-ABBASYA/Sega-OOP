@@ -137,6 +137,11 @@ public class EmployeeController implements Initializable {
         HelloApplication helloApplication = new HelloApplication();
         helloApplication.changeScene("Edit.fxml");
     }
+    @FXML
+    void GoToEditClientScene() throws IOException {
+        HelloApplication helloApplication = new HelloApplication();
+        helloApplication.changeScene("EditEmp.fxml");
+    }
 
     @FXML
     void ReturntoLoginScene(MouseEvent event) {
