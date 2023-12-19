@@ -100,6 +100,31 @@ public class AdminViewPagaController implements Initializable {
     @FXML
     private TableColumn<Employee, Integer> gradeYearEmployee;
 
+    //--------------------Reports Table--------------------//
+    @FXML
+    private TableView<Report> reportsTable;
+    @FXML
+    private TableColumn<Report,String> senderColumn;
+
+    @FXML
+    private TableColumn<Report, String> titleColumn;
+
+    @FXML
+    private TableColumn<Report, String> readStatusColumn;
+
+    @FXML
+    private Button previewButton;
+    @FXML
+    private Button deleteReport;
+    @FXML
+    private Button refreshButton;
+
+    @FXML
+    private Text numberOfUnreadReports;
+
+    @FXML
+    private Button adminLogoutButton;
+
 
 
     @FXML
@@ -139,6 +164,76 @@ public class AdminViewPagaController implements Initializable {
     void RemoveSelectedItem(MouseEvent event) {
 
     }
+    @FXML
+    void previewReport(MouseEvent event) {
+        Report selectedReport = this.reportsTable.getSelectionModel().getSelectedItem();
+        if (selectedReport != null) {
+            HelloApplication helloApplication = new HelloApplication();
+            try {
+                for (Report neededReport : DataBase.getInstance().getSentReports()) {
+                    if (neededReport.getCategory().equals(selectedReport.getCategory())) {
+                        neededReport.setAsRead();
+                        break;
+                    }
+                }
+                DataBase.getInstance().setSelectedReport(selectedReport);
+                helloApplication.changeScene("ReadReportPage.fxml");
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+    @FXML
+    void deleteReport(MouseEvent event) {
+        Report selectedReport = this.reportsTable.getSelectionModel().getSelectedItem();
+        if (selectedReport != null) {
+            reportsTable.getItems().remove(selectedReport);
+            DataBase.getInstance().getSentReports().remove(selectedReport);
+        }
+    }
+
+    @FXML
+    void refreshReports(MouseEvent event) {
+        senderColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSender().getID().toString()));
+        titleColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCategory()));
+        readStatusColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStatus()));
+
+        ObservableList<Report> toBeAddedReports = FXCollections.observableArrayList();
+        for (Report R :DataBase.getInstance().getSentReports()) {
+            toBeAddedReports.add(R);
+        }
+        reportsTable.setItems(toBeAddedReports);
+
+
+        numberOfUnreadReports.setText(String.valueOf(getUnread()));
+    }
+    @FXML
+    void returnToLoginScene(MouseEvent event) {
+        HelloApplication helloApplication = new HelloApplication();
+        try {
+            helloApplication.changeScene("LoginPage.fxml");
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    int getUnread()
+    {
+        int x = 0;
+        for(Report R : DataBase.getInstance().getSentReports())
+        {
+            if(!R.getMessageReadStatus())
+            {
+                x++;
+            }
+        }
+        return x;
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -180,6 +275,23 @@ public class AdminViewPagaController implements Initializable {
             toBeAddedList.add(DataBase.getInstance().getEmployee(key));
         }
         employeeTable.setItems(toBeAddedList);
+
+
+
+        //Reading Reports Table
+
+        senderColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSender().getID().toString()));
+        titleColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCategory()));
+        readStatusColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStatus()));
+
+        ObservableList<Report> toBeAddedReports = FXCollections.observableArrayList();
+        for (Report R :DataBase.getInstance().getSentReports()) {
+            toBeAddedReports.add(R);
+        }
+        reportsTable.setItems(toBeAddedReports);
+
+
+        numberOfUnreadReports.setText(String.valueOf(getUnread()));
     }
 
 

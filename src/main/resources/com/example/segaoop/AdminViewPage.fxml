@@ -32,6 +32,36 @@
                         </Text>
                      </children>
                   </AnchorPane>
+                  <Button fx:id="adminLogoutButton" layoutX="1030.0" layoutY="578.0" mnemonicParsing="false" onMouseClicked="#returnToLoginScene" prefHeight="68.0" prefWidth="201.0" style="-fx-background-color: #bb060a;" stylesheets="@ButtonStyle.css" text="Logout" textAlignment="CENTER">
+                     <font>
+                        <Font name="Calibri" size="32.0" />
+                     </font>
+                  </Button>
+                  <Text layoutX="14.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You Have" textAlignment="CENTER" wrappingWidth="138.93670654296875">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="numberOfUnreadReports" layoutX="153.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="80.0">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="233.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unread Reports" wrappingWidth="223.60003662109375">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Text>
+                  <TableView fx:id="reportsTable" layoutX="14.0" layoutY="234.0" prefHeight="370.0" prefWidth="445.0" stylesheets="@stylefortable.css">
+                    <columns>
+                      <TableColumn fx:id="senderColumn" prefWidth="109.19998741149902" text="From" />
+                      <TableColumn fx:id="titleColumn" prefWidth="293.20001220703125" text="Title" />
+                        <TableColumn fx:id="readStatusColumn" prefWidth="41.199969482421864" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="previewButton" layoutX="14.0" layoutY="192.0" mnemonicParsing="false" onMouseClicked="#previewReport" stylesheets="@ButtonStyle.css" text="Preview" />
+                  <Button fx:id="deleteReport" layoutX="83.0" layoutY="192.0" mnemonicParsing="false" onMouseClicked="#deleteReport" prefHeight="25.0" prefWidth="55.0" stylesheets="@ButtonStyle.css" text="Delete" />
+                  <Button fx:id="refreshButton" layoutX="153.0" layoutY="192.0" mnemonicParsing="false" onMouseClicked="#refreshReports" stylesheets="@ButtonStyle.css" text="🔃" />
                </children></AnchorPane>
       </content>
     </Tab>
