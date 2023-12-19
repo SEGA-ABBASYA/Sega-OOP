@@ -11,9 +11,9 @@ public class Report extends Message implements Serializable {
 
         sender = (Employee) DataBase.getInstance().getCurrentUser();
         messageReadStatus = false;
-        // Get the current system date and time
+
         LocalDateTime currentDateTime = LocalDateTime.now();
-        // Define a formatter to format the date and time
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         this.date = currentDateTime.format(formatter);
 

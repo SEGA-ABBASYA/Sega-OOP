@@ -74,7 +74,7 @@ public class Account implements Serializable {
        hashed_pass = hash.Hash(pass);
    }
 
-   public void calculate_fees(float fees_value){
+   public void calculate_fees(){
        if (balance < 3000)
        {
            fees += 50;

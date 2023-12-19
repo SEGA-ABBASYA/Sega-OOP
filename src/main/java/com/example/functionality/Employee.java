@@ -9,7 +9,6 @@ public class Employee extends Person implements Serializable {
     public String password;
     protected float salary,totalGrade;
     protected int graduationYear;
-    ArrayList<Notification> sentNotificationHistory = new ArrayList<>();
 
     public Employee(String ID,String fN,String lF,String telephone, String Address,String position, String graduationCollage, float salary, float totalGrade, int graduationYear, String password) {
         this.position = position;
@@ -46,9 +45,9 @@ public class Employee extends Person implements Serializable {
     public String getTelephone(){
         return telephone;
     }
-    public void setTelephone(String Tele){
-        this.telephone=Tele;
-    }
+//    public void setTelephone(String Tele){
+//        this.telephone=Tele;
+//    }
     public String getAddress(){
         return id;
     }
@@ -64,27 +63,27 @@ public class Employee extends Person implements Serializable {
     public String getGraduationCollage() {
         return graduationCollage;
     }
-    public void setGraduationCollage(String graduationCollage) {
-        this.graduationCollage = graduationCollage;
-    }
+//    public void setGraduationCollage(String graduationCollage) {
+//        this.graduationCollage = graduationCollage;
+//    }
     public float getSalary() {
         return salary;
     }
-    public void setSalary(float salary) {this.salary = salary;}
+//    public void setSalary(float salary) {this.salary = salary;}
     public float getTotalGrade() {
         return totalGrade;
     }
-    public void setTotalGrade(float totalGrade) {this.totalGrade = totalGrade;}
+//    public void setTotalGrade(float totalGrade) {this.totalGrade = totalGrade;}
     public int getGraduationYear() {
         return graduationYear;
     }
-    public void setGraduationYear(int graduationYear) {
-        this.graduationYear = graduationYear;
-    }
-
-    public void SalaryAdded(Object obj){
-        //send notification salary added (david idea maybe erased if not used)
-    }
+//    public void setGraduationYear(int graduationYear) {
+//        this.graduationYear = graduationYear;
+//    }
+//
+//    public void SalaryAdded(Object obj){
+//        //send notification salary added (david idea maybe erased if not used)
+//    }
 
     public String getPassword() {
         return password;
