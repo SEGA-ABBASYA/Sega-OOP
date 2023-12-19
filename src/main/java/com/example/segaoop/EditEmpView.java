@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
 
 import javafx.scene.input.MouseEvent;
 
-public class EditController implements Initializable {
+public class EditEmpView implements Initializable {
 
 
 
@@ -36,7 +36,7 @@ public class EditController implements Initializable {
     @FXML
     protected Button Apply,Cancel;
     @FXML
-    protected TextField FirstName,FirstNameC,LastName,LastNameC,position,address,phoneC,ID,accountstate,acctype,password,username;
+    protected TextField FirstName,LastName,position,address;
 
 
     @FXML
@@ -67,9 +67,6 @@ public class EditController implements Initializable {
 
         Employee emp = (Employee) DataBase.getInstance().getCurrentUser();
 
-        Client client = DataBase.getInstance().getClient(this.ID.getText().toString());
-
-
         if(!this.FirstName.getText().isEmpty()) {
             emp.setfirstName(this.FirstName.getText().toString());
         }
@@ -85,34 +82,8 @@ public class EditController implements Initializable {
 
 
 
-        if(!this.FirstNameC.getText().isEmpty()) {
-            client.setFirstName(this.FirstNameC.getText().toString());
-        }
-        if(!this.LastNameC.getText().isEmpty()) {
-            client.setLastName(this.LastNameC.getText().toString());
-        }
-        if(!this.phoneC.getText().isEmpty()) {
-            client.setTelephone(this.phoneC.getText().toString());
-        }
-        if(!username.getText().isEmpty()) {
-
-            Account acc = DataBase.getInstance().getAccount(this.username.getText().toString());
-
-            if(!this.accountstate.getText().isEmpty()) {
-                if (this.accountstate.getText().equals("Active"))
-                    acc.setState(true);
-                else if (this.accountstate.getText().equals("Inactive"))
-                    acc.setState(false);
-            }
-            if (!password.getText().isEmpty()){
-                acc.setPass(password.getText().toString());
-            }
-            if (!acctype.getText().isEmpty() && (acctype.getText().equals("Saving") || acctype.getText().equals("saving"))) {
-                acc.acc_type = true;
-            } else
-                acc.acc_type = false;
-        }
     }
+
     @FXML
     public void ReturnBackTo(MouseEvent event) throws IOException {
 
