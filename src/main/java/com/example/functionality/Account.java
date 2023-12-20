@@ -5,41 +5,21 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Account implements Serializable {
-    public String getUser_name() {
-        return user_name;
-    }
-
     protected String user_name;
-
     private Integer account_number;
     Client owner;
-
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
-
     // The real pass taken from pass text field
     private String pass;
 
-    protected String hashed_pass;
-
     public Double balance;
-
-    public double getBalance() {
-        return balance;
-    }
-
     // The account is saving (1) or current (0)
     public Boolean acc_type;
-
     // (0) if monthly interest, (1) if yearly
     protected Boolean TypeOfInterest;
+    // (1) working , (0) Stopped
     protected Boolean State;
 
-    protected float fees;
-
-    // (0) if transfer or withdraw, (1) if deposit
-    protected boolean operation;
+    protected float fees = 0;
 
     // Value of transferred or deposited or withdrawn money
     protected double value;
@@ -67,46 +47,19 @@ public class Account implements Serializable {
         return unReadMessages;
     }
 
-    PassHashing hash = new PassHashing();
-   public void inner_hash(){
-       hashed_pass = hash.Hash(pass);
-   }
-
-   public void calculate_fees(float fees_value){
-       if (balance < 3000)
-       {
-           fees += 50;
-       }
-   }
-
-   public double getTransferFees()
+   public void getTransferFees()
    {
-       if(balance < 3000)
-           return 15;
+       if(balance <= 3000)
+           fees += 50;
        else
-           return 5;
+           balance -= 5;
    }
-
-//    public void update_balance(boolean operation, double value) throws MoneyExceptions
-//    {
-//        if (value > balance && !operation)
-//        {
-//            throw new MoneyExceptions(value);
-//        }
-//        else if (operation)
-//        {
-//            balance += value;
-//        }
-//        else {
-//            balance -= value;
-//        }
-//    }
 
     public void increaseBalance(double value)
     {
        balance += value;
     }
-    public void decreaseBalance(double value) throws MoneyExceptions {
+    public void Update(double value) throws MoneyExceptions {
         if(value > balance)
         {
             throw new MoneyExceptions(value);
@@ -117,12 +70,13 @@ public class Account implements Serializable {
         }
     }
 
-    public void update_fees(float fees_value) throws MoneyExceptions{
+    public void Update(float fees_value) throws MoneyExceptions{
        if (fees_value > fees)
        {
            throw new MoneyExceptions(fees_value);
        }
        else{
+           balance -= fees_value;
            fees -= fees_value;
        }
     }
@@ -195,4 +149,50 @@ public class Account implements Serializable {
     public ArrayList<Notification> getAllNotifications() {
         return accountNotification;
     }
+
+    public double getBalance() {
+        return balance;
+    }
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+    public String getUser_name() {
+        return user_name;
+    }
+
+
+
+
+
+
+    //    public void update_balance(boolean operation, double value) throws MoneyExceptions
+//    {
+//        if (value > balance && !operation)
+//        {
+//            throw new MoneyExceptions(value);
+//        }
+//        else if (operation)
+//        {
+//            balance += value;
+//        }
+//        else {
+//            balance -= value;
+//        }
+//    }
+
+    //PassHashing hash = new PassHashing();
+//   public void inner_hash(){
+//       hashed_pass = hash.Hash(pass);
+//   }
+
+//   public void calculate_fees(){
+//       if (balance < 3000)
+//       {
+//           fees += 50;
+//       }
+//   }
+
+
+    // (0) if transfer or withdraw, (1) if deposit
+    //protected boolean operation;
 }
