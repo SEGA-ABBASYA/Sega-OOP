@@ -61,10 +61,11 @@ public class MainPageClientController implements Initializable {
             }
             if(DataBase.getInstance().getAllAccounts().containsKey(accountID.getText().toString()))
             {
+                Account sender = DataBase.getInstance().getCurrentAccount();
                 Account receiver = DataBase.getInstance().getAccount(accountID.getText().toString());
-                if(receiver.getPass().equals(password.getText().toString()))
+                if(sender.getPass().equals(password.getText().toString()))
                 {
-                    Account sender = DataBase.getInstance().getCurrentAccount();
+
                     transMoney(sender, receiver, am);
                 }
                 else
