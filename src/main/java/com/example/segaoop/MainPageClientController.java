@@ -88,7 +88,7 @@ public class MainPageClientController implements Initializable {
         try
         {
 //            sender.decreaseBalance(value + sender.getTransferFees());
-            sender.decreaseBalance(value);
+            sender.Update(value);
             receiver.increaseBalance(value);
             System.out.println("new sender balance: " + sender.balance);
             System.out.println("new receiver balance: " + receiver.balance);

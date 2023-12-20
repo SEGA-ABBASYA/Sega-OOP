@@ -1,0 +1,18 @@
+/* radio_button.css */
+
+/* Style the radio button */
+.radio-button {
+    -fx-color: #007bff; /* Change the color of the radio button */
+}
+
+/* Style the selected radio button */
+.radio-button:selected {
+    /* Change the background color of the selected radio button */
+    -fx-text-fill: white; /* Change the text color of the selected radio button */
+}
+
+/* Style the label of the radio button */
+.radio-button .label {
+    -fx-text-fill: #000000; /* Change the label text color */
+    -fx-font-size: 14px; /* Change the label font size */
+}

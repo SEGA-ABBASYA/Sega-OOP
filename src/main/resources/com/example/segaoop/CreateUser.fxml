@@ -3,7 +3,9 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -57,7 +59,7 @@
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font></TextField>
-      <TextField fx:id="AccountType" alignment="BOTTOM_LEFT" layoutX="102.0" layoutY="400.0" prefHeight="40.0" prefWidth="462.0" promptText="Saving Account or Current Account" style="-fx-background-radius: 15;">
+      <TextField fx:id="AccountType" alignment="BOTTOM_LEFT" layoutX="102.0" layoutY="400.0" prefHeight="40.0" prefWidth="185.0" promptText="Saving/Current" style="-fx-background-radius: 15;">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
@@ -82,5 +84,18 @@
             <Font size="25.0" />
          </font>
       </Text>
+      <RadioButton fx:id="MonthlyRBTN" layoutX="451.0" layoutY="403.0" mnemonicParsing="false" stylesheets="@radiobuttonstyle.css" text="Monthly">
+         <font>
+            <Font name="Franklin Gothic Heavy" size="23.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="InterestGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="YearlyRBTN" layoutX="305.0" layoutY="404.0" mnemonicParsing="false" selected="true" stylesheets="@radiobuttonstyle.css" text="Yearly" toggleGroup="$InterestGroup">
+         <font>
+            <Font name="Franklin Gothic Heavy" size="23.0" />
+         </font>
+      </RadioButton>
    </children>
 </AnchorPane>

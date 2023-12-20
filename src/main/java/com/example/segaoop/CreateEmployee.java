@@ -265,6 +265,13 @@ public class CreateEmployee {
             ErrorText.setText("Password must contains at least 8 character.");
         }
 
+        if(DataBase.getInstance().getEmployee(id)!=null)
+        {
+            ErrorText.setText("Please enter a unique username.");
+            ErrorText.setFill(Color.RED);
+            return;
+        }
+
         Employee Emp = new Employee(id,firstName,lastName,phoneNumber,address,position,graduatedCollage,Float.parseFloat(salary),convertGradeToGPA(totalGrade),Integer.parseInt(yearOfGraduation),password);
         if (DataBase.getInstance().getEmployee(id)==null)
         {

@@ -1,8 +1,10 @@
 package com.example.functionality;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 
 public class Account implements Serializable {
     protected String user_name;
@@ -35,6 +37,35 @@ public class Account implements Serializable {
         this.accountNotification.add(newNotification);
         //---Sorting the Array After Adding the New Notification---//
         Collections.sort(this.accountNotification,Notification.dateComparator);
+    }
+    public void applyInterest(LocalDate joinDate,Boolean Type0fInterest)
+    {
+        if (Type0fInterest)
+        {
+            int numYears = LocalDate.now().getYear() - joinDate.getYear();
+            while (numYears>0)
+            {
+                calculate_balance(acc_type,Type0fInterest);
+                String s = "Yearly Interest has been added\nYour Current Balance is " + balance;
+                Notification interestNotification = new Notification("Important",s);
+                addNotification(interestNotification);
+                numYears--;
+            }
+        }
+        else
+        {
+            int numMonths;
+            int numYears = LocalDate.now().getYear() - joinDate.getYear();
+            numMonths = (numYears*12) + LocalDate.now().getMonthValue() - joinDate.getMonthValue();
+            while (numMonths>0)
+            {
+                calculate_balance(acc_type,Type0fInterest);
+                String s = "Monthly Interest has been added\nYour Current Balance is " + balance;
+                Notification interestNotification = new Notification("Important",s);
+                addNotification(interestNotification);
+                numMonths--;
+            }
+        }
     }
     public int countUnreadMessages(){
         int unReadMessages = 0;

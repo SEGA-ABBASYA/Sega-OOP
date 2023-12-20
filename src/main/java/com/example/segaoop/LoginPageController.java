@@ -25,6 +25,8 @@ public class LoginPageController {
     private RadioButton asEmployee;
     @FXML
     private RadioButton asClient;
+    @FXML
+    private ToggleGroup x;
 
 
 //    @FXML
@@ -119,23 +121,30 @@ public class LoginPageController {
 //        }
 //    }
 
+//    @FXML
+//    private void isSelected(MouseEvent e)
+//    {
+//        if (asEmployee.isSelected())
+//        {
+//            login.setOnAction(ev-> loginAsEmployee());
+//            System.out.println("emp selected");
+//        }
+//        else if(asClient.isSelected())
+//        {
+//            login.setOnAction(ev-> loginAsClient());
+//            System.out.println("client selected");
+//        }
+//        else
+//        {
+//            output.setText("Choose Login Type ❎");
+//        }
+//    }
     @FXML
-    private void isSelected(MouseEvent e)
-    {
-        if (asEmployee.isSelected())
-        {
-            login.setOnAction(ev-> loginAsEmployee());
-            System.out.println("emp selected");
-        }
-        else if(asClient.isSelected())
-        {
-            login.setOnAction(ev-> loginAsClient());
-            System.out.println("client selected");
-        }
+    void LoginAll(MouseEvent event) {
+        if (x.getSelectedToggle().equals(asClient))
+            loginAsClient();
         else
-        {
-            output.setText("Choose Login Type ❎");
-        }
+            loginAsEmployee();
     }
 
     @FXML

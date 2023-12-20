@@ -97,7 +97,7 @@ public class depositORwithdraw {
                 System.out.println("new receiver balance: " + receiver.balance);
             }
             else if (transactionType.equals("Withdraw")) {
-                receiver.decreaseBalance(value);
+                receiver.Update(value);
                 System.out.println("new receiver balance: " + receiver.balance);
             }
             //balance_title.setText(String.valueOf(current_acc.balance));

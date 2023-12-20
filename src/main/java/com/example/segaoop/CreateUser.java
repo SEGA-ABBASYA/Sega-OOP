@@ -23,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 
@@ -62,7 +63,17 @@ public class CreateUser {
     String userName;
 
     @FXML
+    private ToggleGroup InterestGroup;
+
+    @FXML
+    private RadioButton YearlyRBTN;
+
+    @FXML
+    private RadioButton MonthlyRBTN;
+
+    @FXML
     private DatePicker JoinDatePicker;
+    private LocalDate localDate;
 
     @FXML
     private Text ErrorText;
@@ -127,6 +138,17 @@ public class CreateUser {
         else
         {
             ErrorText.setText("Please Enter Last Name");
+            ErrorText.setFill(Color.RED);
+            return;
+        }
+
+        if (JoinDatePicker.getValue()!=null)
+        {
+            localDate = JoinDatePicker.getValue();
+        }
+        else
+        {
+            ErrorText.setText("Please Select Join Date");
             ErrorText.setFill(Color.RED);
             return;
         }
@@ -240,6 +262,9 @@ public class CreateUser {
         }
         Account A = new Account(userName,Password,balancee,true,accountconventor(accountType),C);
         DataBase.getInstance().addAccount(A);
+        if (accountconventor(accountType)) {
+            A.applyInterest(localDate, InterestGroup.getSelectedToggle().equals(YearlyRBTN));
+        }
         ErrorText.setFill(Color.GREEN);
         ErrorText.setText("Account Created Successfully");
         clear();

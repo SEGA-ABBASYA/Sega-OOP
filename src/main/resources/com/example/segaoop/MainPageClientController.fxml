@@ -56,14 +56,14 @@
                               <Font size="36.0" />
                            </font>
                         </Label>
-                        <Label fx:id="acc_id_title" layoutX="371.0" layoutY="509.0" minWidth="260.0" text="*acc id*" textFill="WHITE">
+                        <Label fx:id="acc_id_title" layoutX="295.0" layoutY="509.0" minWidth="260.0" text="*acc id*" textFill="WHITE">
                            <font>
                               <Font size="36.0" />
                            </font>
                         </Label>
-                        <Button fx:id="logOutButton" layoutX="1082.0" layoutY="505.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" onAction="#logOut" text="Log Out">
+                        <Button fx:id="logOutButton" layoutX="1014.0" layoutY="563.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" onAction="#logOut" prefHeight="69.0" prefWidth="204.0" style="-fx-background-color: #bb060a;" stylesheets="@ButtonStyle.css" text="Logout">
                            <font>
-                              <Font name="System Bold" size="24.0" />
+                              <Font name="Calibri" size="32.0" />
                            </font>
                         </Button>
                      </children>
