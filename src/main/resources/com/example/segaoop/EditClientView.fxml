@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="pane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: linear-gradient(to Left bottom,#0000FF,ADD8E6,#FFFFFF);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.segaoop.EditClientView">
    <children>
       <Button fx:id="apply" layoutX="361.0" layoutY="588.0" mnemonicParsing="false" onMouseClicked="#SaveChanges" prefHeight="74.0" prefWidth="195.0" style="-fx-background-radius: 30;" text="Apply">
@@ -24,12 +23,12 @@
             <Font name="Arial Rounded MT Bold" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="number" layoutX="803.0" layoutY="101.0" prefHeight="70.0" prefWidth="385.0" promptText="Phone Number" style="-fx-background-radius: 40;">
+      <TextField fx:id="number" layoutX="803.0" layoutY="136.0" prefHeight="70.0" prefWidth="385.0" promptText="Phone Number" style="-fx-background-radius: 40;">
          <font>
             <Font name="Arial Rounded MT Bold" size="24.0" />
          </font>
       </TextField>
-      <TextField fx:id="firstname" layoutX="73.0" layoutY="101.0" prefHeight="70.0" prefWidth="385.0" promptText="First Name" style="-fx-background-radius: 40;">
+      <TextField fx:id="firstname" layoutX="73.0" layoutY="136.0" prefHeight="70.0" prefWidth="385.0" promptText="First Name" style="-fx-background-radius: 40;">
          <font>
             <Font name="Arial Rounded MT Bold" size="24.0" />
          </font>

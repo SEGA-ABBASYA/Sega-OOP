@@ -53,11 +53,6 @@
                                         <Font size="64.0" />
                                     </font>
                                 </Text>
-                                <Button fx:id="EditMyAccount1" layoutX="949.0" layoutY="292.0" mnemonicParsing="false" onAction="#GoToEditClientScene" prefHeight="68.0" prefWidth="282.0" stylesheets="@ButtonStyle.css" text="Edit Client Account">
-                                    <font>
-                                        <Font name="Calibri" size="32.0" />
-                                    </font>
-                                </Button>
                             </children>
                         </AnchorPane>
                     </content>

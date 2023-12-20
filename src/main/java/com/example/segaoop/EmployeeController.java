@@ -127,20 +127,22 @@ public class EmployeeController implements Initializable {
 
     }
 
-    @FXML
-    void GoToEditScene() {
 
+    @FXML
+    void GoToEditScene() throws IOException {
+
+        DataBase.getInstance().setUsernameforedit(ClientsTable.getSelectionModel().getSelectedItem().getUser_name());
+        DataBase.getInstance().setIdforedit(ClientsTable.getSelectionModel().getSelectedItem().getOwner());
+
+        HelloApplication helloApplication=new HelloApplication();
+        helloApplication.changeScene("EditEmp.fxml");
     }
 
     @FXML
     void GoToEditEmployeeScene() throws IOException {
         HelloApplication helloApplication = new HelloApplication();
         helloApplication.changeScene("Edit.fxml");
-    }
-    @FXML
-    void GoToEditClientScene() throws IOException {
-        HelloApplication helloApplication = new HelloApplication();
-        helloApplication.changeScene("EditEmp.fxml");
+
     }
 
     @FXML

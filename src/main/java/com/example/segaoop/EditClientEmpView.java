@@ -19,8 +19,6 @@ import java.util.ResourceBundle;
 public class EditClientEmpView implements Initializable {
 
     @FXML
-    protected Text Alert1,Alert2;
-    @FXML
     private Button Apply;
 
     @FXML
@@ -55,64 +53,58 @@ public class EditClientEmpView implements Initializable {
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        Alert1.setVisible(false);
-        Alert2.setVisible(false);
+        Account acc = DataBase.getInstance().getAccount(DataBase.getInstance().getUsernameforedit());
+        Client client = DataBase.getInstance().getClient(DataBase.getInstance().getIdforedit().getId());
+        FirstNameC.setText(client.getFirstName().toString());
+        LastNameC.setText(client.getLastName().toString());
+        phoneC.setText(client.getTelephone().toString());
+        ID.setText(client.getId().toString());
+        username.setText(acc.getUser_name().toString());
+        acctype.setText(acc.getType().toString());
+        password.setText(acc.getPass().toString());
+        accountstate.setText(acc.getState().toString());
 
     }
+
+
     @FXML
     public void SaveChanges(MouseEvent event) {
 
+        Client client = DataBase.getInstance().getClient(this.ID.getText());
 
-        if(!ID.getText().isEmpty()) {
-            Client client = DataBase.getInstance().getClient(this.ID.getText());
-
-            if (client != null) {
-
-                Alert1.setVisible(false);
-
-                if (!this.FirstNameC.getText().isEmpty()) {
-                    client.setFirstName(this.FirstNameC.getText());
-                }
-                if (!this.LastNameC.getText().isEmpty()) {
-                    client.setLastName(this.LastNameC.getText());
-                }
-                if (!this.phoneC.getText().isEmpty()) {
-                    client.setTelephone(this.phoneC.getText());
-                }
-            } else
-                Alert1.setVisible(true);
+        if (!this.FirstNameC.getText().isEmpty()) {
+            client.setFirstName(this.FirstNameC.getText());
+        }
+        if (!this.LastNameC.getText().isEmpty()) {
+            client.setLastName(this.LastNameC.getText());
+        }
+        if (!this.phoneC.getText().isEmpty()) {
+            client.setTelephone(this.phoneC.getText());
         }
 
-        if(!username.getText().isEmpty()) {
+        Account acc = DataBase.getInstance().getAccount(this.username.getText());
 
-            Account acc = DataBase.getInstance().getAccount(this.username.getText());
-
-            if (acc != null) {
-
-                Alert2.setVisible(false);
-
-                if (!this.accountstate.getText().isEmpty()) {
-                    if (this.accountstate.getText().equals("Active") || this.accountstate.getText().equals("active"))
-                        acc.setState(true);
-                    else if (this.accountstate.getText().equals("Inactive") || this.accountstate.getText().equals("inactive"))
-                        acc.setState(false);
-                }
-
-                if (!password.getText().isEmpty()) {
-                    acc.setPass(password.getText());
-                }
-
-                if (!acctype.getText().isEmpty() && (acctype.getText().equals("Saving") || acctype.getText().equals("saving"))) {
-                    acc.acc_type = true;
-
-
-                } else if (!acctype.getText().isEmpty() && (acctype.getText().equals("current") || acctype.getText().equals("Current"))) {
-
-                    acc.acc_type = false;
-                }
-            }else
-                Alert2.setVisible(true);
+        if (!this.accountstate.getText().isEmpty()) {
+            if (this.accountstate.getText().equals("Active") || this.accountstate.getText().equals("active"))
+                acc.setState(true);
+            else if (this.accountstate.getText().equals("Inactive") || this.accountstate.getText().equals("inactive"))
+                acc.setState(false);
         }
+
+        if (!password.getText().isEmpty()) {
+            acc.setPass(password.getText());
+        }
+
+        if (!acctype.getText().isEmpty() && (acctype.getText().equals("Saving") || acctype.getText().equals("saving"))) {
+            acc.acc_type = true;
+
+
+        } else if (!acctype.getText().isEmpty() && (acctype.getText().equals("current") || acctype.getText().equals("Current"))) {
+
+            acc.acc_type = false;
+        }
+
+
     }
 
 
@@ -122,7 +114,6 @@ public class EditClientEmpView implements Initializable {
 
         pane.setVisible(false);
         HelloApplication he = new HelloApplication();
-
         he.changeScene("hello-view.fxml");
     }
 
