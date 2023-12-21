@@ -34,13 +34,13 @@ public class Notification extends Message implements Serializable {
 
         switch(priority.toLowerCase()){
             case "normal":
-                this.category = "Normal 🟢";
+                this.category = "Normal";
                 break;
             case "important":
-                this.category = "Important 🟡";
+                this.category = "Important";
                 break;
             case "warning":
-                this.category = "Warning 🔴";
+                this.category = "Warning";
                 break;
         }
 //        this.content = content.getText().toString();

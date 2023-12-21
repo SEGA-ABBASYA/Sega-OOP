@@ -176,7 +176,7 @@ public class EmployeeController implements Initializable {
 
         String receiverUserName = ClientsTable.getSelectionModel().getSelectedItem().getUser_name();
 
-        String choice = String.valueOf(PriorityComboBox.getSelectionModel().selectedItemProperty().getValue().toString()).toLowerCase();
+        String choice = String.valueOf(PriorityComboBox.getSelectionModel().selectedItemProperty().getValue().toString().toLowerCase());
         String content = NotificationTextArea.getText().toString();
         Account receiver = (Account) ClientsTable.getSelectionModel().getSelectedItem();
         DataBase.getInstance().getAccount(receiverUserName).addNotification(new Notification(choice,content));

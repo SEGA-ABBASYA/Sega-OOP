@@ -35,12 +35,16 @@ public class NotificationBox {
         text.setFont(new Font(22));
         urgency_text.setFont(new Font(22));
 
-        if(Objects.equals(urgency, "Important"))
+        //if(Objects.equals(urgency, "Important"))
+        System.out.println("urgency:   " + urgency);
+        if(urgency.equalsIgnoreCase("Important"))
             urgency_text.setFill(Color.ORANGE);
-        else if (Objects.equals(urgency, "Warning"))
+        else if(urgency.equalsIgnoreCase("Warning"))
             urgency_text.setFill(Color.RED);
-        else
+        else {
             urgency_text.setText("");
+            System.out.println("fuck oracle forms");
+        }
 
         TextFlow textFlow = new TextFlow(urgency_text, text);
 
