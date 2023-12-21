@@ -26,6 +26,28 @@ public class DataBase implements Serializable {
     public int lastAccountNumber;
     public int lastTransactionID;
 
+    public String getUsernameforedit() {
+        return usernameforedit;
+    }
+
+    public void setUsernameforedit(String usernameforedit) {
+        this.usernameforedit = usernameforedit;
+    }
+
+    public String usernameforedit;
+
+    public void setIdforedit(Client idforedit) {
+        this.idforedit = idforedit;
+    }
+
+    public Client getIdforedit() {
+        return idforedit;
+    }
+
+    public Client idforedit;
+
+
+
     //__________________________SINGLETON_________________________________________
     private static DataBase instance;
 
