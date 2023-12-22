@@ -99,6 +99,9 @@ public class EmployeeController implements Initializable {
     private TextField ReportSubjectTextField;
 
     @FXML
+    private TextField to_TextField;
+
+    @FXML
     private TextArea ReportTextArea;
 
     @FXML
@@ -106,6 +109,27 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private Label report_or_subject_empty_message;
+
+    //----Report Inbox----//
+
+    @FXML
+    private Text numberOfUnreadReportsEmp;
+
+    @FXML
+    private Button previewButtonEmp;
+
+    @FXML
+    private TableColumn<Report, String> readStatusColumnEmp;
+
+    @FXML
+    private TableColumn<Report, String> titleColumnEmp;
+
+    @FXML
+    private TableView<Report> reportsTableEmp;
+
+    @FXML
+    private TableColumn<Report, String> senderColumnEmp;
+
 
     @FXML
     void BeginSearch(MouseEvent event) {
@@ -195,19 +219,79 @@ public class EmployeeController implements Initializable {
     void sendReport(MouseEvent event) {
         String subjectText = ReportSubjectTextField.getText();
         String bodyText = ReportTextArea.getText();
-        if(subjectText.isEmpty() || bodyText.isEmpty())
+        String receiver = to_TextField.getText();
+        if(subjectText.isEmpty() || bodyText.isEmpty() || receiver.isEmpty())
         {
-            report_or_subject_empty_message.setText("Subject or Report Body is Empty ⚠️");
+            report_or_subject_empty_message.setText("One or More Field is Empty ⚠️");
 
         }
         else
         {
             report_or_subject_empty_message.setText("");
-            DataBase.getInstance().addReport(new Report(ReportSubjectTextField,ReportTextArea));
+            //DataBase.getInstance().addReport(new Report(ReportSubjectTextField,ReportTextArea));
+            if(receiver.equalsIgnoreCase("admin"))
+            {
+                DataBase.getInstance().addReport(new Report(ReportSubjectTextField,ReportTextArea));
+            }
+            else
+            {
+                DataBase.getInstance().getEmployee(receiver).getReceivedReports().add(new Report(ReportSubjectTextField,ReportTextArea));
+            }
             ReportTextArea.setText("");
             ReportSubjectTextField.setText("");
+            to_TextField.setText("");
         }
     }
+
+    int getUnread()
+    {
+        int x = 0;
+        Employee currentUser = (Employee) DataBase.getInstance().getCurrentUser();
+        for(Report R : DataBase.getInstance().getEmployee(currentUser.getID()).getReceivedReports())
+        {
+            if(!R.getMessageReadStatus())
+            {
+                x++;
+            }
+        }
+        return x;
+    }
+
+    //Report Inbox
+    @FXML
+    void deleteReportEmp(MouseEvent event) {
+        Employee currentUser = (Employee) DataBase.getInstance().getCurrentUser();
+        Report selectedReport = this.reportsTableEmp.getSelectionModel().getSelectedItem();
+        if (selectedReport != null) {
+            reportsTableEmp.getItems().remove(selectedReport);
+            DataBase.getInstance().getSentReports().remove(selectedReport);
+        }
+    }
+
+    @FXML
+    void previewReportEmp(MouseEvent event) {
+        Report selectedReport = this.reportsTableEmp.getSelectionModel().getSelectedItem();
+        Employee currentUser = (Employee) DataBase.getInstance().getCurrentUser();
+        if (selectedReport != null) {
+            HelloApplication helloApplication = new HelloApplication();
+            try {
+                for (Report neededReport : DataBase.getInstance().getEmployee(currentUser.getID()).getReceivedReports()) {
+                    if (neededReport.getCategory().equals(selectedReport.getCategory())) {
+                        neededReport.setAsRead();
+                        break;
+                    }
+                }
+                DataBase.getInstance().setSelectedReport(selectedReport);
+                helloApplication.changeScene("ReadReportPage.fxml");
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
 
     //--End Messages--//
 
@@ -228,6 +312,7 @@ public class EmployeeController implements Initializable {
 
         PriorityComboBox.getItems().addAll("Normal","Important","Warning");
 
+
         IDColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getOwner().getId()));
         FirstNameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getOwner().getFirstName()));
         LastNameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getOwner().getLastName()));
@@ -237,6 +322,22 @@ public class EmployeeController implements Initializable {
         TelephoneNumberColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getOwner().getTelephone()));
         BalanceColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().getBalance()).asObject());
         UsernameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUser_name()));
+
+        //Reading Reports Table
+
+        senderColumnEmp.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSender().getID().toString()));
+        titleColumnEmp.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCategory()));
+        readStatusColumnEmp.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStatus()));
+
+        ObservableList<Report> toBeAddedReports = FXCollections.observableArrayList();
+        Employee currentUser = (Employee) DataBase.getInstance().getCurrentUser();
+        for(Report R : DataBase.getInstance().getEmployee(currentUser.getID()).getReceivedReports()) {
+            toBeAddedReports.add(R);
+        }
+        reportsTableEmp.setItems(toBeAddedReports);
+
+
+        numberOfUnreadReportsEmp.setText(String.valueOf(getUnread()));
 
 
         updatelist();

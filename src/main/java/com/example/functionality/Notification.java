@@ -16,9 +16,9 @@ public class Notification extends Message implements Serializable {
     public Notification(String priority, String content)
     {
         //System.out.println("receiver: " + receiver);
-        System.out.println("priority: " + priority);
-        System.out.println("content: "  + content);
-        sender = (Employee) DataBase.getInstance().getCurrentUser();
+//        System.out.println("priority: " + priority);
+//        System.out.println("content: "  + content);
+//        sender = (Employee) DataBase.getInstance().getCurrentUser();
 
         //receiver = receiverAccount.getSelectionModel().getSelectedItem();
         //this.receiver = receiverAccount;

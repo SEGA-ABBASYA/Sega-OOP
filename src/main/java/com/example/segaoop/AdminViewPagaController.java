@@ -125,6 +125,19 @@ public class AdminViewPagaController implements Initializable {
     @FXML
     private Button adminLogoutButton;
 
+    //-----------Send Report-------------//
+    @FXML
+    private TextField to_TextFieldAdmin;
+    @FXML
+    private Label report_or_subject_empty_messageAdmin;
+    @FXML
+    private Button SendReportButtonAdmin;
+    @FXML
+    private TextField ReportSubjectTextFieldAdmin;
+
+    @FXML
+    private TextArea ReportTextAreaAdmin;
+
 
 
     @FXML
@@ -194,20 +207,33 @@ public class AdminViewPagaController implements Initializable {
         }
     }
 
+
     @FXML
-    void refreshReports(MouseEvent event) {
-        senderColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSender().getID().toString()));
-        titleColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCategory()));
-        readStatusColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStatus()));
+    void sendReportAdmin(MouseEvent event) {
+        String subjectText = ReportSubjectTextFieldAdmin.getText();
+        String bodyText = ReportTextAreaAdmin.getText();
+        String receiver = to_TextFieldAdmin.getText();
+        if(subjectText.isEmpty() || bodyText.isEmpty() || receiver.isEmpty())
+        {
+            report_or_subject_empty_messageAdmin.setText("One or More Field is Empty ⚠️");
 
-        ObservableList<Report> toBeAddedReports = FXCollections.observableArrayList();
-        for (Report R :DataBase.getInstance().getSentReports()) {
-            toBeAddedReports.add(R);
         }
-        reportsTable.setItems(toBeAddedReports);
-
-
-        numberOfUnreadReports.setText(String.valueOf(getUnread()));
+        else
+        {
+            report_or_subject_empty_messageAdmin.setText("");
+            //DataBase.getInstance().addReport(new Report(ReportSubjectTextField,ReportTextArea));
+            if(receiver.equalsIgnoreCase("admin"))
+            {
+                DataBase.getInstance().addReport(new Report(ReportSubjectTextFieldAdmin,ReportTextAreaAdmin));
+            }
+            else
+            {
+                DataBase.getInstance().getEmployee(receiver).getReceivedReports().add(new Report(ReportSubjectTextFieldAdmin,ReportTextAreaAdmin));
+            }
+            ReportTextAreaAdmin.setText("");
+            ReportSubjectTextFieldAdmin.setText("");
+            to_TextFieldAdmin.setText("");
+        }
     }
     @FXML
     void returnToLoginScene(MouseEvent event) {

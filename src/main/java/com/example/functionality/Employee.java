@@ -10,6 +10,7 @@ public class Employee extends Person implements Serializable {
     protected float salary,totalGrade;
     protected int graduationYear;
     ArrayList<Notification> sentNotificationHistory = new ArrayList<>();
+    ArrayList<Report> receivedReports = new ArrayList<>();
 
     public Employee(String ID,String fN,String lF,String telephone, String Address,String position, String graduationCollage, float salary, float totalGrade, int graduationYear, String password) {
         this.position = position;
@@ -89,4 +90,6 @@ public class Employee extends Person implements Serializable {
     public String getPassword() {
         return password;
     }
+
+    public ArrayList<Report> getReceivedReports() {return receivedReports;}
 }

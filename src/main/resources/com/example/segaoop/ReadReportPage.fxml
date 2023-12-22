@@ -42,5 +42,10 @@
             <Font size="31.0" />
          </font>
       </Button>
+      <Button fx:id="replyButton" alignment="CENTER" layoutX="1142.0" layoutY="521.0" mnemonicParsing="false" onMouseClicked="#toReplyPage" prefHeight="56.0" prefWidth="108.0" style="-fx-background-color: green;" stylesheets="@ButtonStyle.css" text="Reply" textAlignment="CENTER">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

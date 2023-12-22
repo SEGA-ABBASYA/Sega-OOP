@@ -14,6 +14,7 @@ public abstract class Message implements Serializable
         return sender;
     }
 
+
     public boolean getMessageReadStatus() {
         return messageReadStatus;
     }

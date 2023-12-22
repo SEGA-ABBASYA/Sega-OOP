@@ -38,7 +38,7 @@
                                         <Font size="64.0" />
                                     </font>
                                 </Text>
-                                <Button fx:id="EditMyAccount" layoutX="516.0" layoutY="358.0" mnemonicParsing="false" onAction="#GoToEditEmployeeScene" prefHeight="68.0" prefWidth="282.0" stylesheets="@ButtonStyle.css" text="Edit My Account">
+                                <Button fx:id="EditMyAccount" layoutX="1012.0" layoutY="496.0" mnemonicParsing="false" onAction="#GoToEditEmployeeScene" prefHeight="68.0" prefWidth="237.0" stylesheets="@ButtonStyle.css" text="Edit My Account">
                                     <font>
                                         <Font name="Calibri" size="32.0" />
                                     </font>
@@ -53,6 +53,30 @@
                                         <Font size="64.0" />
                                     </font>
                                 </Text>
+                        <Text fill="WHITE" layoutX="24.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You Have" textAlignment="CENTER" wrappingWidth="138.93670654296875">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberOfUnreadReportsEmp" fill="WHITE" layoutX="163.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="80.0">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="243.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unread Reports" wrappingWidth="223.60003662109375">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Text>
+                        <TableView fx:id="reportsTableEmp" layoutX="24.0" layoutY="244.0" prefHeight="370.0" prefWidth="445.0" stylesheets="@stylefortable.css">
+                           <columns>
+                              <TableColumn fx:id="senderColumnEmp" prefWidth="109.19998741149902" text="From" />
+                              <TableColumn fx:id="titleColumnEmp" prefWidth="293.20001220703125" text="Title" />
+                              <TableColumn fx:id="readStatusColumnEmp" prefWidth="41.199969482421864" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="previewButtonEmp" layoutX="24.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#previewReportEmp" stylesheets="@ButtonStyle.css" text="Preview" />
+                        <Button fx:id="deleteReportEmp" layoutX="93.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#deleteReportEmp" prefHeight="25.0" prefWidth="55.0" stylesheets="@ButtonStyle.css" text="Delete" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -61,7 +85,7 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <ImageView fitHeight="720.0" fitWidth="1287.0" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="720.0" fitWidth="1287.0" layoutX="14.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@mango.jpg" />
                                     </image>
@@ -81,7 +105,7 @@
                                         <Font name="Calibri" size="18.0" />
                                     </font>
                                 </Button>
-                                <Text fx:id="NameText1" fill="#3300ff" layoutX="305.0" layoutY="126.0" stroke="WHITE" strokeWidth="2.0" text="Send Report to Admin" textAlignment="CENTER" wrappingWidth="670.4033164978027">
+                                <Text fx:id="NameText1" fill="#3300ff" layoutX="305.0" layoutY="94.0" stroke="WHITE" strokeWidth="2.0" text="Send Report" textAlignment="CENTER" wrappingWidth="670.4033164978027">
                                     <font>
                                         <Font size="64.0" />
                                     </font>
@@ -91,6 +115,11 @@
                                         <Font size="20.0" />
                                     </font>
                                 </Label>
+                        <TextField fx:id="to_TextField" layoutX="25.0" layoutY="117.0" prefHeight="38.0" prefWidth="162.0" promptText="To:" style="-fx-background-color: white; -fx-border-radius: 50; -fx-background-radius: 10;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </TextField>
                             </children></AnchorPane>
                     </content>
                 </Tab>

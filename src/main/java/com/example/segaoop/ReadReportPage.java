@@ -19,6 +19,9 @@ public class ReadReportPage implements Initializable {
     private Button backToAdminPage;
 
     @FXML
+    private Button replyButton;
+
+    @FXML
     private  TextArea reportDisplayArea = new TextArea(DataBase.getInstance().getSelectedReport().getContent());
 
     @FXML
@@ -33,6 +36,18 @@ public class ReadReportPage implements Initializable {
         HelloApplication helloApplication = new HelloApplication();
         try {
             helloApplication.changeScene("AdminViewPage.fxml");
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void toReplyPage(MouseEvent event) {
+        HelloApplication helloApplication = new HelloApplication();
+        try {
+            helloApplication.changeScene("ReplyPage.fxml");
         }
         catch (IOException e)
         {
