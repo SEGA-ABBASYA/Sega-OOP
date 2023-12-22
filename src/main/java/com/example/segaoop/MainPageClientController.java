@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
@@ -44,6 +45,9 @@ public class MainPageClientController implements Initializable {
     private ScrollPane scrollpane;
     @FXML
     private VBox notificationsVbox;
+    @FXML
+    private Text feesText;
+
 
     @FXML
     protected void transferMoney()
@@ -88,6 +92,14 @@ public class MainPageClientController implements Initializable {
     {
         try
         {
+            if(sender.getBalance() > 3000){
+                sender.update_fees(Double.parseDouble(amount.getText()));
+            }
+            else{
+                sender.update_fees(Float.parseFloat(amount.getText()));
+            }
+
+            sender.setFees_value(0);
 //            sender.decreaseBalance(value + sender.getTransferFees());
             sender.Update(value);
             receiver.increaseBalance(value);

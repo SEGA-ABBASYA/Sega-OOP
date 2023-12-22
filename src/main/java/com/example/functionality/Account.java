@@ -7,6 +7,9 @@ import java.util.Collections;
 import java.util.Date;
 
 public class Account implements Serializable {
+
+    // for checking in fees text
+    public boolean flag = false;
     protected String user_name;
     private Integer account_number;
     Client owner;
@@ -14,6 +17,7 @@ public class Account implements Serializable {
     private String pass;
 
     public Double balance;
+
     // The account is saving (1) or current (0)
     public Boolean acc_type;
     // (0) if monthly interest, (1) if yearly
@@ -22,6 +26,14 @@ public class Account implements Serializable {
     protected Boolean State;
 
     protected float fees = 0;
+
+    public void setFees_value(float fees_value) {
+        this.fees_value = fees_value;
+    }
+
+    public float getFees_value() {
+        return fees_value;
+    }
 
     // Value of transferred or deposited or withdrawn money
     protected double value;
@@ -78,13 +90,37 @@ public class Account implements Serializable {
         return unReadMessages;
     }
 
-   public void getTransferFees()
-   {
-       if(balance <= 3000)
-           fees += 50;
-       else
-           balance -= 5;
-   }
+    //for less than 3000 in the balance
+    public float update_fees(float transaction) throws MoneyExceptions{
+        double tran = transaction;
+        if(transaction > balance){
+            // label to enter fees logically for his balance and right it again مش ناقصه عبط عملاء
+            throw new MoneyExceptions(transaction,balance);
+
+        }
+        if(transaction < 0){
+            throw new MoneyExceptions(tran);
+        }
+            flag = true;
+            balance = balance - (transaction*0.05f);
+            return transaction*0.1f;
+    }
+
+    // for more than 3000 LE in the Balance
+    public float update_fees(double transaction) throws MoneyExceptions{
+
+        if(transaction > balance){
+            // label to enter fees logically for his balance and right it again مش ناقصه عبط عملاء
+            throw new MoneyExceptions(transaction,balance);
+        }
+        else if(transaction<0){
+            throw new MoneyExceptions(transaction);
+        }
+            flag = true;
+            float f = 100;
+            balance -= f;
+            return f;
+    }
 
     public void increaseBalance(double value)
     {

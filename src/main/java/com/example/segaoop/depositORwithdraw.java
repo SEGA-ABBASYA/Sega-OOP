@@ -10,6 +10,8 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 
 public class depositORwithdraw {
 
@@ -33,27 +35,46 @@ public class depositORwithdraw {
 
     @FXML
     private Button transfer;
+
+    @FXML
+    private Text feesText;
+
     String transactionType;
     @FXML
-    void isSelected(MouseEvent event) {
+    void isSelected(MouseEvent event) throws MoneyExceptions {
+
         if (asDeposit.isSelected())
         {
             transactionType="Deposit";
-            transfer.setOnAction(this::controlMoney);
+            transfer.setOnAction(event1 -> {
+                try {
+                    controlMoney(event1);
+                } catch (MoneyExceptions e) {
+                    throw new RuntimeException(e);
+                }
+            });
             System.out.println("deposit selected");
         }
         else if(asWithdraw.isSelected())
         {
             transactionType="Withdraw";
-            transfer.setOnAction(this::controlMoney);
+            transfer.setOnAction(event1 -> {
+                try {
+                    controlMoney(event1);
+                } catch (MoneyExceptions e) {
+                    throw new RuntimeException(e);
+                }
+            });
             System.out.println("withdraw selected");
         }
         else
         {
             invalid_amount.setText("Choose Transaction Type ❎");
         }
+
     }
-    void controlMoney(ActionEvent event) {
+    void controlMoney(ActionEvent event) throws MoneyExceptions {
+
         invalid_amount.setText("");
         if(amount.getText() != null && password.getText() != null && accountID.getText() != null)
         {
@@ -87,10 +108,12 @@ public class depositORwithdraw {
 
         }
         System.out.println("ching ching");
+
     }
 
     private void transMoney(Employee emp, Account receiver, double value) {
-        try {
+
+            try {
             if (transactionType.equals("Deposit")) {
                 receiver.increaseBalance(value);
                 //System.out.println("new sender balance: " + sender.balance);
@@ -102,10 +125,15 @@ public class depositORwithdraw {
             }
             //balance_title.setText(String.valueOf(current_acc.balance));
             //acc_id_title.setText(String.valueOf(current_acc.getAccount_number()));
+                if(receiver.flag==true){
+                    feesText.setText("FEES");
+                }
             invalid_amount.setText("Transaction Successful");
             accountID.setText("");
             amount.setText("");
             password.setText("");
+                feesText.setText("FEES DONE");
+                feesText.setFill(Color.GREEN);
             Transaction newTrans = new Transaction(emp.getfirstName(), value, receiver.getUser_name(), transactionType);
             DataBase.getInstance().addTransaction(newTrans);
             DataBase.getInstance().getTransactionHistory().sort(new TransactionCompare());
@@ -114,6 +142,8 @@ public class depositORwithdraw {
             {
                 invalid_amount.setText("Transaction Failed: Not Enough Money in Your Account");
             }
-        }
+
+
+    }
 
 }
