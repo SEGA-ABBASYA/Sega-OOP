@@ -27,14 +27,6 @@ public class Account implements Serializable {
 
     protected float fees = 0;
 
-    public void setFees_value(float fees_value) {
-        this.fees_value = fees_value;
-    }
-
-    public float getFees_value() {
-        return fees_value;
-    }
-
     // Value of transferred or deposited or withdrawn money
     protected double value;
 
@@ -223,4 +215,13 @@ public class Account implements Serializable {
     public String getUser_name() {
         return user_name;
     }
+
+    public void setFees_value(float fees_value) {
+        this.fees_value = fees_value;
+    }
+
+    public float getFees_value() {
+        return fees_value;
+    }
+
 }

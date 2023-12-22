@@ -1,0 +1,227 @@
+@startuml
+'https://plantuml.com/class-diagram
+scale 1.5
+skinparam classAttributeIconSize 0
+'skinparam titleBorderRoundCorner 15
+'skinparam titleBorderThickness 2
+'skinparam titleBorderColor red
+'skinparam titleBackgroundColor Aqua-CadetBlue
+'
+'title DataBase Class Contains\n Collection of the\n Other Classes
+
+
+Class Account
+Class Bank
+Class Client
+'Class DataBase'
+Class Employee
+Abstract Class Message
+Exception MoneyExceptions
+Class Notification
+Abstract Class Person
+Class Report
+Class Transaction
+Class TransactionCompare
+
+'is a relation'
+Person 	<|-- Client
+Person 	<|-- Employee
+Message <|-- Notification
+Message <|-- Report
+'has owner'
+Account o-- Client : has owner
+'has notifications'
+Account o-- Notification
+'has a sender'
+Message o-- Employee : has sender
+'there is an exception'
+MoneyExceptions -- Account : Throws an Exception
+'association'
+Transaction -- Bank
+Transaction -- TransactionCompare
+'DATA'
+'DataBase o-- Account
+'DataBase o-- Bank
+'DataBase o-- Client
+'DataBase o-- Employee
+'DataBase o-- Message
+'DataBase o-- Notification
+'DataBase o-- Person
+'DataBase o-- Report
+'DataBase o-- Transaction
+
+Class Account{
++ flag : boolean
+# user_name : String
+- account_number : Integer
+~ owner : Client
+- pass : String
++ balance : Double
++ acc_type : Boolean
+# TypeOfInterest : Boolean
+# state : Boolean
+# fees : float
+# value : double
+# fees_value : float
+~ accountNotification : List<Notification>
++ applyInterest(LocalDate,Boolean) : void
++ update_fees(float) : float
++ update_fees(double) : float
++ getUser_name() : String
++ setPass(String) : void
++ getBalance() : double
++ addNotification(Notification) : void
++ countUnreadMessages() : int
++ calculate_fees() : void
++ increaseBalance(double) : void
++ Update(double) : void
++ Update(float) : void
++ calculate_balance(boolean ,boolean) : void
++ Account(String, String, double ,Boolean ,Boolean , Client)
++ getAccount_number() : Integer
++ getOwner() : Client
++ getPass() : String
++ setState(Boolean) : void
++ getState() : String
++ getType() : String
++ getAllNotifications() : List<Notification>
++ setFees_value(float) : void
++ getFees_value() : float
+}
+
+Class Bank{
+# branchID : int
+# address : String
+{static} # lastBranchID : int
++ Bank(String)
++ getBranchID() : int
++ getAddress() : String
+}
+
+Class Person{
+# id : String
+# firstName : String
+# lastName : String
+# telephone : String
+# address : String
+}
+
+Class Message{
+# sender : Employee
+~ messageReadStatus : boolean
+# date : String
+# category : String
+# content : String
++ getSender() : Employee
++ getMessageReadStatus() : Boolean
++ setAsRead() : void
++ getDate() : String
++ getCategory() : String
++ getContent() : String
+}
+
+Class Report {
++ Report(TextField, TextArea)
++ setAsRead() : void
++ getStatus() : String
++ setStatus(String) : void
+}
+
+Class Notification{
+{static} + dateComparator : Comparator<Notification>
++ Notification(String, String)
+}
+
+Class Client{
++ setId(String) : void
++ getId() : String
++ setFirstName(String) : void
++ getFirstName() : String
++ setLastName(String) : void
++ getLastName() : String
++ getTelephone() : String
++ setTelephone(String) : void
++ Client(String, String, String, String)
+}
+
+Class Transaction{
++ transactionDate : String
+# amount : double
+# balance : int
+# sender : String
+# receiver : String
+# type : String
+# branch : Bank
+# transactionID : String
+# employee : String
++ Transaction()
++ Transaction(double, String, String,String)
++ Transaction(String,double,String, String)
++ getTransactionDate() : String
++ getBalance() : int
++ setTransactionDate(String) : void
++ getAmount() : double
++ setAmount(double) : void
++ setBalance(int) : void
++ getSender() : String
++ setSender(String) : void
++ getReceiver() : String
++ setReceiver(String) : void
++ getType() : String
++ setType(String) : void
++ getTransactionID() : String
++ setTransactionID(String) : void
++ getEmployee() : String
++ setEmployee(String) : void
+}
+
+Class Employee{
+# graduationCollage : String
+# position : String
++ password : String
+# totalGrade : float
+# salary : float
+# totalGrade : float
+# graduationYear : int
+~ sentNotificationHistory : List<Notification>
+~ receivedReports : List<Report>
++ Employee(String,String,String,String, String,String, String, float, float, int, String)
++ getID() : String
++ setID(String) : void
++ getfirstName() : String
++ setfirstName(String) : void
++ getlastName() : String
++ setlastName(String) : void
++ getTelephone() : String
++ setTelephone(String) : void
++ getAddress() : String
++ setAddress(String) : void
++ getPosition() : String
++ setPosition(String) : void
++ getGraduationCollage() : String
++ setGraduationCollage(String) : void
++ getSalary() : float
++ setSalary(float) : void
++ getTotalGrade() : float
++ setTotalGrade(float) : void
++ getGraduationYear() : int
++ setGraduationYear(int) : void
++ getPassword() : String
++ getReceivedReports() : List<Report>
+}
+
+Class TransactionCompare{
++ compare(Transaction, Transaction) : int
+}
+
+Exception MoneyExceptions{
+public MoneyExceptions(double, double)
+public MoneyExceptions(float)
+public MoneyExceptions(float,double)
+public MoneyExceptions(double)
+}
+
+
+
+
+@enduml

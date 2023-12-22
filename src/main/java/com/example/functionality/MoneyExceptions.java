@@ -2,7 +2,7 @@ package com.example.functionality;
 
 public class MoneyExceptions extends  Exception{
 
-    public MoneyExceptions(double value, Double balance)
+    public MoneyExceptions(double value, double balance)
     {
         super("You can't do this operation your balance value is less than "+ value);
     }
