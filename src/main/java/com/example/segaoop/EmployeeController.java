@@ -145,13 +145,6 @@ public class EmployeeController implements Initializable {
     }
 
 
-
-    @FXML
-    void GoToCreateScene() {
-
-    }
-
-
     @FXML
     void GoToEditScene() throws IOException {
 
@@ -204,10 +197,6 @@ public class EmployeeController implements Initializable {
         String content = NotificationTextArea.getText().toString();
         Account receiver = (Account) ClientsTable.getSelectionModel().getSelectedItem();
         DataBase.getInstance().getAccount(receiverUserName).addNotification(new Notification(choice,content));
-//        DataBase.getInstance().getAccount(receiverUserName).addNotification(new Notification(receiver,choice,content));
-
-        //DataBase.getInstance().getAccount(receiverUserName).addNotification(new Notification(ClientsTable,PriorityComboBox,NotificationTextArea));
-        //ClientsTable.getSelectionModel().getSelectedItem().addNotification(new Notification(ClientsTable,PriorityComboBox,NotificationTextArea));
 
 
 
@@ -228,7 +217,7 @@ public class EmployeeController implements Initializable {
         else
         {
             report_or_subject_empty_message.setText("");
-            //DataBase.getInstance().addReport(new Report(ReportSubjectTextField,ReportTextArea));
+
             if(receiver.equalsIgnoreCase("admin"))
             {
                 DataBase.getInstance().addReport(new Report(ReportSubjectTextField,ReportTextArea));

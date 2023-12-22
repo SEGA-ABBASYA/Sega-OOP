@@ -38,11 +38,6 @@ public class Client extends Person implements Serializable {
     }
 
 
-//    ArrayList<Notification> clientNotification = new ArrayList<>();
-//    public void addNotification(Notification newNotification) {
-//        this.clientNotification.add(newNotification);
-//    }
-
     public Client(String id, String firstName, String lastName, String telephone)
     {
         this.id = id;

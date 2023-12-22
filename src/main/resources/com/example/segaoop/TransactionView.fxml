@@ -33,7 +33,6 @@
             <TableColumn fx:id="Sender_Column" prefWidth="84.0" text="Sender" />
             <TableColumn fx:id="Receiver_Column" prefWidth="62.0" text="Receiver" />
             <TableColumn fx:id="TransactionID_Column" prefWidth="165.0" text="TransactionID" />
-            <TableColumn fx:id="Branch_Column" prefWidth="69.0" text="Branch" />
             <TableColumn fx:id="Employee_Column" prefWidth="69.0" text="Employee" />
          </columns>
       </TableView>

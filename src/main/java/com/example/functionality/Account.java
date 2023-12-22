@@ -94,7 +94,6 @@ public class Account implements Serializable {
     public float update_fees(float transaction) throws MoneyExceptions{
         double tran = transaction;
         if(transaction > balance){
-            // label to enter fees logically for his balance and right it again مش ناقصه عبط عملاء
             throw new MoneyExceptions(transaction,balance);
 
         }
@@ -110,7 +109,6 @@ public class Account implements Serializable {
     public float update_fees(double transaction) throws MoneyExceptions{
 
         if(transaction > balance){
-            // label to enter fees logically for his balance and right it again مش ناقصه عبط عملاء
             throw new MoneyExceptions(transaction,balance);
         }
         else if(transaction<0){
@@ -165,7 +163,6 @@ public class Account implements Serializable {
     public Account(String user_name, String pass, double balance,Boolean State,Boolean acc_type, Client owner) {
         this.user_name = user_name;
         this.pass = pass;
-//        this.hashed_pass = hashed_pass;
         this.balance = balance;
         this.acc_type = acc_type;
         this.State = State;
@@ -226,40 +223,4 @@ public class Account implements Serializable {
     public String getUser_name() {
         return user_name;
     }
-
-
-
-
-
-
-    //    public void update_balance(boolean operation, double value) throws MoneyExceptions
-//    {
-//        if (value > balance && !operation)
-//        {
-//            throw new MoneyExceptions(value);
-//        }
-//        else if (operation)
-//        {
-//            balance += value;
-//        }
-//        else {
-//            balance -= value;
-//        }
-//    }
-
-    //PassHashing hash = new PassHashing();
-//   public void inner_hash(){
-//       hashed_pass = hash.Hash(pass);
-//   }
-
-//   public void calculate_fees(){
-//       if (balance < 3000)
-//       {
-//           fees += 50;
-//       }
-//   }
-
-
-    // (0) if transfer or withdraw, (1) if deposit
-    //protected boolean operation;
 }

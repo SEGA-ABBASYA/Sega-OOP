@@ -123,8 +123,7 @@ public class depositORwithdraw {
                 receiver.Update(value);
                 System.out.println("new receiver balance: " + receiver.balance);
             }
-            //balance_title.setText(String.valueOf(current_acc.balance));
-            //acc_id_title.setText(String.valueOf(current_acc.getAccount_number()));
+
                 if(receiver.flag==true){
                     feesText.setText("FEES");
                 }

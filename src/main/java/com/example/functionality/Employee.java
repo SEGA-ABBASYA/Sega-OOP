@@ -83,9 +83,6 @@ public class Employee extends Person implements Serializable {
         this.graduationYear = graduationYear;
     }
 
-    public void SalaryAdded(Object obj){
-        //send notification salary added (david idea maybe erased if not used)
-    }
 
     public String getPassword() {
         return password;

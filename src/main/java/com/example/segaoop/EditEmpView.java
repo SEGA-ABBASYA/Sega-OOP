@@ -50,17 +50,6 @@ public class EditEmpView implements Initializable {
         position.setText(emp.getPosition().toString());
     }
 
-   /* void getClient(MouseEvent event)  {
-
-        Client client = DataBase.getInstance().getClient(this.ID.getText().toString());
-
-        FirstNameC.setText(client.getFirstName().toString());
-        LastNameC.setText(client.getLastName().toString());
-        phoneC.setText(client.getTelephone().toString());
-        accountstate.setText(client.getState().toString());
-
-
-    }*/
 
     @FXML
     public void SaveChanges (MouseEvent event) throws IOException {

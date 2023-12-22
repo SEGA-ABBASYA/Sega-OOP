@@ -48,6 +48,9 @@ public class MainPageClientController implements Initializable {
     @FXML
     private Text feesText;
 
+    @FXML
+    private Button Edit;
+
 
     @FXML
     protected void transferMoney()
@@ -100,7 +103,7 @@ public class MainPageClientController implements Initializable {
             }
 
             sender.setFees_value(0);
-//            sender.decreaseBalance(value + sender.getTransferFees());
+
             sender.Update(value);
             receiver.increaseBalance(value);
             System.out.println("new sender balance: " + sender.balance);
@@ -129,13 +132,7 @@ public class MainPageClientController implements Initializable {
         balance_title.setText(String.valueOf(current_acc.balance));
         acc_id_title.setText(String.valueOf(current_acc.getAccount_number()));
         notificationsVbox.setSpacing(15);
-//        for (int i = 0; i < 100; i++) {
-//            try {
-//                notificationsVbox.getChildren().add(new NotificationBox().getNotificationBox("someone", "lorem epsum"));
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
+
         for(Notification notif : DataBase.getInstance().getCurrentAccount().getAllNotifications())
         {
             try {
@@ -150,6 +147,11 @@ public class MainPageClientController implements Initializable {
     void logOut() throws IOException {
         HelloApplication test = new HelloApplication();
         test.changeScene("LoginPage.fxml");
+    }
+    @FXML
+    void goToEdit() throws IOException{
+        HelloApplication edit = new HelloApplication();
+        edit.changeScene("EditClientView.fxml");
     }
 }
 

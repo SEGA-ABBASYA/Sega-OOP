@@ -19,10 +19,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException, ClassNotFoundException {
         DataBase.getInstance().loadFromFile();
-//        for (String key : DataBase.getInstance().getAllEmployees().keySet())
-//        {
-//            System.out.println("employee: " + key + " pass: " + DataBase.getInstance().getEmployee(key).getPassword());
-//        }
+
         System.out.println("hector el sha2y: " + DataBase.getInstance().getClient("hector").getTelephone());
         for(String key : DataBase.getInstance().getAllAccounts().keySet())
         {
@@ -43,7 +40,6 @@ public class HelloApplication extends Application {
 
     @Override
     public void stop() throws IOException {
-        //System.out.println("good bye");
         DataBase.getInstance().saveToFile();
     }
 

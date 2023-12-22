@@ -291,13 +291,5 @@ public class CreateEmployee {
         return password.length() < 8;
     }
 
-     public void AddingEmployee( String ID, String fN, String lF, String telephone, String Address, String position, String graduationCollage, float salary, float totalGrade, int graduationYear, String password){
-        if(((Employee)DataBase.getInstance().getCurrentUser()).getPosition().equals("admin")) {
-             if (DataBase.getInstance().getCurrentUser() instanceof Employee) {
-              Employee Emp = new Employee(ID,fN,lF,telephone,Address,position,graduationCollage,salary,totalGrade,graduationYear,password);
-               DataBase.getInstance().addEmployee(Emp.getID(),Emp);
-          }
-        }
-     }
 
 }

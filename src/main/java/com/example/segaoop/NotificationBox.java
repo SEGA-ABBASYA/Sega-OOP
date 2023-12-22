@@ -35,7 +35,7 @@ public class NotificationBox {
         text.setFont(new Font(22));
         urgency_text.setFont(new Font(22));
 
-        //if(Objects.equals(urgency, "Important"))
+
         System.out.println("urgency:   " + urgency);
         if(urgency.equalsIgnoreCase("Important"))
             urgency_text.setFill(Color.ORANGE);

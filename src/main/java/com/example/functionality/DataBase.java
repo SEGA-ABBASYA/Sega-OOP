@@ -71,16 +71,10 @@ public class DataBase implements Serializable {
         ObjectInputStream in = null;
         try {
             in = new ObjectInputStream(new FileInputStream("database.ser"));
-//            if(in.available() > 0)
-//            {
+
                 instance = (DataBase) in.readObject();
                 System.out.println("hi, file loaded successful");
-//            }
-//            else
-//            {
-//                //instance = (DataBase) in.readObject();
-//                System.out.println("hi, file is empty");
-//            }
+
         }
         catch (FileNotFoundException e)
         {
@@ -95,11 +89,6 @@ public class DataBase implements Serializable {
         } finally {
             if (in != null) in.close();
         }
-//        catch (IOException e)
-//        {
-//            e.printStackTrace();
-//
-//        }
     }
     public void saveToFile() throws IOException {
         try {
@@ -115,12 +104,7 @@ public class DataBase implements Serializable {
     }
 
     //___________________________QUERY FUNCTIONS________________________________________
-//    public HashMap<String, Person> getAllClients() {
-//        return (HashMap<String, Person>) users.entrySet().stream().filter(e-> e instanceof Client).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-//    }
-//    public HashMap<String, Person> getAllEmployees() {
-//        return (HashMap<String, Person>) users.entrySet().stream().filter(e-> e instanceof Employee).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-//    }
+
 
     public HashMap<String, Client> getAllClients() {
         return clients;

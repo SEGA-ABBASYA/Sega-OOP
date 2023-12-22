@@ -66,6 +66,11 @@
                               <Font name="Calibri" size="32.0" />
                            </font>
                         </Button>
+                        <Button fx:id="Edit" layoutX="1014.0" layoutY="433.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToEdit" prefHeight="69.0" prefWidth="204.0" stylesheets="@ButtonStyle.css" text="Edit">
+                           <font>
+                              <Font name="Calibri" size="32.0" />
+                           </font>
+                        </Button>
                      </children>
                   </AnchorPane>
                </content>
@@ -153,7 +158,6 @@
                   </fx:include>
                </content>
             </Tab>
-            <Tab text="Take Deposit" />
             <Tab text="Notifications">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">

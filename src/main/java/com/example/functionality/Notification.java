@@ -12,25 +12,18 @@ import java.util.Comparator;
 public class Notification extends Message implements Serializable {
 
 
-//    public Notification(TableView<Account> clientList, ComboBox<String> priority, TextArea content)
     public Notification(String priority, String content)
     {
-        //System.out.println("receiver: " + receiver);
-//        System.out.println("priority: " + priority);
-//        System.out.println("content: "  + content);
-//        sender = (Employee) DataBase.getInstance().getCurrentUser();
-
-        //receiver = receiverAccount.getSelectionModel().getSelectedItem();
-        //this.receiver = receiverAccount;
 
         messageReadStatus = false;
+
         // Get the current system date and time
         LocalDateTime currentDateTime = LocalDateTime.now();
+
         // Define a formatter to format the date and time
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         this.date = currentDateTime.format(formatter);
 
-        //String choice = String.valueOf(priority.getSelectionModel().selectedItemProperty()).toLowerCase();
 
         switch(priority.toLowerCase()){
             case "normal":
@@ -43,7 +36,6 @@ public class Notification extends Message implements Serializable {
                 this.category = "Warning";
                 break;
         }
-//        this.content = content.getText().toString();
 
         this.content = content;
         System.out.println("this.content: " + this.content);

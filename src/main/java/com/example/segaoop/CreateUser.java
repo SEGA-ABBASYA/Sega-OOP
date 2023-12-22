@@ -108,11 +108,6 @@ public class CreateUser {
          private boolean flagforCreate = false;
 
 
-         public void updateCreateSuccussfully(){
-         created.setVisible(true);
-         // call database and then back to next scene
-         }
-
 
     @FXML
     void ClearButtonFunction(MouseEvent event) {
@@ -269,24 +264,10 @@ public class CreateUser {
         ErrorText.setText("Account Created Successfully");
         clear();
     }
-        public void cancelCreate(){
-            created.setVisible(false);
-        }
 
     public boolean checklongpassword(String password) {
         return password.length() < 8;
     }
-
-        public void AddingClient(){
-            if(!fieldsNotEqual) {
-                if (DataBase.getInstance().getCurrentUser() instanceof Employee) {
-                    // add client
-                    Client x = new Client(id, firstName, lastName, phoneNumber);
-                    DataBase.getInstance().addClient(x);
-                }
-            }
-        }
-
 
 
 }

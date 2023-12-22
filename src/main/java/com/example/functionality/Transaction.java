@@ -8,11 +8,10 @@ public class Transaction implements Serializable {
     public String transactionDate;
     protected double amount;
 
-    protected int balance =9000;
+    protected double balance;
     protected String sender;
     protected String receiver;
     protected String type;
-    protected Bank branch;
     protected String transactionID;
 
     protected String employee;
@@ -29,6 +28,7 @@ public class Transaction implements Serializable {
         this.receiver = receiverUserName;
         this.type=type;
         this.transactionID= String.valueOf((++DataBase.getInstance().lastTransactionID));
+        this.balance = DataBase.getInstance().getCurrentAccount().balance;
     }
 
     public Transaction(String employeeName,double amount,String receiverUserName, String type) {
@@ -40,6 +40,7 @@ public class Transaction implements Serializable {
         this.type = type;
         this.transactionID= String.valueOf((++DataBase.getInstance().lastTransactionID));
         this.employee=employeeName;
+        this.balance = DataBase.getInstance().getCurrentAccount().balance;
     }
 
     public String getTransactionDate() {
@@ -58,7 +59,7 @@ public class Transaction implements Serializable {
         this.amount = amount;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
@@ -89,13 +90,6 @@ public class Transaction implements Serializable {
     public void setType(String type) {
         this.type = type;
     }
-
-    public Bank getBranch() {
-        return branch;
-    }
-
-    public void setBranch(Bank branch) { this.branch = branch; }
-
     public String getTransactionID() { return transactionID; }
 
     public void setTransactionID(String transactionID) { this.transactionID = transactionID; }

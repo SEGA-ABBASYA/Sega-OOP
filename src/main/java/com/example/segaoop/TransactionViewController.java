@@ -23,10 +23,10 @@ public class TransactionViewController implements Initializable {
     private TableColumn<Transaction, String> Type_Column;
 
     @FXML
-    private TableColumn<Transaction, Integer> Amount_Column;
+    private TableColumn<Transaction, Double> Amount_Column;
 
     @FXML
-    private TableColumn<Transaction,Integer> Balance_Column;
+    private TableColumn<Transaction,Double> Balance_Column;
 
     @FXML
     private TableColumn<Transaction, String> Sender_Column;
@@ -37,8 +37,6 @@ public class TransactionViewController implements Initializable {
     @FXML
     private TableColumn<Transaction, String> TransactionID_Column;
 
-    @FXML
-    private TableColumn<Transaction, String> Branch_Column;
 
     @FXML
     private TableColumn<Transaction, String> Employee_Column;
@@ -92,18 +90,9 @@ public class TransactionViewController implements Initializable {
         System.out.println("date reset");
         DateLabel.setText("Reset Transactions.");
     }
-    /*private static LocalDate generateRandomDate(LocalDate startDate, LocalDate endDate) {
-        Random random = new Random();
-        long startEpochDay = startDate.toEpochDay();
-        long endEpochDay = endDate.toEpochDay();
-        long randomEpochDay = startEpochDay + random.nextInt((int) (endEpochDay - startEpochDay + 1));
-        return LocalDate.ofEpochDay(randomEpochDay);
-    }*///generate random dates to save in the transactions
+
     void makeTransaction()
     {
-        //LocalDate startDate = LocalDate.of(2020, 1, 1);
-        //LocalDate endDate = LocalDate.of(2023, 12, 31);
-
         if (DataBase.getInstance().getCurrentUser() instanceof Employee)
          {
             for (Transaction x : DataBase.getInstance().getTransactionHistory()) {
@@ -118,13 +107,7 @@ public class TransactionViewController implements Initializable {
                 }
             }
         }
-//        for (int i=0;i<30;i++)
-//        {
-//            LocalDate randomDate = generateRandomDate(startDate, endDate);
-//            Random rand = new Random();
-//            int rand_amount = rand.nextInt(25,2795);
-//            TransactionList.add(new Transaction(randomDate.toString(),rand_amount-rand_amount%5));
-//        }
+
     }//generate random transactions to save in the TableView
     ObservableList<Transaction> TransactionList = FXCollections.observableArrayList();
     //list for transactions
@@ -140,13 +123,6 @@ public class TransactionViewController implements Initializable {
                     .filter(tr -> tr.getTransactionDate().substring(0,10).compareTo(selectedDates.get(1).toString())<=0)
                     .forEach(tr -> observedTransactionList.add(tr));
 
-            /*for (Transaction i:TransactionList) {
-                if (i.getTransactionDate().compareTo(selectedDates.get(0).toString()) >= 0) {
-                    if (i.getTransactionDate().compareTo(selectedDates.get(1).toString()) <= 0){
-                        observedTransactionList.add(i);
-                    }
-                }
-            }*/
         }
         else if (selectedDates.size()==1)
         {
@@ -154,11 +130,6 @@ public class TransactionViewController implements Initializable {
                     .filter(tr -> tr.getTransactionDate().substring(0,10).compareTo(selectedDates.get(0).toString())>=0)
                     .forEach(tr -> observedTransactionList.add(tr));
 
-            /*for (Transaction i:TransactionList) {
-                if (i.getTransactionDate().compareTo(selectedDates.get(0).toString()) >= 0) {
-                        observedTransactionList.add(i);
-                    }
-                }*/
         }
         TransactionTable.setItems(observedTransactionList);
     }//filter transactions from start_date to last_date
@@ -186,21 +157,7 @@ public class TransactionViewController implements Initializable {
             }
         });//get End_date.
 
-       /*datePicker.setDayCellFactory(new Callback<DatePicker, DateCell>() {
-            @Override
-            public DateCell call(DatePicker param) {
-                return new DateCell() {
-                    @Override
-                    public void updateItem(LocalDate item, boolean empty) {
-                        super.updateItem(item, empty);
-                        boolean alreadySelected = selectedDates.contains(item);
-                        setDisable(alreadySelected);
-                        setStyle(alreadySelected ? "-fx-background-color: #029cde;" : "");
-                    }
-                };
-            }
-        });
-        //style the datePicker*/
+
 
 
         TransactionDate.setCellValueFactory(new PropertyValueFactory<>("TransactionDate"));
@@ -210,7 +167,6 @@ public class TransactionViewController implements Initializable {
         Sender_Column.setCellValueFactory(new PropertyValueFactory<>("Sender"));
         Receiver_Column.setCellValueFactory(new PropertyValueFactory<>("Receiver"));
         TransactionID_Column.setCellValueFactory(new PropertyValueFactory<>("TransactionID"));
-        Branch_Column.setCellValueFactory(new PropertyValueFactory<>("Branch"));
         Employee_Column.setCellValueFactory(new PropertyValueFactory<>("Employee"));
 
         makeTransaction();
@@ -223,7 +179,6 @@ public class TransactionViewController implements Initializable {
     {
         TransactionList.clear();
 
-        //TransactionList.addAll(DataBase.getInstance().getTransactionHistory());
         if (DataBase.getInstance().getCurrentUser() instanceof Employee)
         {
             for (Transaction x : DataBase.getInstance().getTransactionHistory()) {
