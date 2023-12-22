@@ -63,6 +63,11 @@
                   </TableView>
                   <Button fx:id="previewButton" layoutX="14.0" layoutY="192.0" mnemonicParsing="false" onMouseClicked="#previewReport" stylesheets="@ButtonStyle.css" text="Preview" />
                   <Button fx:id="deleteReport" layoutX="83.0" layoutY="192.0" mnemonicParsing="false" onMouseClicked="#deleteReport" prefHeight="25.0" prefWidth="55.0" stylesheets="@ButtonStyle.css" text="Delete" />
+                  <Button fx:id="adminLogoutButton1" layoutX="1030.0" layoutY="473.0" mnemonicParsing="false" onAction="#GoToEditScene" prefHeight="68.0" prefWidth="201.0" stylesheets="@ButtonStyle.css" text="Edit Account" textAlignment="CENTER">
+                     <font>
+                        <Font name="Calibri" size="32.0" />
+                     </font>
+                  </Button>
                </children></AnchorPane>
       </content>
     </Tab>
