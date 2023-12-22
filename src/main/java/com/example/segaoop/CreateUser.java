@@ -271,12 +271,12 @@ public class CreateUser {
     }
         public void cancelCreate(){
             created.setVisible(false);
-        // back to last scene
         }
 
     public boolean checklongpassword(String password) {
         return password.length() < 8;
     }
+
         public void AddingClient(){
             if(!fieldsNotEqual) {
                 if (DataBase.getInstance().getCurrentUser() instanceof Employee) {
