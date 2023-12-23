@@ -54,6 +54,8 @@ public class AdminViewPagaController implements Initializable {
     @FXML
     private Button SearchButton;
     @FXML
+    private Button Edit;
+    @FXML
     private Button DeleteButton;
     @FXML
     private Button EditButton;
@@ -169,9 +171,27 @@ public class AdminViewPagaController implements Initializable {
     }
 
     @FXML
-    void GoToEditScene(MouseEvent event) {
+    public void AdminEditClient()throws IOException{
+        DataBase.getInstance().setUsernameforedit(ClientsTable.getSelectionModel().getSelectedItem().getUser_name());
+        DataBase.getInstance().setIdforedit(ClientsTable.getSelectionModel().getSelectedItem().getOwner());
+
+        HelloApplication helloApplication=new HelloApplication();
+        helloApplication.changeScene("EditEmp.fxml");
+    }
+    @FXML
+    public void EditMyAccount() throws IOException{
+        HelloApplication helloApplication = new HelloApplication();
+        helloApplication.changeScene("Edit.fxml");
+    }
+    @FXML
+    public void AdminEditEmp() throws IOException{
+
+        DataBase.getInstance().setIdforEmpEdit(employeeTable.getSelectionModel().getSelectedItem().getID());
+        HelloApplication helloApplication=new HelloApplication();
+        helloApplication.changeScene("adminEditEmp.fxml");
 
     }
+
 
     @FXML
     void RemoveSelectedItem(MouseEvent event) {

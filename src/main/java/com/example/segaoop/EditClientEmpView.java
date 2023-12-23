@@ -111,10 +111,15 @@ public class EditClientEmpView implements Initializable {
 
     @FXML
     public void ReturnBackTo(MouseEvent event) throws IOException {
-
         pane.setVisible(false);
         HelloApplication he = new HelloApplication();
-        he.changeScene("hello-view.fxml");
+
+        if( (Employee) DataBase.getInstance().getCurrentUser() == DataBase.getInstance().getAdmin())
+            he.changeScene("AdminViewPage.fxml");
+        else
+            he.changeScene("hello-view.fxml");
+
+
     }
 
 }

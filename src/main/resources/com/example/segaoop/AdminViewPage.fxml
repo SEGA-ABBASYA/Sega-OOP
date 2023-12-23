@@ -24,7 +24,7 @@
                      <children>
                         <ImageView fitHeight="113.0" fitWidth="1299.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../mango%20slide.jpg" />
+                              <Image url="@mango.jpg" />
                            </image>
                         </ImageView>
                         <Text fill="#fbfbfb" layoutX="529.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back" textAlignment="CENTER" wrappingWidth="240.3656005859375">
@@ -63,6 +63,11 @@
                   </TableView>
                   <Button fx:id="previewButton" layoutX="14.0" layoutY="192.0" mnemonicParsing="false" onMouseClicked="#previewReport" stylesheets="@ButtonStyle.css" text="Preview" />
                   <Button fx:id="deleteReport" layoutX="83.0" layoutY="192.0" mnemonicParsing="false" onMouseClicked="#deleteReport" prefHeight="25.0" prefWidth="55.0" stylesheets="@ButtonStyle.css" text="Delete" />
+                  <Button fx:id="Edit" layoutX="1030.0" layoutY="474.0" mnemonicParsing="false" onAction="#EditMyAccount" prefHeight="68.0" prefWidth="201.0" stylesheets="@ButtonStyle.css" text="Logout" textAlignment="CENTER">
+                     <font>
+                        <Font name="Calibri" size="32.0" />
+                     </font>
+                  </Button>
                </children></AnchorPane>
       </content>
     </Tab>
@@ -149,7 +154,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="EditButton" layoutX="30.0" layoutY="95.0" mnemonicParsing="false" onMouseClicked="#GoToEditScene" prefHeight="54.0" prefWidth="71.0" stylesheets="@ButtonStyle.css" text="Edit" textAlignment="CENTER">
+                              <Button fx:id="EditButton" layoutX="30.0" layoutY="95.0" mnemonicParsing="false" onAction="#AdminEditClient" prefHeight="54.0" prefWidth="71.0" stylesheets="@ButtonStyle.css" text="Edit" textAlignment="CENTER">
                                  <font>
                                     <Font name="Calibri" size="18.0" />
                                  </font>
@@ -194,7 +199,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="EditButton1" layoutX="30.0" layoutY="95.0" mnemonicParsing="false" onMouseClicked="#GoToEditScene" prefHeight="54.0" prefWidth="71.0" stylesheets="@ButtonStyle.css" text="Edit" textAlignment="CENTER">
+                              <Button fx:id="EditButton1" layoutX="30.0" layoutY="95.0" mnemonicParsing="false" onAction="#AdminEditEmp" prefHeight="54.0" prefWidth="71.0" stylesheets="@ButtonStyle.css" text="Edit" textAlignment="CENTER">
                                  <font>
                                     <Font name="Calibri" size="18.0" />
                                  </font>

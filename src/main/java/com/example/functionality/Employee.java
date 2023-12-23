@@ -26,6 +26,10 @@ public class Employee extends Person implements Serializable {
         this.password = password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getID(){
         return id;
     }

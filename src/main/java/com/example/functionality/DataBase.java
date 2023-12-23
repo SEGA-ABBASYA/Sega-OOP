@@ -46,6 +46,17 @@ public class DataBase implements Serializable {
 
     public Client idforedit;
 
+    public void setIdforEmpEdit(String idforEmpEdit) {
+        this.idforEmpEdit = idforEmpEdit;
+    }
+
+    public String getIdforEmpEdit() {
+        return idforEmpEdit;
+    }
+
+    public String idforEmpEdit;
+
+
 
 
     //__________________________SINGLETON_________________________________________

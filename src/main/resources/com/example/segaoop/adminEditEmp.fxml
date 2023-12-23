@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.segaoop.AdminEditEmp">
+    <children>
+        <ImageView fitHeight="720.0" fitWidth="1280.0" layoutX="-6.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@mango.jpg" />
+            </image>
+        </ImageView>
+        <Button fx:id="Cancel" layoutX="808.0" layoutY="588.0" mnemonicParsing="false" onMouseClicked="#ReturnBackTo" prefHeight="74.0" prefWidth="195.0" stylesheets="@ButtonStyle.css" text="Return">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="28.0" />
+            </font>
+        </Button>
+        <Button fx:id="Apply" layoutX="358.0" layoutY="588.0" mnemonicParsing="false" onMouseClicked="#SaveChanges" prefHeight="74.0" prefWidth="195.0" stylesheets="@ButtonStyle.css" text="Apply">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="28.0" />
+            </font>
+        </Button>
+        <TextField fx:id="LastNameC" layoutX="441.0" layoutY="234.0" prefHeight="42.0" prefWidth="342.0" promptText="Last Name" style="-fx-background-radius: 40;">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="24.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="Phone" layoutX="36.0" layoutY="234.0" prefHeight="42.0" prefWidth="342.0" promptText="Phone Number" style="-fx-background-radius: 40;">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="24.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="Position" layoutX="441.0" layoutY="338.0" prefHeight="42.0" prefWidth="342.0" promptText="Position" style="-fx-background-radius: 40;">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="24.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="ID" layoutX="36.0" layoutY="144.0" prefHeight="42.0" prefWidth="342.0" promptText="ID" style="-fx-background-radius: 40;">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="24.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="Firstname" layoutX="448.0" layoutY="144.0" prefHeight="42.0" prefWidth="342.0" promptText="First Name" style="-fx-background-radius: 40;">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="24.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="Address" layoutX="29.0" layoutY="338.0" prefHeight="42.0" prefWidth="342.0" promptText="Address" style="-fx-background-radius: 40;">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="24.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="password" layoutX="29.0" layoutY="425.0" prefHeight="42.0" prefWidth="342.0" promptText="Password" style="-fx-background-radius: 40;">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="24.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="Salary" layoutX="448.0" layoutY="425.0" prefHeight="42.0" prefWidth="342.0" promptText="Salary" style="-fx-background-radius: 40;">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="24.0" />
+            </font>
+        </TextField>
+        <Text fill="#2200ff" layoutX="510.0" layoutY="90.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="Edit Client Information" textAlignment="CENTER">
+            <font>
+                <Font name="SEGA LOGO FONT" size="25.0" />
+            </font>
+        </Text>
+        <Text layoutX="45.0" layoutY="127.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="18.0" />
+            </font>
+        </Text>
+        <Text layoutX="447.0" layoutY="127.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="18.0" />
+            </font>
+        </Text>
+        <Text layoutX="448.0" layoutY="219.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="18.0" />
+            </font>
+        </Text>
+        <Text layoutX="45.0" layoutY="219.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="18.0" />
+            </font>
+        </Text>
+        <Text layoutX="41.0" layoutY="320.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="18.0" />
+            </font>
+        </Text>
+        <Text layoutX="453.0" layoutY="319.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Position">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="18.0" />
+            </font>
+        </Text>
+        <Text layoutX="41.0" layoutY="413.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="18.0" />
+            </font>
+        </Text>
+        <Text layoutX="450.0" layoutY="412.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Salary">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="18.0" />
+            </font>
+        </Text>
+      <TextField fx:id="CollegeGrade" layoutX="906.0" layoutY="144.0" prefHeight="42.0" prefWidth="342.0" promptText="First Name" style="-fx-background-radius: 40;">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="24.0" />
+         </font>
+      </TextField>
+      <Text layoutX="906.0" layoutY="127.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="College Grade">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="Grade" layoutX="906.0" layoutY="247.0" prefHeight="42.0" prefWidth="342.0" promptText="First Name" style="-fx-background-radius: 40;">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="24.0" />
+         </font>
+      </TextField>
+      <Text layoutX="906.0" layoutY="230.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Grade">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="GraduationYear" layoutX="906.0" layoutY="347.0" prefHeight="42.0" prefWidth="342.0" promptText="First Name" style="-fx-background-radius: 40;">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="24.0" />
+         </font>
+      </TextField>
+      <Text layoutX="906.0" layoutY="330.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Graduation Year">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="18.0" />
+         </font>
+      </Text>
+    </children>
+</AnchorPane>
