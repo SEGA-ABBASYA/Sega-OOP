@@ -157,17 +157,24 @@ public class AdminViewPagaController implements Initializable {
     @FXML
     void BeginSearchEmployee(MouseEvent event) {
 // Searching For Employees
-        ObservableList<Employee> toBeAddedList = FXCollections.observableArrayList();
-        for (String key:DataBase.getInstance().getAllAccounts().keySet()) {
+        ObservableList<Employee> toBeAddedListEmp = FXCollections.observableArrayList();
+        for (String key:DataBase.getInstance().getAllEmployees().keySet()) {
 
-            if (key.contains(SearchTextField.getText().toLowerCase()))
+            if (key.contains(SearchTextField1.getText().toLowerCase()))
             {
-                toBeAddedList.add(DataBase.getInstance().getEmployee(key));
+                toBeAddedListEmp.add(DataBase.getInstance().getEmployee(key));
             }
         }
-        employeeTable.setItems(toBeAddedList);
+        employeeTable.setItems(toBeAddedListEmp);
     }
-
+    void updatelist()
+    {
+        ObservableList<Account> tobeaddedlistfirst = FXCollections.observableArrayList();
+        for (String key:DataBase.getInstance().getAllAccounts().keySet()) {
+            tobeaddedlistfirst.add(DataBase.getInstance().getAccount(key));
+        }
+        ClientsTable.setItems(tobeaddedlistfirst);
+    }
     @FXML
     void GoToEditScene(MouseEvent event) {
 
@@ -175,7 +182,26 @@ public class AdminViewPagaController implements Initializable {
 
     @FXML
     void RemoveSelectedItem(MouseEvent event) {
+        String s = ClientsTable.getSelectionModel().getSelectedItem().getUser_name();
+        DataBase.getInstance().getAllAccounts().remove(s);
+        updatelist();
+    }
 
+    void updateemplist()
+    {
+        ObservableList<Employee> tobeaddedemployee = FXCollections.observableArrayList();
+        for (String key:DataBase.getInstance().getAllEmployees().keySet())
+        {
+            tobeaddedemployee.add(DataBase.getInstance().getEmployee(key));
+        }
+        employeeTable.setItems(tobeaddedemployee);
+    }
+    @FXML
+    void RemoveSelectedEmp(MouseEvent event)
+    {
+        String s = employeeTable.getSelectionModel().getSelectedItem().getID();
+        DataBase.getInstance().removeEmployee(s);
+        updateemplist();
     }
     @FXML
     void previewReport(MouseEvent event) {

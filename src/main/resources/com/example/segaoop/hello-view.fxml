@@ -199,6 +199,12 @@
                         </AnchorPane>
                     </content>
                 </Tab>
+                <Tab  closable="false" text="Deposit/Withdraw">
+                    <content>
+                        <fx:include source="depositORwithdraw.fxml" >
+                        </fx:include>
+                    </content>
+                </Tab>
             </tabs>
         </TabPane>
     </children>

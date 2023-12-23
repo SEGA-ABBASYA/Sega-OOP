@@ -11,29 +11,29 @@
 
 <SplitPane dividerPositions="0.21839799749687105" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.segaoop.TransactionViewController">
    <items>
-      <AnchorPane prefHeight="398.0" prefWidth="245.0" style="-fx-background-color: linear-gradient(to right bottom,blue,white);">
+      <AnchorPane prefHeight="398.0" prefWidth="245.0" style="-fx-background-color: linear-gradient(to right bottom,#011987,#25a5be,#d858fa);">
          <children>
             <Label fx:id="DateLabel" layoutX="31.0" layoutY="225.0" prefHeight="95.0" prefWidth="216.0" text="Invalid Date." textFill="#fffffff2" visible="false" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font></Label>
             <DatePicker fx:id="startDate" editable="false" layoutX="31.0" layoutY="15.0" prefHeight="69.0" prefWidth="216.0" promptText="Start_date" style="-fx-background-color: #25befa; -fx-border-color: #25befa;" />
-            <Button layoutX="31.0" layoutY="175.0" mnemonicParsing="false" onMouseClicked="#getDate" prefHeight="50.0" prefWidth="85.0" style="-fx-background-radius: 50; -fx-background-color: #25befa;" text="Apply" textFill="#450b83" />
-            <Button layoutX="162.0" layoutY="175.0" mnemonicParsing="false" onMouseClicked="#resetDate" prefHeight="50.0" prefWidth="85.0" style="-fx-background-radius: 50; -fx-background-color: #25befa;" text="Reset" textFill="#450b83" />
+            <Button layoutX="31.0" layoutY="175.0" mnemonicParsing="false" onMouseClicked="#getDate" prefHeight="50.0" prefWidth="85.0" stylesheets="@ButtonStyle.css" text="Apply" textFill="#450b83" />
+            <Button layoutX="162.0" layoutY="175.0" mnemonicParsing="false" onMouseClicked="#resetDate" prefHeight="50.0" prefWidth="85.0" stylesheets="@ButtonStyle.css" text="Reset" textFill="#450b83" />
             <DatePicker fx:id="endDate" disable="true" editable="false" layoutX="31.0" layoutY="96.0" prefHeight="69.0" prefWidth="216.0" promptText="End_date" style="-fx-background-color: #25befa; -fx-border-color: #25befa;" />
-            <Button layoutX="97.0" layoutY="588.0" mnemonicParsing="false" onAction="#refreshTransactions" onMouseClicked="#resetDate" prefHeight="50.0" prefWidth="85.0" style="-fx-background-radius: 50; -fx-background-color: #25befa;" text="Refresh" textFill="#450b83" />
+            <Button layoutX="97.0" layoutY="588.0" mnemonicParsing="false" onAction="#refreshTransactions" onMouseClicked="#resetDate" prefHeight="50.0" prefWidth="85.0" stylesheets="@ButtonStyle.css" text="Refresh" textFill="#450b83" />
          </children>
       </AnchorPane>
       <TableView fx:id="TransactionTable" prefHeight="718.0" prefWidth="868.0" stylesheets="@stylefortable.css">
          <columns>
-            <TableColumn fx:id="TransactionDate" prefWidth="123.0" text="Transaction Date" />
-            <TableColumn fx:id="Type_Column" prefWidth="64.0" text="Type" />
-            <TableColumn fx:id="Amount_Column" minWidth="0.0" prefWidth="68.0" text="Amount" />
-            <TableColumn fx:id="Balance_Column" prefWidth="71.0" text="Balance" />
-            <TableColumn fx:id="Sender_Column" prefWidth="84.0" text="Sender" />
-            <TableColumn fx:id="Receiver_Column" prefWidth="62.0" text="Receiver" />
-            <TableColumn fx:id="TransactionID_Column" prefWidth="165.0" text="TransactionID" />
-            <TableColumn fx:id="Employee_Column" prefWidth="69.0" text="Employee" />
+            <TableColumn fx:id="TransactionDate" prefWidth="141.60000915527326" text="Transaction Date" />
+            <TableColumn fx:id="Type_Column" prefWidth="72.00003051757812" text="Type" />
+            <TableColumn fx:id="Amount_Column" minWidth="0.0" prefWidth="88.79991149902344" text="Amount" />
+            <TableColumn fx:id="Balance_Column" prefWidth="107.20001220703125" text="Balance" />
+            <TableColumn fx:id="Sender_Column" prefWidth="153.60003662109375" text="Sender" />
+            <TableColumn fx:id="Receiver_Column" prefWidth="159.20001220703125" text="Receiver" />
+            <TableColumn fx:id="TransactionID_Column" prefWidth="84.0" text="TransactionID" />
+            <TableColumn fx:id="Employee_Column" prefWidth="194.39996337890625" text="Employee" />
          </columns>
       </TableView>
    </items>
