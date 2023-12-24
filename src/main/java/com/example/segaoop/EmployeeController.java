@@ -206,29 +206,34 @@ public class EmployeeController implements Initializable {
     }
     @FXML
     void sendReport(MouseEvent event) {
-        String subjectText = ReportSubjectTextField.getText();
-        String bodyText = ReportTextArea.getText();
-        String receiver = to_TextField.getText();
-        if(subjectText.isEmpty() || bodyText.isEmpty() || receiver.isEmpty())
-        {
-            report_or_subject_empty_message.setText("One or More Field is Empty ⚠️");
-
-        }
-        else
-        {
-            report_or_subject_empty_message.setText("");
-
-            if(receiver.equalsIgnoreCase("admin"))
+        try{
+            String subjectText = ReportSubjectTextField.getText();
+            String bodyText = ReportTextArea.getText();
+            String receiver = to_TextField.getText();
+            if(subjectText.isEmpty() || bodyText.isEmpty() || receiver.isEmpty())
             {
-                DataBase.getInstance().addReport(new Report(ReportSubjectTextField,ReportTextArea));
+                report_or_subject_empty_message.setText("One or More Field is Empty ⚠️");
+
             }
             else
             {
-                DataBase.getInstance().getEmployee(receiver).getReceivedReports().add(new Report(ReportSubjectTextField,ReportTextArea));
+                report_or_subject_empty_message.setText("");
+
+                if(receiver.equalsIgnoreCase("admin"))
+                {
+                    DataBase.getInstance().addReport(new Report(ReportSubjectTextField,ReportTextArea));
+                }
+                else
+                {
+                    DataBase.getInstance().getEmployee(receiver).getReceivedReports().add(new Report(ReportSubjectTextField,ReportTextArea));
+                }
+                ReportTextArea.setText("");
+                ReportSubjectTextField.setText("");
+                to_TextField.setText("");
             }
-            ReportTextArea.setText("");
-            ReportSubjectTextField.setText("");
-            to_TextField.setText("");
+        }
+        catch(NullPointerException e){
+            report_or_subject_empty_message.setText("Employee Does not exist");
         }
     }
 

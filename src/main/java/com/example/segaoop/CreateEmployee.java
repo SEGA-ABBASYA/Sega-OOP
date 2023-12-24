@@ -284,6 +284,7 @@ public class CreateEmployee {
 
         ErrorText.setFill(Color.GREEN);
         ErrorText.setText("Account Created Successfully");
+        Emp.showContent();
         clearAllFields();
     }
 

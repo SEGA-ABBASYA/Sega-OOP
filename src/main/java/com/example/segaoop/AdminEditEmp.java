@@ -57,21 +57,6 @@ public class AdminEditEmp implements Initializable {
     @FXML
     private TextField phone;
 
-
-    public float convertGradeToGPA(String grade) {
-        switch (grade) {
-            case "excellent", "Excellent":
-                return 4.0f;
-            case "very good","V.Good","Very Good":
-                return 3.5f;
-            case "good" ,"Good":
-                return 3.0f;
-            case "weak","Weak":
-                return 2.0f;
-            default:
-                throw new IllegalArgumentException("Invalid grade: " + grade);
-        }
-    }
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -80,11 +65,11 @@ public class AdminEditEmp implements Initializable {
         Address.setText(emp.getAddress().toString());//works
         ID.setText(emp.getID().toString());//works
         Firstname.setText(emp.getfirstName().toString());//works
-       // LastName.setText(emp.getlastName());
+        // LastName.setText(emp.getlastName());
         // phone.setText(emp.getTelephone().toString());
-          Position.setText(emp.getPosition().toString());//works
+        Position.setText(emp.getPosition().toString());//works
         CollegeGrade.setText(emp.getGraduationCollage().toString());//works
-       Grade.setText(String.valueOf(emp.getTotalGrade()).toString());//works
+        Grade.setText(String.valueOf(emp.getTotalGrade()).toString());//works
         Salary.setText(String.valueOf(emp.getSalary()).toString());
         GraduationYear.setText(String.valueOf(emp.getGraduationYear()));
         password.setText(emp.getPassword());

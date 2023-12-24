@@ -148,7 +148,7 @@ public class AdminViewPagaController implements Initializable {
         ObservableList<Account> tobeaddedlist = FXCollections.observableArrayList();
         for (String key:DataBase.getInstance().getAllAccounts().keySet()) {
 
-            if (key.contains(SearchTextField.getText().toLowerCase()))
+            if (key.toLowerCase().contains(SearchTextField.getText().toLowerCase()))
             {
                 tobeaddedlist.add(DataBase.getInstance().getAccount(key));
             }
@@ -160,9 +160,9 @@ public class AdminViewPagaController implements Initializable {
     void BeginSearchEmployee(MouseEvent event) {
 // Searching For Employees
         ObservableList<Employee> toBeAddedList = FXCollections.observableArrayList();
-        for (String key:DataBase.getInstance().getAllAccounts().keySet()) {
+        for (String key:DataBase.getInstance().getAllEmployees().keySet()) {
 
-            if (key.contains(SearchTextField.getText().toLowerCase()))
+            if (key.toLowerCase().contains(SearchTextField1.getText().toLowerCase()))
             {
                 toBeAddedList.add(DataBase.getInstance().getEmployee(key));
             }
@@ -170,6 +170,13 @@ public class AdminViewPagaController implements Initializable {
         employeeTable.setItems(toBeAddedList);
     }
 
+    @FXML
+    public void RemoveSelectedEmp(MouseEvent event)
+    {
+        String s = employeeTable.getSelectionModel().getSelectedItem().getID();
+        DataBase.getInstance().getAllEmployees().remove(s);
+        updatelistemp();
+    }
     @FXML
     public void AdminEditClient()throws IOException{
         DataBase.getInstance().setUsernameforedit(ClientsTable.getSelectionModel().getSelectedItem().getUser_name());
@@ -192,10 +199,28 @@ public class AdminViewPagaController implements Initializable {
 
     }
 
+    void updatelist()
+    {
+        ObservableList<Account> tobeaddedlistfirst = FXCollections.observableArrayList();
+        for (String key:DataBase.getInstance().getAllAccounts().keySet()) {
+            tobeaddedlistfirst.add(DataBase.getInstance().getAccount(key));
+        }
+        ClientsTable.setItems(tobeaddedlistfirst);
+    }
 
+    void updatelistemp()
+    {
+        ObservableList<Employee> tobeaddedlistfirst = FXCollections.observableArrayList();
+        for (String key:DataBase.getInstance().getAllEmployees().keySet()) {
+            tobeaddedlistfirst.add(DataBase.getInstance().getEmployee(key));
+        }
+        employeeTable.setItems(tobeaddedlistfirst);
+    }
     @FXML
     void RemoveSelectedItem(MouseEvent event) {
-
+        String s = ClientsTable.getSelectionModel().getSelectedItem().getUser_name();
+        DataBase.getInstance().getAllAccounts().remove(s);
+        updatelist();
     }
     @FXML
     void previewReport(MouseEvent event) {
@@ -230,29 +255,36 @@ public class AdminViewPagaController implements Initializable {
 
     @FXML
     void sendReportAdmin(MouseEvent event) {
-        String subjectText = ReportSubjectTextFieldAdmin.getText();
-        String bodyText = ReportTextAreaAdmin.getText();
-        String receiver = to_TextFieldAdmin.getText();
-        if(subjectText.isEmpty() || bodyText.isEmpty() || receiver.isEmpty())
-        {
-            report_or_subject_empty_messageAdmin.setText("One or More Field is Empty ⚠️");
-
-        }
-        else
-        {
-            report_or_subject_empty_messageAdmin.setText("");
-            //DataBase.getInstance().addReport(new Report(ReportSubjectTextField,ReportTextArea));
-            if(receiver.equalsIgnoreCase("admin"))
+        try{
+            String subjectText = ReportSubjectTextFieldAdmin.getText();
+            String bodyText = ReportTextAreaAdmin.getText();
+            String receiver = to_TextFieldAdmin.getText();
+            if(subjectText.isEmpty() || bodyText.isEmpty() || receiver.isEmpty())
             {
-                DataBase.getInstance().addReport(new Report(ReportSubjectTextFieldAdmin,ReportTextAreaAdmin));
+                report_or_subject_empty_messageAdmin.setText("One or More Field is Empty ⚠️");
+
             }
             else
             {
-                DataBase.getInstance().getEmployee(receiver).getReceivedReports().add(new Report(ReportSubjectTextFieldAdmin,ReportTextAreaAdmin));
+                report_or_subject_empty_messageAdmin.setText("");
+                //DataBase.getInstance().addReport(new Report(ReportSubjectTextField,ReportTextArea));
+                if(receiver.equalsIgnoreCase("admin"))
+                {
+                    DataBase.getInstance().addReport(new Report(ReportSubjectTextFieldAdmin,ReportTextAreaAdmin));
+                }
+                else
+                {
+                    DataBase.getInstance().getEmployee(receiver).getReceivedReports().add(new Report(ReportSubjectTextFieldAdmin,ReportTextAreaAdmin));
+                }
+                ReportTextAreaAdmin.setText("");
+                ReportSubjectTextFieldAdmin.setText("");
+                to_TextFieldAdmin.setText("");
             }
-            ReportTextAreaAdmin.setText("");
-            ReportSubjectTextFieldAdmin.setText("");
-            to_TextFieldAdmin.setText("");
+        }
+
+        catch(NullPointerException e){
+
+            report_or_subject_empty_messageAdmin.setText("employee does not exist");
         }
     }
     @FXML

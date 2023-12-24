@@ -231,8 +231,49 @@ public class DataBase implements Serializable {
         DataBase.getInstance().addClient(tuco);
         DataBase.getInstance().addAccount(toco);
 
+        //====client 1 with 2 acc======
+        Client lalo1 = new Client("525565827", "Bobette ", "Egdal ", "3376256148");
+
+        Account lolo1 = new Account("BobetteE", "12345", 8000, true,true,lalo1);
+
+        Account lolo2 = new Account("BobetteE2", "12345", 8000, false,true,lalo1);
+        DataBase.getInstance().addClient(lalo1);
+        DataBase.getInstance().addAccount(lolo1);
+        DataBase.getInstance().addAccount(lolo2);
+//======client 2 with 2 acc============
+        Client jesse = new Client("525342827 ", "jesse ", "pinkman ", "6138348166");
+
+        Account jesse1 = new Account("jesseP", "mrwhite", 8000, true,true,jesse);
+
+        Account jesse2 = new Account("jesseP", "science", 8000, false,true,jesse);
+        DataBase.getInstance().addClient(jesse);
+        DataBase.getInstance().addAccount(jesse1);
+        DataBase.getInstance().addAccount(jesse2);
+
+//=========client with acc 1=========
+
+        Client walter = new Client("791723156 ", "walter", "white ", "5038197019");
+
+        Account walter1 = new Account("walterW", "heisenberg", 600000, true,true,walter);
+
+        DataBase.getInstance().addClient(walter);
+        DataBase.getInstance().addAccount(walter1);
+//==========client with 1 acc 2===
+        Client hank = new Client("147631496 ", "hank ", "shrader ", "5853319665");
+
+        Account hank1 = new Account("hankS", "dea", 6000, true,true,hank);
+
+        DataBase.getInstance().addClient(hank);
+        DataBase.getInstance().addAccount(hank1);
+
         Employee em = new Employee("gus", "Gustavo", "Fring", "0101029506", "Los Pllos Hermanos", "normal", "Albuquerque University", 20000,  4 , 2027, "a");
+        Employee em1 = new Employee("saulGM", "Saul", "Goodman", "0108539506", "Albuquerque", "normal", "Harvard University", 20000,  4 , 2025, "bettercallsaul");
+
+        Employee em2 = new Employee("MikeE", "Mike", "Ehrmantraut", "0121110026", "Los Pllos Hermanos", "normal", "New Mexico University", 70000,  4 , 1997, "gun");
+
         DataBase.getInstance().addEmployee(em.getID() ,em);
+        DataBase.getInstance().addEmployee(em1.getID() ,em1);
+        DataBase.getInstance().addEmployee(em2.getID() ,em2);
 
         /*for (int i=0;i<30;i++)
         {
@@ -254,10 +295,6 @@ public class DataBase implements Serializable {
             System.out.println("date: " + x.getTransactionDate());
         }
 
-        for (String key : DataBase.getInstance().getAllAccounts().keySet())
-        {
-            System.out.println("account: " + key + " " + DataBase.getInstance().getAllClients().get(key).lastName);
-        }
         if(DataBase.getInstance().getAllAccounts().containsKey("a"))
             System.out.println("!!found lalo");
 

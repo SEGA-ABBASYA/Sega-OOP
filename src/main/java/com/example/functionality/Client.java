@@ -37,6 +37,13 @@ public class Client extends Person implements Serializable {
         this.telephone = telephone;
     }
 
+    @Override
+    public void showContent() {
+        System.out.println(firstName);
+        System.out.println(lastName);
+        System.out.println(telephone);
+        System.out.println(id);
+    }
 
     public Client(String id, String firstName, String lastName, String telephone)
     {

@@ -12,6 +12,16 @@ public class Employee extends Person implements Serializable {
     ArrayList<Notification> sentNotificationHistory = new ArrayList<>();
     ArrayList<Report> receivedReports = new ArrayList<>();
 
+
+    @Override
+    public void showContent() {
+        System.out.println(firstName);
+        System.out.println(lastName);
+        System.out.println(telephone);
+        System.out.println(totalGrade);
+        System.out.println(id);
+    }
+
     public Employee(String ID,String fN,String lF,String telephone, String Address,String position, String graduationCollage, float salary, float totalGrade, int graduationYear, String password) {
         this.position = position;
         this.graduationCollage = graduationCollage;

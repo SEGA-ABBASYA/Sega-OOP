@@ -24,7 +24,7 @@
                      <children>
                         <ImageView fitHeight="113.0" fitWidth="1299.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@mango.jpg" />
+                              <Image url="@../mango%20slide.jpg" />
                            </image>
                         </ImageView>
                         <Text fill="#fbfbfb" layoutX="529.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back" textAlignment="CENTER" wrappingWidth="240.3656005859375">
@@ -63,7 +63,7 @@
                   </TableView>
                   <Button fx:id="previewButton" layoutX="14.0" layoutY="192.0" mnemonicParsing="false" onMouseClicked="#previewReport" stylesheets="@ButtonStyle.css" text="Preview" />
                   <Button fx:id="deleteReport" layoutX="83.0" layoutY="192.0" mnemonicParsing="false" onMouseClicked="#deleteReport" prefHeight="25.0" prefWidth="55.0" stylesheets="@ButtonStyle.css" text="Delete" />
-                  <Button fx:id="Edit" layoutX="1030.0" layoutY="474.0" mnemonicParsing="false" onAction="#EditMyAccount" prefHeight="68.0" prefWidth="201.0" stylesheets="@ButtonStyle.css" text="Logout" textAlignment="CENTER">
+                  <Button fx:id="Edit" layoutX="1030.0" layoutY="474.0" mnemonicParsing="false" onAction="#EditMyAccount" prefHeight="68.0" prefWidth="201.0" stylesheets="@ButtonStyle.css" text="Edit " textAlignment="CENTER">
                      <font>
                         <Font name="Calibri" size="32.0" />
                      </font>
@@ -190,7 +190,7 @@
                                     <Font name="SEGA LOGO FONT" size="29.0" />
                                  </font>
                               </Text>
-                              <Button fx:id="SearchButton1" alignment="BASELINE_CENTER" graphicTextGap="1.0" layoutX="329.0" layoutY="29.0" mnemonicParsing="false" onMouseClicked="#BeginSearch" prefHeight="32.0" prefWidth="30.0" style="-fx-background-color: white; -fx-border-radius: 10;" stylesheets="@ButtonStyle.css" textAlignment="CENTER">
+                              <Button fx:id="SearchButton1" alignment="BASELINE_CENTER" graphicTextGap="1.0" layoutX="329.0" layoutY="29.0" mnemonicParsing="false" onMouseClicked="#BeginSearchEmployee" prefHeight="32.0" prefWidth="30.0" style="-fx-background-color: white; -fx-border-radius: 10;" stylesheets="@ButtonStyle.css" textAlignment="CENTER">
                                  <graphic>
                                     <ImageView fitHeight="16.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -204,7 +204,7 @@
                                     <Font name="Calibri" size="18.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="DeleteButton1" layoutX="289.0" layoutY="95.0" mnemonicParsing="false" onMouseClicked="#RemoveSelectedItem" prefHeight="54.0" prefWidth="79.0" stylesheets="@ButtonStyle.css" text="Delete" textAlignment="CENTER">
+                              <Button fx:id="DeleteButton1" layoutX="289.0" layoutY="95.0" mnemonicParsing="false" onMouseClicked="#RemoveSelectedEmp" prefHeight="54.0" prefWidth="79.0" stylesheets="@ButtonStyle.css" text="Delete" textAlignment="CENTER">
                                  <font>
                                     <Font name="Calibri" size="18.0" />
                                  </font>

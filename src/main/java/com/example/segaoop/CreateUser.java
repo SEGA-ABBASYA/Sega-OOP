@@ -262,6 +262,7 @@ public class CreateUser {
         }
         ErrorText.setFill(Color.GREEN);
         ErrorText.setText("Account Created Successfully");
+        C.showContent();
         clear();
     }
 

@@ -78,11 +78,13 @@ public class EditEmpView implements Initializable {
 
         pane.setVisible(false);
         HelloApplication he = new HelloApplication();
+        ;
+        if ((Employee) DataBase.getInstance().getCurrentUser() == DataBase.getInstance().getAdmin())
+            he.changeScene("AdminViewPage.fxml");
+        else
+            he.changeScene("hello-view.fxml");
 
-        he.changeScene("hello-view.fxml");
     }
-
-
 
 }
 

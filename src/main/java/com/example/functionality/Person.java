@@ -11,4 +11,5 @@ public abstract class Person implements Serializable
     protected String lastName;
     protected String telephone;
     protected String address;
+    public abstract void showContent();
 }
