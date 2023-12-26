@@ -4,23 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25462b22-c2ef-496d-9000-14184238f1c3" name="Changes" comment="EDIT DONEE">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="25462b22-c2ef-496d-9000-14184238f1c3" name="Changes" comment="Last">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/functionality/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/functionality/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/segaoop/AdminEditEmp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/AdminEditEmp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/segaoop/AdminViewPagaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/AdminViewPagaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/segaoop/CreateEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/CreateEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/segaoop/CreateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/CreateUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/segaoop/EditEmpView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/EditEmpView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/segaoop/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/segaoop/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/AdminViewPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/AdminViewPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/CreateEmployee.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/CreateEmployee.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/adminEditEmp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/adminEditEmp.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/segaoop/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/LoginMaterial/ALL_PROJECT_UML_V3.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/LoginMaterial/Functionalities_UML.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/LoginMaterial/Functionalities_UML.puml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/LoginMaterial/PROJECT_UML_V3.pdf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +217,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703294126455</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="EDIT DONEE">
+      <option name="closed" value="true" />
+      <created>1703455061367</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1703455061367</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,9 +255,9 @@
     <MESSAGE value="transfer money works" />
     <MESSAGE value="improved ui" />
     <MESSAGE value="ERROR: NOTIFS ARE SAVED AN NULL" />
-    <MESSAGE value="EDIT DONEE" />
     <MESSAGE value="EDIT DONE ONCE AND FOR ALL" />
-    <option name="LAST_COMMIT_MESSAGE" value="EDIT DONE ONCE AND FOR ALL" />
+    <MESSAGE value="EDIT DONEE" />
+    <option name="LAST_COMMIT_MESSAGE" value="EDIT DONEE" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
