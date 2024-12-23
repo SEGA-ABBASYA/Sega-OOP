@@ -1,0 +1,8 @@
+name: First Workflow
+on: push
+jobs:
+  Explore-Github-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print the triggering event
+        run: echo "This job was created by ${{ github.event_name }}."
